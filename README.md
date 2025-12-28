@@ -75,7 +75,7 @@ Open:
 - http://localhost:5173
 
 ---
-## What will expect to get
+## What we should expect to get
 
 - Answers use retrieved excerpts only.
 - If the sources don’t support a claim, the assistant says:
