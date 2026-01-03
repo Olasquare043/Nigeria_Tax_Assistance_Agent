@@ -1,26 +1,12 @@
 from __future__ import annotations
 
 import re
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 from langchain_core.documents import Document
-
-
-SENT_BOUNDARY_RE = re.compile(r"[\.!\?;:]\s+")
 
 
 def _norm_spaces(s: str) -> str:
     return re.sub(r"\s+", " ", (s or "")).strip()
-
-
-def _keywords_from_query(q: str) -> List[str]:
-    ql = (q or "").lower()
-    kws = []
-    for kw in ["vat", "value added tax", "derivation", "allocation", "formula", "proceeds", "distribution"]:
-        if kw in ql:
-            kws.append(kw)
-    if "vat" in ql and "derivation" not in kws:
-        kws.append("derivation")
-    return list(dict.fromkeys(kws))
 
 
 def _word_clip_verbatim(text: str, max_words: int = 25) -> str:
@@ -30,74 +16,98 @@ def _word_clip_verbatim(text: str, max_words: int = 25) -> str:
     return " ".join(words[:max_words])
 
 
-def _find_keyword_pos(text: str, keywords: List[str]) -> int:
+def _has_all(text: str, must: List[str]) -> bool:
     tl = (text or "").lower()
+    return all(m.lower() in tl for m in must)
+
+
+def _best_window_containing(text: str, must: List[str], window: int = 450) -> str:
+    """
+    Return a window around the first occurrence of the first must-word,
+    but ensure the window contains all must words (if possible).
+    """
+    t = text or ""
+    tl = t.lower()
+
+    # find earliest position among must terms
     positions = []
-    for kw in keywords:
-        i = tl.find(kw.lower())
+    for m in must:
+        i = tl.find(m.lower())
         if i != -1:
             positions.append(i)
-    return min(positions) if positions else -1
+    if not positions:
+        return t[:window]
+
+    pos = min(positions)
+    start = max(0, pos - window // 2)
+    end = min(len(t), pos + window // 2)
+    win = t[start:end]
+
+    # If not all must words in window, just expand to bigger
+    if not _has_all(win, must):
+        start = max(0, pos - window)
+        end = min(len(t), pos + window)
+        win = t[start:end]
+
+    return win.strip()
 
 
-def _extract_sentence_like_snippet(text: str, pos: int, span_chars: int = 500) -> str:
+def _score_doc_for_query(doc: Document, must: List[str], nice: List[str]) -> int:
     """
-    Extract a readable snippet around pos by expanding to nearby punctuation boundaries.
+    Score doc:
+    +10 if contains all must
+    +1 for each nice keyword
     """
-    if not text:
-        return ""
-
-    if pos < 0:
-        # fallback: beginning
-        return text[:span_chars]
-
-    start = max(0, pos - span_chars // 2)
-    end = min(len(text), pos + span_chars // 2)
-    window = text[start:end]
-
-    # Within the window, try to find boundaries around the keyword
-    rel_pos = pos - start
-    left = window.rfind(".", 0, rel_pos)
-    left = max(left, window.rfind(";", 0, rel_pos))
-    left = max(left, window.rfind(":", 0, rel_pos))
-    left = max(left, window.rfind("\n", 0, rel_pos))
-
-    right_candidates = [window.find(ch, rel_pos) for ch in [".", ";", ":", "\n"]]
-    right_candidates = [x for x in right_candidates if x != -1]
-    right = min(right_candidates) if right_candidates else len(window)
-
-    # move past boundary char if found
-    if left != -1:
-        left = left + 1
-    else:
-        left = 0
-
-    snippet = window[left:right].strip()
-
-    # If snippet is too short, expand a bit
-    if len(snippet) < 80:
-        snippet = window[max(0, left - 80): min(len(window), right + 80)].strip()
-
-    return snippet
+    text = (doc.page_content or "").lower()
+    score = 0
+    if must and all(m.lower() in text for m in must):
+        score += 10
+    score += sum(1 for k in nice if k.lower() in text)
+    return score
 
 
 def build_citations(query: str, docs: List[Document], max_cites: int = 3) -> List[Dict[str, Any]]:
     if not docs:
         return []
 
-    keywords = _keywords_from_query(query)
+    ql = (query or "").lower()
 
-    scored = []
+    # Must-include logic for VAT derivation questions
+    must: List[str] = []
+    if "vat" in ql and "derivation" in ql:
+        must = ["vat", "derivation"]
+
+    # Nice-to-have keywords
+    nice = []
+    for kw in ["vat", "value added tax", "derivation", "allocation", "formula", "proceeds", "distribution", "taxable supplies", "location"]:
+        if kw in ql or kw in ["vat", "derivation"]:
+            nice.append(kw)
+
+    scored: List[Tuple[int, Document]] = []
     for d in docs:
-        t = (d.page_content or "").lower()
-        score = sum(1 for kw in keywords if kw.lower() in t)
-        scored.append((score, d))
+        scored.append((_score_doc_for_query(d, must=must, nice=nice), d))
     scored.sort(key=lambda x: x[0], reverse=True)
 
-    top = [d for score, d in scored if score > 0][:max_cites]
+    chosen_docs: List[Document] = []
+    # If must exists, ensure we pick at least one must-matching doc if available
+    if must:
+        must_docs = [d for score, d in scored if _has_all(d.page_content, must)]
+        if must_docs:
+            chosen_docs.append(must_docs[0])
 
+    # Fill remaining slots with top-scored docs not already chosen
+    for score, d in scored:
+        if len(chosen_docs) >= max_cites:
+            break
+        if d in chosen_docs:
+            continue
+        if score <= 0:
+            continue
+        chosen_docs.append(d)
+
+    # Build citation objects with clean quotes
     citations: List[Dict[str, Any]] = []
-    for d in top:
+    for d in chosen_docs[:max_cites]:
         meta = d.metadata or {}
         cid = meta.get("chunk_id", "")
         src = meta.get("source", "")
@@ -105,10 +115,8 @@ def build_citations(query: str, docs: List[Document], max_cites: int = 3) -> Lis
         pe = meta.get("page_end", "")
         pages = f"p.{ps}–{pe}"
 
-        text = d.page_content or ""
-        pos = _find_keyword_pos(text, keywords)
-        raw = _extract_sentence_like_snippet(text, pos)
-        quote = _word_clip_verbatim(raw, max_words=25)
+        snippet = _best_window_containing(d.page_content or "", must=must, window=450)
+        quote = _word_clip_verbatim(snippet, max_words=25)
 
         citations.append(
             {"chunk_id": cid, "source": src, "pages": pages, "quote": quote}
