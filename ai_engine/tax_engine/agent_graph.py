@@ -114,21 +114,25 @@ def answer_node(state: TaxState) -> TaxState:
     if route == "claim_check":
         prompt = (
             "You are fact-checking a claim about the Nigerian Tax Reform Bills (2024).\n"
-            "Use ONLY the quotes below. Do not add interpretation.\n"
-            "If the quotes do not directly confirm or deny the claim, say you can’t confirm from the uploaded documents.\n\n"
+            "Use ONLY the quotes below.\n"
+            "Do NOT add any extra facts.\n"
+            "If the quotes do not directly answer the claim, say: 'Unclear from these excerpts.'\n\n"
             f"CLAIM / QUESTION: {user_text}\n\n"
             f"EVIDENCE QUOTES:\n{quotes_block}\n\n"
             "Write in this format:\n"
             "Claim:\n"
-            "What the documents say:\n"
-            "Conclusion (confirmed / not confirmed / unclear from sources):\n"
+            "What the documents say (only what is in quotes):\n"
+            "Conclusion (confirmed / not confirmed / unclear from excerpts):\n"
         )
     else:
         prompt = (
             "You are explaining Nigerian tax reform bills in plain language.\n"
-            "Use ONLY the quotes below. Do NOT add assumptions or extra facts.\n"
-            "If a detail is not stated in the quotes, explicitly say it is not confirmed in the provided excerpts.\n"
-            "Write 4–8 sentences.\n\n"
+            "Use ONLY the quotes below.\n"
+            "Do NOT infer beyond the quotes. Avoid phrases like 'this means' unless the quote explicitly says so.\n\n"
+            "Write this structure:\n"
+            "1) What the excerpts explicitly state (2–4 bullets)\n"
+            "2) What is not stated / unclear from these excerpts (1–2 bullets)\n"
+            "3) One short summary sentence that stays within the quotes\n\n"
             f"USER QUESTION: {user_text}\n\n"
             f"EVIDENCE QUOTES:\n{quotes_block}\n"
         )
