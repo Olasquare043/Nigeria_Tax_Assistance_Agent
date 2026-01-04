@@ -5,7 +5,7 @@ from typing import List, Dict, Any
 
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma
+from langchain_chroma import Chroma  # pip install -U langchain-chroma
 
 from .config import settings
 
@@ -13,17 +13,22 @@ from .config import settings
 def _sha1_text(text: str) -> str:
     return hashlib.sha1(text.encode("utf-8", errors="ignore")).hexdigest()
 
-
 def get_embeddings() -> OpenAIEmbeddings:
     if not settings.openai_api_key:
-        raise RuntimeError("OPENAI_API_KEY is missing. Put it in your .env file.")
-    return OpenAIEmbeddings(model=settings.openai_embed_model)
-
+        raise RuntimeError(
+            "OPENAI_API_KEY is missing. Put it in a .env file at the project root "
+            "or set it in your terminal environment."
+        )
+    return OpenAIEmbeddings(api_key=settings.openai_api_key)
 
 def load_chroma() -> Chroma:
+    """
+    Always open the SAME persistent Chroma DB regardless of current working directory.
+    """
+    settings.chroma_dir.mkdir(parents=True, exist_ok=True)
     return Chroma(
-        collection_name=settings.chroma_collection,
-        persist_directory=settings.chroma_dir,
+        collection_name="nigeria_tax_bills",
+        persist_directory=str(settings.chroma_dir),  # ✅ absolute path from config.py
         embedding_function=get_embeddings(),
     )
 
@@ -44,7 +49,7 @@ def upsert_incremental(all_docs: List[Document], batch_size: int = 200) -> Dict[
         if "content_hash" not in d.metadata:
             d.metadata["content_hash"] = _sha1_text(d.page_content)
 
-    # Incoming: chunk_id -> doc
+    # Incoming: chunk_id -> doc (unique)
     incoming: Dict[str, Document] = {}
     for i, d in enumerate(all_docs):
         cid = d.metadata.get("chunk_id") or f"auto-{i:06d}"
@@ -69,12 +74,13 @@ def upsert_incremental(all_docs: List[Document], batch_size: int = 200) -> Dict[
         if cid:
             chunk_to_store_ids.setdefault(cid, []).append(sid)
 
-    # Deduplicate
+    # Deduplicate (if DB somehow contains duplicates)
     deduped_removed = 0
     to_delete_dupes: List[str] = []
     for cid, sids in list(chunk_to_store_ids.items()):
         if len(sids) <= 1:
             continue
+        # keep the first id (or keep cid if already used as id)
         keep = cid if cid in sids else sids[0]
         for sid in sids:
             if sid != keep:
@@ -97,7 +103,7 @@ def upsert_incremental(all_docs: List[Document], batch_size: int = 200) -> Dict[
     check_store_ids = [chunk_to_store_ids[cid][0] for cid in to_check]
 
     for i in range(0, len(check_store_ids), batch_size):
-        batch_ids = check_store_ids[i:i + batch_size]
+        batch_ids = check_store_ids[i : i + batch_size]
         got = chroma.get(ids=batch_ids, include=["metadatas"])
         got_metas = got.get("metadatas", []) or []
 

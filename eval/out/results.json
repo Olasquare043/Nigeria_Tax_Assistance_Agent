@@ -1,0 +1,1266 @@
+[
+  {
+    "id": "S01",
+    "persona": "citizen",
+    "message": "Hello, how are you doing?",
+    "expected_route": "smalltalk",
+    "got_route": "smalltalk",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Hello! I'm doing well, thank you. How can I assist you today?",
+      "refusal": false,
+      "route": "smalltalk",
+      "citations": []
+    }
+  },
+  {
+    "id": "S02",
+    "persona": "citizen",
+    "message": "Good morning!",
+    "expected_route": "smalltalk",
+    "got_route": "smalltalk",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Good morning! How can I assist you today?",
+      "refusal": false,
+      "route": "smalltalk",
+      "citations": []
+    }
+  },
+  {
+    "id": "S03",
+    "persona": "citizen",
+    "message": "Thanks, that helps.",
+    "expected_route": "smalltalk",
+    "got_route": "smalltalk",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "You're welcome! I'm glad to hear that. How can I assist you further?",
+      "refusal": false,
+      "route": "smalltalk",
+      "citations": []
+    }
+  },
+  {
+    "id": "S04",
+    "persona": "citizen",
+    "message": "What can you do?",
+    "expected_route": "smalltalk",
+    "got_route": "smalltalk",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Hello! I can help you with information about Nigerian policies, provide guidance on various topics, and answer any questions you might have. How can I assist you today?",
+      "refusal": false,
+      "route": "smalltalk",
+      "citations": []
+    }
+  },
+  {
+    "id": "S05",
+    "persona": "citizen",
+    "message": "Hi",
+    "expected_route": "smalltalk",
+    "got_route": "smalltalk",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": false,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Hello! How are you doing today? How can I assist you?",
+      "refusal": false,
+      "route": "smalltalk",
+      "citations": []
+    }
+  },
+  {
+    "id": "C01",
+    "persona": "citizen",
+    "message": "Explain the tax reforms.",
+    "expected_route": "clarify",
+    "got_route": "clarify",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Could you specify which aspects of the tax reforms you're interested in? For example, are you looking for details on specific tax rates, new regulations, or the overall impact on businesses and individuals?\n\nHere are some example questions you could ask:\n1. What are the key changes proposed in the Nigerian Tax Reform Bills for 2024?\n2. How will the tax reforms affect small businesses in Nigeria?\n3. What are the expected benefits of the tax reforms for individual taxpayers?",
+      "refusal": false,
+      "route": "clarify",
+      "citations": []
+    }
+  },
+  {
+    "id": "C02",
+    "persona": "sme_owner",
+    "message": "Help me understand this new tax bill.",
+    "expected_route": "clarify",
+    "got_route": "clarify",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Sure! Could you specify which aspects of the tax bill you're interested in? For example, are you looking for information on changes to tax rates, new tax incentives, or compliance requirements?\n\nHere are a couple of example questions you might consider asking:\n1. What are the key changes in tax rates proposed in the 2024 tax reform bill?\n2. How will the new tax bill impact small businesses in Nigeria?\n3. Are there any new tax incentives introduced in the 2024 tax reform bill for individuals or corporations?",
+      "refusal": false,
+      "route": "clarify",
+      "citations": []
+    }
+  },
+  {
+    "id": "C03",
+    "persona": "citizen",
+    "message": "Tell me about VAT.",
+    "expected_route": "clarify",
+    "got_route": "clarify",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Could you clarify what specific aspects of VAT you're interested in? Are you looking for information on rates, recent changes, or its impact on businesses?\n\nHere are some example questions you could ask:\n1. What are the proposed changes to VAT in the Nigerian Tax Reform Bills 2024?\n2. How will the new VAT regulations affect small businesses in Nigeria?\n3. What is the current VAT rate in Nigeria, and how might it change in 2024?",
+      "refusal": false,
+      "route": "clarify",
+      "citations": []
+    }
+  },
+  {
+    "id": "C04",
+    "persona": "developer",
+    "message": "Tax changes?",
+    "expected_route": "clarify",
+    "got_route": "clarify",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Could you specify which aspect of tax changes you are interested in? For example, are you looking for information on personal income tax, corporate tax, or VAT changes?\n\nHere are a few example questions you could ask:\n1. What are the key provisions of the Nigerian Tax Reform Bills 2024?\n2. How will the proposed tax changes affect small businesses in Nigeria?\n3. What is the timeline for implementing the new tax reforms in Nigeria?",
+      "refusal": false,
+      "route": "clarify",
+      "citations": []
+    }
+  },
+  {
+    "id": "C05",
+    "persona": "citizen",
+    "message": "What’s going on with these bills?",
+    "expected_route": "clarify",
+    "got_route": "clarify",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Could you specify which particular bills you are referring to? Are you interested in the details of the tax reforms, their implications, or the legislative process? \n\nHere are some example questions you could ask:\n1. What are the key features of the Nigerian Tax Reform Bills 2024?\n2. How will the proposed tax reforms impact businesses and individuals in Nigeria?\n3. What is the current status of the Nigerian Tax Reform Bills in the legislative process?",
+      "refusal": false,
+      "route": "clarify",
+      "citations": []
+    }
+  },
+  {
+    "id": "Q01",
+    "persona": "citizen",
+    "message": "What is HB-1756 about?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - The companies income tax rate will be reduced from 30% to 27.5% in 2025.\n   - The companies income tax rate will further decrease to 25% in subsequent years.\n   - There is a mention of workers earning ₦800,000 annually, but further details are not provided.\n\n2) What is unclear from these excerpts:\n   - The specific details regarding the implications or context of the changes in tax rates.\n   - The relevance or impact of the mention of workers earning ₦800,000 annually.\n\n3) The excerpts indicate that HB-1756 proposes a reduction in the companies income tax rate over the next few years.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q02",
+    "persona": "citizen",
+    "message": "What does HB-1757 establish?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - HB-1757 establishes a reduction in the companies' income tax rate from 30% to 27.5% for the year 2025.\n   - The companies' income tax rate will further decrease to 25% for subsequent years.\n   - The bill mentions workers earning ₦800,000 annually, but further details are not provided.\n\n2) What is unclear from these excerpts:\n   - The specific implications or benefits of the tax rate reductions for companies or workers are not explained.\n   - The context or details regarding the mention of workers earning ₦800,000 annually is not provided.\n\n3) HB-1757 establishes a gradual reduction in the companies' income tax rate, starting from 30% to 27.5% in 2025 and then to 25% in subsequent years.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q03",
+    "persona": "citizen",
+    "message": "What is HB-1759 (Nigeria Tax Bill) about?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - The companies income tax rate will be reduced from 30% to 27.5% in 2025.\n   - The companies income tax rate will further decrease to 25% in subsequent years.\n   - There is a mention of workers earning ₦800,000 annually, but the context is incomplete.\n\n2) What is unclear from these excerpts:\n   - The specific details regarding the implications or reasons for the tax rate changes are not provided.\n   - The complete context of how workers earning ₦800,000 annually relates to the tax reform is not clear.\n\n3) The HB-1759 tax bill proposes a reduction in the companies income tax rate over the coming years.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q04",
+    "persona": "citizen",
+    "message": "What is HB-1758 (Joint Revenue Board) about?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - The companies income tax rate will be reduced from 30% to 27.5% in 2025.\n   - The companies income tax rate will further decrease to 25% in subsequent years.\n   - There is a mention of workers earning ₦800,000 annually, but the context is incomplete.\n\n2) What is unclear from these excerpts:\n   - The specific details or implications of the Joint Revenue Board are not provided.\n   - The relevance of workers earning ₦800,000 annually to the tax reform is not explained.\n\n3) The excerpts indicate a planned reduction in companies income tax rates over the next few years.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q05",
+    "persona": "sme_owner",
+    "message": "Do the documents mention VAT exemptions?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - Certain supplies are exempt from VAT, including oil and gas exports and crude petroleum oil.\n   - The VAT exemptions are outlined in chapter six of the Act.\n   - The National Assembly currently lacks the constitutional powers to legislate VAT.\n\n2) What is unclear from these excerpts:\n   - The full list of supplies that are exempt from VAT is not provided.\n   - The implications of the National Assembly's lack of constitutional powers on VAT legislation are not explained.\n\n3) The documents mention VAT exemptions for oil and gas exports and crude petroleum oil.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00057",
+          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.118–120",
+          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+        },
+        {
+          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00057",
+          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
+          "pages": "p.118–120",
+          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q06",
+    "persona": "citizen",
+    "message": "What do the documents say about VAT derivation?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - The National Assembly currently lacks the constitutional powers to legislate VAT.\n   - The powers of the Service over VAT are retained.\n   - VAT is imposed according to the provisions of chapter six of the relevant Act.\n\n2) What is unclear from these excerpts:\n   - The specific implications of the National Assembly's lack of constitutional powers regarding VAT.\n   - The details of chapter six of the Act and how it governs VAT.\n\n3) The excerpts indicate that while the Service retains authority over VAT, the National Assembly cannot legislate it due to constitutional limitations.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00046",
+          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.95–98",
+          "quote": "of Value Added Tax Value Added Tax (VAT) is imposed in accordance with the provisions of chapter six of this Act. N 143. Charge of"
+        },
+        {
+          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00046",
+          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
+          "pages": "p.95–98",
+          "quote": "of Value Added Tax Value Added Tax (VAT) is imposed in accordance with the provisions of chapter six of this Act. N 143. Charge of"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q07",
+    "persona": "citizen",
+    "message": "Do the documents state how VAT is distributed to states?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - The National Assembly currently lacks the constitutional powers to legislate VAT.\n   - The powers of the Service over VAT are retained.\n\n2) What is unclear from these excerpts:\n   - There is no information provided about how VAT is distributed to states.\n   - The excerpts do not clarify the implications of the National Assembly's lack of power over VAT.\n\n3) The documents indicate that the National Assembly cannot legislate VAT, but do not address VAT distribution to states.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00047",
+          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.98–100",
+          "quote": "amount which with the addition of the VAT chargeable is equal to the consideration; and (b) not for a money coSnsideration, the value of the"
+        },
+        {
+          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00047",
+          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
+          "pages": "p.98–100",
+          "quote": "amount which with the addition of the VAT chargeable is equal to the consideration; and (b) not for a money coSnsideration, the value of the"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q08",
+    "persona": "developer",
+    "message": "Do the documents mention company income tax rate changes?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) The excerpts explicitly state:\n   - The current companies income tax rate is 30%.\n   - The companies income tax rate will change to 27.5% in 2025.\n   - The companies income tax rate will further decrease to 25% in subsequent years.\n\n2) What is unclear from these excerpts:\n   - The specific timeline for the implementation of the tax rate changes beyond 2025 is not detailed.\n   - It is not clear if there are any conditions or exceptions related to these tax rate changes.\n\n3) The documents mention a reduction in the companies income tax rate from 30% to 27.5% in 2025 and to 25% in subsequent years.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q09",
+    "persona": "citizen",
+    "message": "Do the documents mention personal income tax rate changes?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - The companies income tax rate will change from 30% to 27.5% in 2025.\n   - The companies income tax rate will further decrease to 25% in subsequent years.\n   - There is a mention of workers earning ₦800,000 annually.\n\n2) What is unclear from these excerpts:\n   - There is no information provided about changes to personal income tax rates.\n   - The context or implications of the mention of workers earning ₦800,000 annually is not explained.\n\n3) The excerpts discuss changes to companies income tax rates but do not mention personal income tax rate changes.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "Q10",
+    "persona": "citizen",
+    "message": "What do the documents say about penalties for tax non-compliance?",
+    "expected_route": "qa",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - A person who undercharges or fails to charge tax due to a false declaration must pay the tax amount that was undercharged or not charged.\n   - There is an administrative penalty of 10% per annum on the amount of tax that was not self-accounted for.\n   - The relevant tax authority is responsible for enforcing these penalties as outlined in the Act and other tax laws.\n\n2) What is unclear from these excerpts:\n   - The specific circumstances or criteria that determine what constitutes a \"false declaration.\"\n   - The process or authority involved in assessing and collecting these penalties.\n\n3) The excerpts outline penalties for tax non-compliance, including payment of undercharged tax and a 10% annual administrative penalty.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00031",
+          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.62–64",
+          "quote": "addition to the 27 payment of the tax undercharged or not charged in consequence of false 28 declaration, plus payment of the amount of tax"
+        },
+        {
+          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00028",
+          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.56–58",
+          "quote": "is liable to pay- 28 (a) the tax not self-accounted for; 29 (b) an administrative penalty of 10% per annum of the amount not self"
+        },
+        {
+          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00027",
+          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.54–56",
+          "quote": "officials of 28 Chairman of the relevant tax authority by this Act and other tax laws, shall be the relevant tax authority 29 exercised by"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC01",
+    "persona": "citizen",
+    "message": "I heard I will pay 50% tax now. Is it true?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Claim: I heard I will pay 50% tax now. Is it true?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.1–2) \"in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and\"\n\nConclusion: Not confirmed by the excerpts.",
+      "refusal": false,
+      "route": "claim_check",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC02",
+    "persona": "citizen",
+    "message": "They increased VAT to 50%. True?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": false,
+    "got_citations_n": 0,
+    "expect_refusal": true,
+    "got_refusal": true,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "I get why that would worry you. I couldn’t find a clause in the uploaded excerpts that supports that exact rate claim.\n\nTo check properly, which tax do you mean?\n• VAT?\n• Personal income tax (PAYE)?\n• Company income tax (CIT)?\n\nOnce you specify, I’ll pull the exact clause (with page citations) if it exists in your PDFs.",
+      "refusal": true,
+      "route": "claim_check",
+      "citations": []
+    }
+  },
+  {
+    "id": "CC03",
+    "persona": "citizen",
+    "message": "This reform will destroy the North. True or false?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Claim: This reform will destroy the North. True or false?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.4–5) \"a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.5–8) \"more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.8–12) \"those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on\"\n\nConclusion: Unclear from these excerpts.",
+      "refusal": false,
+      "route": "claim_check",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.4–5",
+          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00001",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.5–8",
+          "quote": "more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.8–12",
+          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC04",
+    "persona": "citizen",
+    "message": "I heard small businesses will collapse because VAT is changing.",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Claim: I heard small businesses will collapse because VAT is changing.\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.8–9) \"list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.4–5) \"a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.12–16) \"98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive\"\n\nConclusion: Unclear from these excerpts.",
+      "refusal": false,
+      "route": "claim_check",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.8–9",
+          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.4–5",
+          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.12–16",
+          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC05",
+    "persona": "citizen",
+    "message": "People said states will lose all VAT. Is that in the bills?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Claim: People said states will lose all VAT. Is that in the bills?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.3–4) \"retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.1–2) \"healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.8–9) \"list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One\"\n\nConclusion: Unclear from these excerpts.",
+      "refusal": false,
+      "route": "claim_check",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.8–9",
+          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC06",
+    "persona": "citizen",
+    "message": "Is it true the bills removed VAT derivation completely?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Claim: Is it true the bills removed VAT derivation completely?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.3–4) \"retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.1–2) \"healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.7–8) \"Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks\"\n\nConclusion: Unclear from these excerpts.",
+      "refusal": false,
+      "route": "claim_check",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.7–8",
+          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC07",
+    "persona": "citizen",
+    "message": "I heard they increased penalties massively. Is it true?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Claim: I heard they increased penalties massively. Is it true?\n\nWhat the documents say (quotes):\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.8–12) \"those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.12–16) \"98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive\"\n- (HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.60–62) \"55 of this False or fictitious of VAT refund 12 Act, through a false or fictitious claim, is, in addition to the recovery of the\"\n\nConclusion: Unclear from these excerpts.",
+      "refusal": false,
+      "route": "claim_check",
+      "citations": [
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.8–12",
+          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.12–16",
+          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+        },
+        {
+          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00030",
+          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.60–62",
+          "quote": "55 of this False or fictitious of VAT refund 12 Act, through a false or fictitious claim, is, in addition to the recovery of the"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC08",
+    "persona": "citizen",
+    "message": "Someone said the National Assembly cannot legislate VAT. Is that stated?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "Claim: Someone said the National Assembly cannot legislate VAT. Is that stated?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.3–4) \"retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.7–8) \"Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.8–9) \"list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One\"\n\nConclusion: Unclear from these excerpts.",
+      "refusal": false,
+      "route": "claim_check",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.7–8",
+          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.8–9",
+          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC09",
+    "persona": "citizen",
+    "message": "Is there any clause that says workers will pay more tax?",
+    "expected_route": "claim_check",
+    "got_route": "qa",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": false,
+    "route_ok": false,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "1) What the excerpts explicitly state:\n   - A list of goods and services exempt from VAT is proposed, which includes new introductions and items that were previously zero-rated.\n   - 98% of workers in the public and private sector will pay lower taxes, while the top 2% will pay slightly more in a progressive tax system.\n   - There are provisions for businesses to receive input VAT credits to reduce investment costs.\n\n2) What is unclear from these excerpts:\n   - It is not specified how much more the top 2% of workers will pay in taxes.\n   - There is no detailed information on how the proposed exemptions will affect overall tax burdens for workers.\n\n3) The excerpts indicate that most workers will pay lower taxes, while a small percentage may see an increase.",
+      "refusal": false,
+      "route": "qa",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.8–9",
+          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.12–16",
+          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.8–12",
+          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CC10",
+    "persona": "citizen",
+    "message": "Twitter says VAT sharing is now 60% derivation. Is that in the documents?",
+    "expected_route": "claim_check",
+    "got_route": "claim_check",
+    "expect_citations": true,
+    "got_citations_n": 0,
+    "expect_refusal": false,
+    "got_refusal": true,
+    "contains_ok": false,
+    "route_ok": true,
+    "citations_ok": false,
+    "refusal_ok": false,
+    "raw": {
+      "answer": "I get why that would worry you. I couldn’t find a clause in the uploaded excerpts that supports that exact rate claim.\n\nTo check properly, which tax do you mean?\n• VAT?\n• Personal income tax (PAYE)?\n• Company income tax (CIT)?\n\nOnce you specify, I’ll pull the exact clause (with page citations) if it exists in your PDFs.",
+      "refusal": true,
+      "route": "claim_check",
+      "citations": []
+    }
+  },
+  {
+    "id": "CMP01",
+    "persona": "governor",
+    "message": "Compare the current company income tax rate vs the proposed rate.",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The current company income tax rate is 30%.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed company income tax rate is 27.5% for 2025.\n- The proposed company income tax rate is 25% for subsequent years.\n\nC) Differences explicitly supported by the excerpts:\n- The current rate of 30% will be reduced to 27.5% in 2025.\n- The rate will further decrease to 25% in the years following 2025.\n\nD) What is unclear from these excerpts:\n- The specific criteria or conditions under which the new rates will apply are not mentioned.\n- The impact of these changes on different types of companies or sectors is not addressed.\n\nE) The proposed tax reform aims to lower the company income tax rate from 30% to 27.5% in 2025 and to 25% in subsequent years.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP02",
+    "persona": "citizen",
+    "message": "What changed in VAT derivation compared to the current system?",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed reforms aim to retain the powers of the Service over VAT.\n- The reforms seek to achieve a fairer and more consumption-aligned distribution of VAT revenue.\n\nC) Differences explicitly supported by the excerpts:\n- The current system does not allow the National Assembly to legislate VAT, while the proposed reforms aim to clarify and potentially enhance the powers related to VAT distribution.\n\nD) What is unclear from these excerpts:\n- The specific mechanisms or processes for achieving the fairer distribution of VAT revenue are not detailed.\n- The implications of retaining the powers of the Service over VAT in the context of the proposed reforms are not explained.\n\nE) The proposed reforms aim to enhance VAT distribution while clarifying the powers of the Service, contrasting with the current limitations faced by the National Assembly.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.7–8",
+          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.4–5",
+          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP03",
+    "persona": "citizen",
+    "message": "Compare the current VAT distribution formula vs what the reform proposes.",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed reform aims for a fairer and more consumption-aligned distribution of VAT revenue.\n\nC) Differences explicitly supported by the excerpts:\n- The current system does not allow the National Assembly to legislate VAT, while the proposed reform seeks to change the distribution of VAT revenue to be more equitable and aligned with consumption patterns.\n\nD) What is unclear from these excerpts:\n- The specific details of the current VAT distribution formula are not provided.\n- The exact mechanisms of how the proposed distribution will be implemented are not described.\n\nE) The proposed reform seeks to create a more equitable distribution of VAT revenue compared to the current system, which lacks legislative power over VAT.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.4–5",
+          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP04",
+    "persona": "sme_owner",
+    "message": "Compare VAT exemptions: what is currently exempt vs what is proposed?",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- Oil and gas exports are exempt from VAT.\n- Crude petroleum oil is exempt from VAT.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed exemption list will include new introductions in addition to items that were previously zero-rated.\n\nC) Differences explicitly supported by the excerpts:\n- The current system has specific exemptions (oil and gas exports, crude petroleum oil), while the proposed system will expand the exemption list to include new items alongside previously zero-rated items.\n\nD) What is unclear from these excerpts:\n- The specific new items that will be added to the exemption list are not detailed.\n- It is unclear how the proposed changes will affect the existing exemptions.\n\nE) The proposed tax reform aims to expand the VAT exemption list beyond the current exemptions of oil and gas exports and crude petroleum oil.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00057",
+          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.118–120",
+          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+        },
+        {
+          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00057",
+          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
+          "pages": "p.118–120",
+          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.8–9",
+          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP05",
+    "persona": "citizen",
+    "message": "What changed about VAT returns/filing under the new administration bill compared to before?",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed reforms aim to consolidate the legal frameworks of various tax acts, including the Value Added Tax Act.\n- The new approach seeks a fairer and more consumption-aligned distribution of VAT revenue.\n\nC) Differences explicitly supported by the excerpts:\n- The current system does not allow the National Assembly to legislate VAT, while the proposed reforms may involve changes to the legislative framework governing VAT.\n- The proposed reforms emphasize a fairer distribution of VAT revenue, which is not mentioned in the current system.\n\nD) What is unclear from these excerpts:\n- The specific mechanisms or processes for the proposed consolidation of tax acts are not detailed.\n- The exact implications of a \"fairer and more consumption-aligned distribution\" of VAT revenue are not explained.\n\nE) The new administration bill proposes changes to VAT legislation and distribution, aiming for a more equitable framework compared to the current limitations.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.7–8",
+          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.4–5",
+          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP06",
+    "persona": "citizen",
+    "message": "Compare how tax authorities are structured currently vs what HB-1757 proposes.",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 1,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The current rate for companies' income tax is 30%.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed approach includes reducing the companies' income tax rate to 27.5% for 2025 and further reducing it to 25% for subsequent years.\n\nC) Differences explicitly supported by the excerpts:\n- The current tax rate is 30%, while the proposed rates are 27.5% for 2025 and 25% for subsequent years.\n\nD) What is unclear from these excerpts:\n- The excerpts do not provide information on the structure of tax authorities under the current system or the proposed changes in the structure.\n- There is no mention of how the proposed tax rate changes will affect tax authority operations or responsibilities.\n\nE) The excerpts indicate a shift in the companies' income tax rate from 30% to a proposed 27.5% and 25% in subsequent years, but do not clarify the structure of tax authorities.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP07",
+    "persona": "citizen",
+    "message": "Compare the roles of federal vs state authorities under the new framework vs current.",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed reforms suggest retaining the powers of the Service over VAT.\n\nC) Differences explicitly supported by the excerpts:\n- The current system does not allow the National Assembly to legislate VAT, while the proposed system retains the Service's powers over VAT, indicating a potential shift in authority.\n\nD) What is unclear from these excerpts:\n- The specific roles and responsibilities of state authorities under the new framework are not detailed.\n- The extent of changes in the relationship between federal and state authorities regarding tax legislation is not clarified.\n\nE) The comparison highlights a shift in VAT authority from a lack of legislative power by the National Assembly to a retained power by the Service under the proposed reforms.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00001",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.5–8",
+          "quote": "more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.8–12",
+          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP08",
+    "persona": "developer",
+    "message": "Compare tax penalties currently vs proposed penalties in the reform documents.",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The current system includes a distribution of VAT revenue that may not be fair or consumption-aligned.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed approach aims for a fairer and more consumption-aligned distribution of VAT revenue.\n- The reform suggests that 98% of workers in the public and private sector will pay lower taxes, while the top 2% will pay slightly more in a progressive manner.\n\nC) Differences explicitly supported by the excerpts:\n- The current system does not ensure a fair distribution of VAT revenue, whereas the proposed system aims to achieve this fairness.\n- The proposed system introduces a progressive tax structure where the majority of workers pay lower taxes compared to the current system.\n\nD) What is unclear from these excerpts:\n- The specific penalties associated with tax violations under the current system are not detailed.\n- The exact nature of the proposed penalties in the reform documents is not mentioned.\n\nE) The excerpts highlight a shift towards a fairer tax system with lower taxes for the majority and a progressive approach for the top earners.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.4–5",
+          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00001",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.5–8",
+          "quote": "more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is"
+        },
+        {
+          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
+          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
+          "pages": "p.12–16",
+          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP09",
+    "persona": "citizen",
+    "message": "Compare the tax service powers over VAT currently vs proposed.",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed exemption list for VAT includes new introductions in addition to items that were previously zero-rated.\n- Healthcare will enjoy 0% VAT, while rent, public transportation, and renewable energy will be exempted.\n\nC) Differences explicitly supported by the excerpts:\n- The current system does not allow the National Assembly to legislate VAT, whereas the proposed approach includes a new exemption list and specific items that will be exempted or zero-rated.\n\nD) What is unclear from these excerpts:\n- The specific details of how the powers of the Service over VAT will be retained or modified under the proposed system.\n- The implications of the National Assembly's lack of constitutional powers on the implementation of the proposed changes.\n\nE) The comparison highlights a shift from a restrictive legislative power over VAT to a more inclusive exemption framework in the proposed reforms.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.8–9",
+          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+        }
+      ]
+    }
+  },
+  {
+    "id": "CMP10",
+    "persona": "citizen",
+    "message": "Compare the VAT controversy explanations: what do the docs say is current vs proposed?",
+    "expected_route": "compare",
+    "got_route": "compare",
+    "expect_citations": true,
+    "got_citations_n": 3,
+    "expect_refusal": false,
+    "got_refusal": false,
+    "contains_ok": true,
+    "route_ok": true,
+    "citations_ok": true,
+    "refusal_ok": true,
+    "raw": {
+      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- Healthcare will enjoy 0% Value Added Tax (VAT).\n- Rent, public transportation, and renewable energy will be exempted from VAT.\n- There will be a fairer and more consumption-aligned distribution of VAT revenue.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed system includes specific exemptions for healthcare, rent, public transportation, and renewable energy, which are not mentioned in the current system.\n- The proposed approach aims for a fairer distribution of VAT revenue, contrasting with the current lack of legislative power by the National Assembly over VAT.\n\nD) What is unclear from these excerpts:\n- The specific mechanisms or processes for implementing the proposed VAT changes are not detailed.\n- The implications of the National Assembly's lack of power over VAT on the proposed reforms are not explained.\n\nE) The excerpts highlight a shift from a system where the National Assembly cannot legislate VAT to a proposed framework that includes specific exemptions and aims for a fairer distribution of VAT revenue.",
+      "refusal": false,
+      "route": "compare",
+      "citations": [
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.3–4",
+          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.1–2",
+          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+        },
+        {
+          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
+          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
+          "pages": "p.4–5",
+          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+        }
+      ]
+    }
+  }
+]

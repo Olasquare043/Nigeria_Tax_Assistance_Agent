@@ -1,0 +1,44 @@
+{"id":"S01","persona":"citizen","message":"Hello, how are you doing?","expected_route":"smalltalk","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["hello"]}
+{"id":"S02","persona":"citizen","message":"Good morning!","expected_route":"smalltalk","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["good"]}
+{"id":"S03","persona":"citizen","message":"Thanks, that helps.","expected_route":"smalltalk","expect_citations":false,"expect_refusal":false,"expect_answer_contains":[]}
+{"id":"S04","persona":"citizen","message":"What can you do?","expected_route":"smalltalk","expect_citations":false,"expect_refusal":false,"expect_answer_contains":[]}
+{"id":"S05","persona":"citizen","message":"Hi","expected_route":"smalltalk","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["hi"]}
+
+{"id":"C01","persona":"citizen","message":"Explain the tax reforms.","expected_route":"clarify","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["which","bill"]}
+{"id":"C02","persona":"sme_owner","message":"Help me understand this new tax bill.","expected_route":"clarify","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["which"]}
+{"id":"C03","persona":"citizen","message":"Tell me about VAT.","expected_route":"clarify","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["vat"]}
+{"id":"C04","persona":"developer","message":"Tax changes?","expected_route":"clarify","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["bill"]}
+{"id":"C05","persona":"citizen","message":"What’s going on with these bills?","expected_route":"clarify","expect_citations":false,"expect_refusal":false,"expect_answer_contains":["example"]}
+
+{"id":"Q01","persona":"citizen","message":"What is HB-1756 about?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":[]}
+{"id":"Q02","persona":"citizen","message":"What does HB-1757 establish?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":[]}
+{"id":"Q03","persona":"citizen","message":"What is HB-1759 (Nigeria Tax Bill) about?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":[]}
+{"id":"Q04","persona":"citizen","message":"What is HB-1758 (Joint Revenue Board) about?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":[]}
+{"id":"Q05","persona":"sme_owner","message":"Do the documents mention VAT exemptions?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["vat"]}
+{"id":"Q06","persona":"citizen","message":"What do the documents say about VAT derivation?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["vat"]}
+{"id":"Q07","persona":"citizen","message":"Do the documents state how VAT is distributed to states?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["state"]}
+{"id":"Q08","persona":"developer","message":"Do the documents mention company income tax rate changes?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["rate"]}
+{"id":"Q09","persona":"citizen","message":"Do the documents mention personal income tax rate changes?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["rate"]}
+{"id":"Q10","persona":"citizen","message":"What do the documents say about penalties for tax non-compliance?","expected_route":"qa","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["penalty"]}
+
+{"id":"CC01","persona":"citizen","message":"I heard I will pay 50% tax now. Is it true?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC02","persona":"citizen","message":"They increased VAT to 50%. True?","expected_route":"claim_check","expect_citations":false,"expect_refusal":true,"expect_answer_contains":["which tax"]}
+{"id":"CC03","persona":"citizen","message":"This reform will destroy the North. True or false?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC04","persona":"citizen","message":"I heard small businesses will collapse because VAT is changing.","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC05","persona":"citizen","message":"People said states will lose all VAT. Is that in the bills?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC06","persona":"citizen","message":"Is it true the bills removed VAT derivation completely?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC07","persona":"citizen","message":"I heard they increased penalties massively. Is it true?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC08","persona":"citizen","message":"Someone said the National Assembly cannot legislate VAT. Is that stated?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC09","persona":"citizen","message":"Is there any clause that says workers will pay more tax?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+{"id":"CC10","persona":"citizen","message":"Twitter says VAT sharing is now 60% derivation. Is that in the documents?","expected_route":"claim_check","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["Claim:","Conclusion:"]}
+
+{"id":"CMP01","persona":"governor","message":"Compare the current company income tax rate vs the proposed rate.","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)","C)","D)","E)"]}
+{"id":"CMP02","persona":"citizen","message":"What changed in VAT derivation compared to the current system?","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP03","persona":"citizen","message":"Compare the current VAT distribution formula vs what the reform proposes.","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP04","persona":"sme_owner","message":"Compare VAT exemptions: what is currently exempt vs what is proposed?","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP05","persona":"citizen","message":"What changed about VAT returns/filing under the new administration bill compared to before?","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP06","persona":"citizen","message":"Compare how tax authorities are structured currently vs what HB-1757 proposes.","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP07","persona":"citizen","message":"Compare the roles of federal vs state authorities under the new framework vs current.","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP08","persona":"developer","message":"Compare tax penalties currently vs proposed penalties in the reform documents.","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP09","persona":"citizen","message":"Compare the tax service powers over VAT currently vs proposed.","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}
+{"id":"CMP10","persona":"citizen","message":"Compare the VAT controversy explanations: what do the docs say is current vs proposed?","expected_route":"compare","expect_citations":true,"expect_refusal":false,"expect_answer_contains":["A)","B)"]}

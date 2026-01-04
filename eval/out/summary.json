@@ -1,0 +1,7 @@
+{
+  "n": 40,
+  "route_accuracy": 0.975,
+  "citation_presence_accuracy": 0.975,
+  "refusal_flag_accuracy": 0.975,
+  "answer_contains_accuracy": 0.925
+}

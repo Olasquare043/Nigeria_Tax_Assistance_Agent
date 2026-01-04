@@ -75,37 +75,42 @@ def _has_exact_percent(text: str, num: str) -> bool:
 
 def route_node(state: TaxState) -> TaxState:
     user_text = _last_user_text(state)
-
-    # ✅ SAFE: only replace the {user_message} placeholder;
-    # do NOT use .format() because ROUTER contains JSON braces { }.
     router_prompt = ROUTER.replace("{user_message}", user_text)
-
     payload = _json_call(ROUTER_LLM, router_prompt, user_text)
+
     route = payload.get("route", "qa")
-    need = bool(payload.get("need_retrieval", route in ("qa", "claim_check")))
+    need = bool(payload.get("need_retrieval", route in ("qa", "claim_check", "compare")))
     return {"route": route, "need_retrieval": need}
 
 
 def smalltalk_node(state: TaxState) -> TaxState:
     user_text = _last_user_text(state)
+    route = state.get("route", "smalltalk")
+
     ans = SMALLTALK_LLM.invoke(
         [
             SystemMessage(content="You are a helpful assistant."),
             HumanMessage(content=SMALLTALK_PROMPT.format(user_message=user_text)),
         ]
     ).content.strip()
-    return {"messages": [AIMessage(content=ans)]}
+
+    payload = {"answer": ans, "refusal": False, "route": route, "citations": []}
+    return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))]}
 
 
 def clarify_node(state: TaxState) -> TaxState:
     user_text = _last_user_text(state)
+    route = state.get("route", "clarify")
+
     ans = CLARIFY_LLM.invoke(
         [
             SystemMessage(content="You are a helpful assistant."),
             HumanMessage(content=CLARIFY_PROMPT.format(user_message=user_text)),
         ]
     ).content.strip()
-    return {"messages": [AIMessage(content=ans)]}
+
+    payload = {"answer": ans, "refusal": False, "route": route, "citations": []}
+    return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))]}
 
 
 def retrieve_node(state: TaxState) -> TaxState:
@@ -132,20 +137,22 @@ def answer_node(state: TaxState) -> TaxState:
             ),
             "citations": [],
             "refusal": True,
+            "route": route,
         }
         return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
-    # generic refusal
+    # qa/compare + no evidence
     if not citations:
         payload = {
             "answer": (
                 "I couldn’t find enough support for that in the uploaded documents.\n\n"
                 "Try:\n• Mention the bill (HB-1759/HB-1756/HB-1757/HB-1758)\n"
-                "• Add keywords like “VAT allocation / derivation / distribution”\n"
+                "• Add keywords like “VAT derivation / distribution / tax rate / exemption”\n"
                 "• Or paste the exact sentence you saw.\n"
             ),
             "citations": [],
             "refusal": True,
+            "route": route,
         }
         return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
@@ -153,7 +160,6 @@ def answer_node(state: TaxState) -> TaxState:
     if route == "claim_check":
         claim_num = _extract_claim_number(user_text)
         quotes = [c["quote"] for c in citations]
-
         joined = "\n".join(
             f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations
         )
@@ -172,14 +178,31 @@ def answer_node(state: TaxState) -> TaxState:
             f"What the documents say (quotes):\n{joined}\n\n"
             f"Conclusion: {conclusion}"
         )
-        payload = {"answer": answer, "citations": citations, "refusal": False}
+
+        payload = {"answer": answer, "citations": citations, "refusal": False, "route": route}
         return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
-    # normal QA
-    quotes_block = "\n".join(
-        [f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations]
-    )
+    # compare mode
+    if route == "compare":
+        quotes_block = "\n".join([f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations])
+        prompt = (
+            "You are answering a comparison question about Nigerian Tax Reform Bills (2024).\n"
+            "Use ONLY the quotes below.\n"
+            "Do NOT assume what the old law says unless the quote explicitly describes the current/extant system.\n\n"
+            "Write exactly this structure:\n"
+            "A) What the excerpts describe as the CURRENT/EXTANT system (bullets)\n"
+            "B) What the excerpts describe as the PROPOSED/NEW approach (bullets)\n"
+            "C) Differences explicitly supported by the excerpts (bullets)\n"
+            "D) What is unclear from these excerpts (1–2 bullets)\n"
+            "E) One short summary sentence\n\n"
+            f"USER QUESTION: {user_text}\n\nEVIDENCE QUOTES:\n{quotes_block}\n"
+        )
+        answer = WRITE_LLM.invoke([HumanMessage(content=prompt)]).content.strip()
+        payload = {"answer": answer, "citations": citations, "refusal": False, "route": route}
+        return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
+    # normal QA mode
+    quotes_block = "\n".join([f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations])
     prompt = (
         "You are explaining Nigerian tax reform bills in plain language.\n"
         "Use ONLY the quotes below.\n"
@@ -187,13 +210,12 @@ def answer_node(state: TaxState) -> TaxState:
         "Write:\n"
         "1) What the excerpts explicitly state (2–4 bullets)\n"
         "2) What is unclear from these excerpts (1–2 bullets)\n"
-        "3) One short summary sentence (must stay within quotes)\n\n"
-        f"USER QUESTION: {user_text}\n\n"
-        f"EVIDENCE QUOTES:\n{quotes_block}\n"
+        "3) One short summary sentence\n\n"
+        f"USER QUESTION: {user_text}\n\nEVIDENCE QUOTES:\n{quotes_block}\n"
     )
-
     answer = WRITE_LLM.invoke([HumanMessage(content=prompt)]).content.strip()
-    payload = {"answer": answer, "citations": citations, "refusal": False}
+
+    payload = {"answer": answer, "citations": citations, "refusal": False, "route": route}
     return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
 
