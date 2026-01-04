@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import List
 from functools import lru_cache
 
@@ -22,10 +23,22 @@ def _dedupe(docs: List[Document]) -> List[Document]:
     return out
 
 
+def _has_percent_or_number(q: str) -> bool:
+    ql = (q or "").lower()
+    return bool(re.search(r"\b\d+\s*%|\b\d+\s*percent\b", ql)) or bool(re.search(r"\b\d{2,}\b", ql))
+
+
+def _looks_like_rate_question(q: str) -> bool:
+    ql = (q or "").lower()
+    # if the user mentions %/number OR says rate/percent explicitly, treat it as rate-related
+    return _has_percent_or_number(ql) or ("rate" in ql) or ("percent" in ql) or ("%" in ql)
+
+
 def _expand_query(q: str) -> List[str]:
     ql = (q or "").lower()
     expansions = [q]
 
+    # VAT distribution / derivation expansions
     if "vat" in ql or "value added tax" in ql:
         expansions.extend([
             "VAT derivation",
@@ -33,12 +46,21 @@ def _expand_query(q: str) -> List[str]:
             "distribution of VAT proceeds",
             "VAT sharing formula",
             "derivation principle VAT",
+            "Value Added Tax distribution among states",
         ])
 
-    if "derivation" in ql and "vat" not in ql:
+    # Rate expansions (handles “50% tax” type claims)
+    if _looks_like_rate_question(ql):
         expansions.extend([
-            "VAT derivation",
-            q + " VAT",
+            "rate of tax",
+            "tax rate",
+            "income tax rate",
+            "companies income tax rate",
+            "personal income tax rate",
+            "PAYE rate",
+            "Value Added Tax rate",
+            "VAT rate",
+            "withholding tax rate",
         ])
 
     return list(dict.fromkeys([x for x in expansions if x.strip()]))
@@ -46,7 +68,6 @@ def _expand_query(q: str) -> List[str]:
 
 @lru_cache(maxsize=1)
 def _all_chunks_cached() -> List[Document]:
-    """Load all chunks from Chroma (dev mode)."""
     chroma = load_chroma()
     got = chroma.get(include=["documents", "metadatas"])
     docs = got.get("documents", []) or []
@@ -57,26 +78,25 @@ def _all_chunks_cached() -> List[Document]:
     return out
 
 
-def _keyword_filter(query: str) -> List[Document]:
+def _strict_rate_filter(query: str) -> List[Document]:
     """
-    Strict keyword filter: if query contains VAT + derivation,
-    return chunks that contain both words (high precision).
+    For numeric/rate claims, return chunks that look like *rates*,
+    not penalties or revenue splits.
+    Heuristic: must contain 'rate' (or 'rates') and 'tax' (or a tax type like VAT/income tax).
     """
     ql = (query or "").lower()
-    must = []
-    if "vat" in ql:
-        must.append("vat")
-    if "derivation" in ql:
-        must.append("derivation")
-
-    # Only apply strict filter for this specific scenario
-    if not ("vat" in must and "derivation" in must):
+    if not _looks_like_rate_question(ql):
         return []
 
     hits = []
     for d in _all_chunks_cached():
-        tl = (d.page_content or "").lower()
-        if all(m in tl for m in must):
+        t = (d.page_content or "").lower()
+
+        has_rate_word = ("rate" in t) or ("rates" in t)
+        has_tax_context = ("tax" in t) or ("vat" in t) or ("income tax" in t) or ("paye" in t)
+
+        # this avoids picking "40% penalty" chunks (often have % but not "rate")
+        if has_rate_word and has_tax_context:
             hits.append(d)
 
     return hits
@@ -86,18 +106,19 @@ def retrieve(query: str) -> List[Document]:
     chroma = load_chroma()
 
     final_k = max(settings.top_k, 8)
-    candidate_k = max(20, final_k)
+    candidate_k = max(25, final_k)
 
-    # 1) Normal vector retrieval + expansions
     queries = _expand_query(query)
+
     results: List[Document] = []
-    for qq in queries[:6]:
+    for qq in queries[:8]:
         results.extend(chroma.similarity_search(qq, k=candidate_k))
+
     results = _dedupe(results)
 
-    # 2) Add strict keyword matches if needed (VAT+derivation case)
-    strict_hits = _keyword_filter(query)
-    if strict_hits:
-        results = _dedupe(strict_hits + results)
+    # Add strict rate matches for “50% tax” claims
+    strict = _strict_rate_filter(query)
+    if strict:
+        results = _dedupe(strict + results)
 
     return results[:final_k]

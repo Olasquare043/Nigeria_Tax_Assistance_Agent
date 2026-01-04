@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import TypedDict, Literal, Annotated, Any, Dict
 
 from langgraph.graph import START, END, StateGraph
@@ -28,6 +29,8 @@ SMALLTALK_LLM = ChatOpenAI(model=settings.openai_chat_model, temperature=0.6)
 CLARIFY_LLM = ChatOpenAI(model=settings.openai_chat_model, temperature=0.4)
 WRITE_LLM = ChatOpenAI(model=settings.openai_chat_model, temperature=0)
 
+PERCENT_RE = re.compile(r"\b\d+(\.\d+)?\s*%|\b\d+(\.\d+)?\s*percent\b", re.IGNORECASE)
+
 
 def _json_call(llm: ChatOpenAI, system: str, user: str) -> Dict[str, Any]:
     resp = llm.invoke([SystemMessage(content=system), HumanMessage(content=user)])
@@ -51,9 +54,33 @@ def _last_user_text(state: TaxState) -> str:
     return ""
 
 
+def _extract_claim_number(text: str) -> str | None:
+    tl = (text or "").lower()
+    m = re.search(r"(\d+(\.\d+)?)\s*%|\b(\d+(\.\d+)?)\s*percent\b", tl)
+    if not m:
+        return None
+    return m.group(1) or m.group(3)
+
+
+def _has_any_percent(text: str) -> bool:
+    return bool(PERCENT_RE.search(text or ""))
+
+
+def _has_exact_percent(text: str, num: str) -> bool:
+    if not num:
+        return False
+    tl = (text or "").lower()
+    return (f"{num}%" in tl) or (f"{num} percent" in tl)
+
+
 def route_node(state: TaxState) -> TaxState:
     user_text = _last_user_text(state)
-    payload = _json_call(ROUTER_LLM, ROUTER, user_text)
+
+    # ✅ SAFE: only replace the {user_message} placeholder;
+    # do NOT use .format() because ROUTER contains JSON braces { }.
+    router_prompt = ROUTER.replace("{user_message}", user_text)
+
+    payload = _json_call(ROUTER_LLM, router_prompt, user_text)
     route = payload.get("route", "qa")
     need = bool(payload.get("need_retrieval", route in ("qa", "claim_check")))
     return {"route": route, "need_retrieval": need}
@@ -94,6 +121,21 @@ def answer_node(state: TaxState) -> TaxState:
 
     citations = build_citations(user_text, retrieved, max_cites=3)
 
+    # claim_check + no evidence => friendly refusal
+    if route == "claim_check" and not citations:
+        payload = {
+            "answer": (
+                "I get why that would worry you. I couldn’t find a clause in the uploaded excerpts that supports that exact rate claim.\n\n"
+                "To check properly, which tax do you mean?\n"
+                "• VAT?\n• Personal income tax (PAYE)?\n• Company income tax (CIT)?\n\n"
+                "Once you specify, I’ll pull the exact clause (with page citations) if it exists in your PDFs."
+            ),
+            "citations": [],
+            "refusal": True,
+        }
+        return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
+
+    # generic refusal
     if not citations:
         payload = {
             "answer": (
@@ -107,38 +149,50 @@ def answer_node(state: TaxState) -> TaxState:
         }
         return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
+    # deterministic numeric claim_check
+    if route == "claim_check":
+        claim_num = _extract_claim_number(user_text)
+        quotes = [c["quote"] for c in citations]
+
+        joined = "\n".join(
+            f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations
+        )
+
+        conclusion = "Unclear from these excerpts."
+        if claim_num:
+            if any(_has_exact_percent(q, claim_num) for q in quotes):
+                conclusion = "Confirmed by the excerpts."
+            elif any(_has_any_percent(q) for q in quotes):
+                conclusion = "Not confirmed by the excerpts."
+            else:
+                conclusion = "Unclear from these excerpts."
+
+        answer = (
+            f"Claim: {user_text}\n\n"
+            f"What the documents say (quotes):\n{joined}\n\n"
+            f"Conclusion: {conclusion}"
+        )
+        payload = {"answer": answer, "citations": citations, "refusal": False}
+        return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
+
+    # normal QA
     quotes_block = "\n".join(
-        [f"- ({c['source']} {c['pages']}) \"{c['quote']}\"" for c in citations]
+        [f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations]
     )
 
-    if route == "claim_check":
-        prompt = (
-            "You are fact-checking a claim about the Nigerian Tax Reform Bills (2024).\n"
-            "Use ONLY the quotes below.\n"
-            "Do NOT add any extra facts.\n"
-            "If the quotes do not directly answer the claim, say: 'Unclear from these excerpts.'\n\n"
-            f"CLAIM / QUESTION: {user_text}\n\n"
-            f"EVIDENCE QUOTES:\n{quotes_block}\n\n"
-            "Write in this format:\n"
-            "Claim:\n"
-            "What the documents say (only what is in quotes):\n"
-            "Conclusion (confirmed / not confirmed / unclear from excerpts):\n"
-        )
-    else:
-        prompt = (
-            "You are explaining Nigerian tax reform bills in plain language.\n"
-            "Use ONLY the quotes below.\n"
-            "Do NOT infer beyond the quotes. Avoid phrases like 'this means' unless the quote explicitly says so.\n\n"
-            "Write this structure:\n"
-            "1) What the excerpts explicitly state (2–4 bullets)\n"
-            "2) What is not stated / unclear from these excerpts (1–2 bullets)\n"
-            "3) One short summary sentence that stays within the quotes\n\n"
-            f"USER QUESTION: {user_text}\n\n"
-            f"EVIDENCE QUOTES:\n{quotes_block}\n"
-        )
+    prompt = (
+        "You are explaining Nigerian tax reform bills in plain language.\n"
+        "Use ONLY the quotes below.\n"
+        "Do NOT infer beyond the quotes.\n\n"
+        "Write:\n"
+        "1) What the excerpts explicitly state (2–4 bullets)\n"
+        "2) What is unclear from these excerpts (1–2 bullets)\n"
+        "3) One short summary sentence (must stay within quotes)\n\n"
+        f"USER QUESTION: {user_text}\n\n"
+        f"EVIDENCE QUOTES:\n{quotes_block}\n"
+    )
 
     answer = WRITE_LLM.invoke([HumanMessage(content=prompt)]).content.strip()
-
     payload = {"answer": answer, "citations": citations, "refusal": False}
     return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
