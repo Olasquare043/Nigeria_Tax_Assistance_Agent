@@ -2,143 +2,214 @@ from __future__ import annotations
 
 import re
 from typing import List, Dict, Any, Tuple
+
 from langchain_core.documents import Document
 
 
-RATE_WORD_RE = re.compile(r"\brate(s)?\b", re.IGNORECASE)
-PERCENT_RE = re.compile(r"\b\d+(\.\d+)?\s*%|\b\d+(\.\d+)?\s*percent\b", re.IGNORECASE)
+def _pages(meta: Dict[str, Any]) -> str:
+    ps = meta.get("page_start")
+    pe = meta.get("page_end")
+    if ps and pe and ps != pe:
+        return f"p.{ps}–{pe}"
+    if ps:
+        return f"p.{ps}"
+    return "p.?"
 
 
-def _norm_spaces(s: str) -> str:
-    return re.sub(r"\s+", " ", (s or "")).strip()
+def _clean(s: str) -> str:
+    # normalize whitespace but keep meaning
+    return re.sub(r"\s+", " ", (s or "").strip())
 
 
-def _tokens(text: str) -> List[str]:
-    return _norm_spaces(text).split(" ")
+def _compact(s: str) -> str:
+    # helps match across PDF hyphenation/linebreaks
+    return re.sub(r"[\s\-]+", "", (s or "").lower())
 
 
-def _has_percent_or_number(q: str) -> bool:
-    ql = (q or "").lower()
-    return bool(re.search(r"\b\d+\s*%|\b\d+\s*percent\b", ql)) or bool(re.search(r"\b\d{2,}\b", ql))
+def _find_best_hit(text: str, query: str) -> Tuple[int, int]:
+    """
+    Return (best_start, best_end) of a matched keyword span.
+    If no hit, return (-1, -1).
+    Robust to PDF breaks using compact matching.
+    """
+    t = text or ""
+    tl = t.lower()
+    tc = _compact(t)
 
-
-def _looks_like_rate_question(q: str) -> bool:
-    ql = (q or "").lower()
-    return _has_percent_or_number(ql) or ("rate" in ql) or ("percent" in ql) or ("%" in ql)
-
-
-def _is_vat_query(q: str) -> bool:
-    ql = (q or "").lower()
-    return ("vat" in ql) or ("value added tax" in ql)
-
-
-def _find_token_index(tokens: List[str], term: str) -> int:
-    t = term.lower()
-    for i, tok in enumerate(tokens):
-        clean = re.sub(r"[^\w%\-]", "", tok.lower())
-        if t in clean:
-            return i
-    return -1
-
-
-def _clip_around(text: str, term: str, max_words: int = 25, pre_words: int = 7) -> str:
-    toks = _tokens(text)
-    if not toks:
-        return ""
-    idx = _find_token_index(toks, term)
-    if idx == -1:
-        return " ".join(toks[:max_words])
-    start = max(0, idx - pre_words)
-    end = min(len(toks), start + max_words)
-    if end - start < max_words and start > 0:
-        start = max(0, end - max_words)
-    return " ".join(toks[start:end])
-
-
-def _extract_claim_number(query: str) -> str | None:
     ql = (query or "").lower()
-    m = re.search(r"(\d+(\.\d+)?)\s*%|\b(\d+(\.\d+)?)\s*percent\b", ql)
-    if not m:
-        return None
-    return m.group(1) or m.group(3)
 
+    # prioritize these “legal meaning” terms
+    key_terms = [
+        "basis of derivation",
+        "distributed on the basis of derivation",
+        "derivation",
+        "distribution of proceeds",
+        "distribution",
+        "distributed",
+        "proceeds",
+        "states",
+        "local governments",
+        "attribution",
+        "vat",
+        "value added tax",
+        "rate",
+        "exempt",
+        "exemption",
+    ]
 
-def _doc_score(doc: Document, anchors: List[str]) -> int:
-    t = (doc.page_content or "").lower()
-    score = 0
-    for a in anchors:
-        if a.lower() in t:
-            score += 2
-    # boost likely rate clauses
-    if "rate" in t or "rates" in t:
-        score += 3
-    if "%" in t or "percent" in t:
-        score += 2
-    return score
+    # also add a few query words if they look meaningful
+    extra = [w for w in re.findall(r"[a-zA-Z]{4,}", ql) if w not in {"explain", "changes", "about", "please"}]
+    terms = key_terms + extra
 
+    best = (-1, -1, -1)  # (score, start, end)
 
-def build_citations(query: str, docs: List[Document], max_cites: int = 3) -> List[Dict[str, Any]]:
-    if not docs:
-        return []
-
-    is_rate_q = _looks_like_rate_question(query)
-    is_vat_q = _is_vat_query(query)
-    claim_num = _extract_claim_number(query)  # e.g., "50"
-
-    anchors: List[str] = []
-    if is_vat_q:
-        anchors.extend(["vat", "value", "added", "tax"])
-    if is_rate_q:
-        anchors.extend(["rate", "rates", "%", "percent"])
-        if claim_num:
-            anchors.append(claim_num)
-
-    if not anchors:
-        anchors = ["vat", "tax", "derivation", "distribution"]
-
-    scored: List[Tuple[int, Document]] = [(_doc_score(d, anchors), d) for d in docs]
-    scored.sort(key=lambda x: x[0], reverse=True)
-
-    citations: List[Dict[str, Any]] = []
-    for score, d in scored:
-        if len(citations) >= max_cites:
-            break
-        if score <= 0:
+    for term in terms:
+        term_l = term.lower()
+        # 1) normal search
+        idx = tl.find(term_l)
+        if idx != -1:
+            score = len(term_l)
+            if term_l in {"derivation", "distributed", "distribution", "proceeds", "basis of derivation"}:
+                score += 50
+            if "vat" in term_l:
+                score += 10
+            span = (idx, idx + len(term_l))
+            if score > best[0]:
+                best = (score, span[0], span[1])
             continue
 
+        # 2) compact search (handles breaks/hyphens)
+        term_c = term_l.replace(" ", "")
+        idxc = tc.find(term_c)
+        if idxc != -1:
+            # Map compact index back approximately by scanning original text
+            # We take a fallback approach: find the first place in original text where compact matches begin.
+            score = len(term_c)
+            if term_l in {"derivation", "distributed", "distribution", "proceeds", "basis of derivation"}:
+                score += 50
+            if "vat" in term_l:
+                score += 10
+
+            # approximate mapping: walk original text and count compact chars
+            start = 0
+            count = 0
+            for i, ch in enumerate(t):
+                if ch.isspace() or ch == "-":
+                    continue
+                if count == idxc:
+                    start = i
+                    break
+                count += 1
+
+            end = start
+            # extend by term length in compact chars
+            needed = len(term_c)
+            count2 = 0
+            for i in range(start, len(t)):
+                ch = t[i]
+                if ch.isspace() or ch == "-":
+                    continue
+                count2 += 1
+                end = i + 1
+                if count2 >= needed:
+                    break
+
+            if score > best[0]:
+                best = (score, start, end)
+
+    if best[0] == -1:
+        return (-1, -1)
+    return (best[1], best[2])
+
+
+def _window_snippet(text: str, start: int, end: int, max_len: int = 280) -> str:
+    """
+    Build a readable snippet around (start,end).
+    Expands to nearby sentence boundaries when possible.
+    """
+    t = _clean(text)
+    if not t:
+        return ""
+
+    if start < 0 or end < 0:
+        return t[:max_len] + ("…" if len(t) > max_len else "")
+
+    # choose a window around the hit
+    w0 = max(0, start - 180)
+    w1 = min(len(t), end + 180)
+
+    # try to expand to sentence boundaries (period/semicolon/newline)
+    left = t.rfind(".", 0, w0)
+    left2 = t.rfind(";", 0, w0)
+    left = max(left, left2)
+    if left != -1:
+        w0 = left + 1
+
+    right = t.find(".", w1)
+    right2 = t.find(";", w1)
+    candidates = [x for x in [right, right2] if x != -1]
+    if candidates:
+        w1 = min(candidates) + 1
+
+    snippet = t[w0:w1].strip()
+
+    # clamp length
+    if len(snippet) > max_len:
+        # keep center around hit
+        mid = max(0, start - w0)
+        a = max(0, mid - max_len // 2)
+        b = min(len(snippet), a + max_len)
+        snippet = snippet[a:b].strip()
+        snippet = ("…" if a > 0 else "") + snippet + ("…" if b < len(snippet) else "")
+
+    return snippet
+
+
+def build_citations(user_query: str, docs: List[Document], max_cites: int = 3) -> List[Dict[str, Any]]:
+    """
+    Return citations with meaningful quotes (not the first 200 chars).
+    Output schema expected by backend/frontend:
+      {chunk_id, source, pages, quote}
+    """
+    out: List[Dict[str, Any]] = []
+    seen = set()
+
+    for d in docs or []:
         meta = d.metadata or {}
-        cid = meta.get("chunk_id", "")
-        src = meta.get("source", "")
-        ps = meta.get("page_start", "")
-        pe = meta.get("page_end", "")
-        pages = f"p.{ps}–{pe}"
+        cid = meta.get("chunk_id")
+        if not cid or cid in seen:
+            continue
+        seen.add(cid)
 
-        doc_text = d.page_content or ""
-        doc_lower = doc_text.lower()
+        src = meta.get("source", "unknown")
+        pages = _pages(meta)
 
-        chosen_anchor = anchors[0]
-        for a in anchors:
-            if a.lower() in doc_lower:
-                chosen_anchor = a
-                break
+        text = d.page_content or ""
+        s, e = _find_best_hit(text, user_query)
+        quote = _window_snippet(text, s, e, max_len=280)
 
-        quote = _clip_around(doc_text, chosen_anchor, max_words=25, pre_words=7)
-        q_quote = quote.lower()
+        out.append(
+            {
+                "chunk_id": cid,
+                "source": src,
+                "pages": pages,
+                "quote": quote,
+            }
+        )
 
-        # ---------------- Relevance Guards ----------------
-        # If it's a rate question, require whole-word "rate/rates" AND some percent/number evidence.
-        if is_rate_q:
-            if not RATE_WORD_RE.search(quote):
-                continue
-            # must contain a percent expression OR (if claim_num exists) the claim number
-            if not PERCENT_RE.search(quote) and not (claim_num and claim_num in q_quote):
-                continue
+    # Prefer citations that actually contain strong terms from query
+    # (simple score: presence of keywords)
+    ql = (user_query or "").lower()
+    strong = ["derivation", "distributed", "distribution", "proceeds", "vat", "rate", "exempt"]
+    def score(c: Dict[str, Any]) -> int:
+        qt = (c.get("quote") or "").lower()
+        s = 0
+        for w in strong:
+            if w in ql and w in qt:
+                s += 10
+            elif w in qt:
+                s += 2
+        return s
 
-        # If it's VAT + rate, require VAT in quote too (avoid unrelated tax rates)
-        if is_vat_q and is_rate_q:
-            if not ("vat" in q_quote or "value added tax" in q_quote):
-                continue
-
-        citations.append({"chunk_id": cid, "source": src, "pages": pages, "quote": quote})
-
-    return citations
+    out.sort(key=score, reverse=True)
+    return out[:max_cites]
