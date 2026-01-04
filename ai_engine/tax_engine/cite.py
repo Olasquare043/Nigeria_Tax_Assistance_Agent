@@ -15,10 +15,13 @@ def _pages(meta: Dict[str, Any]) -> str:
         return f"p.{ps}"
     return "p.?"
 
-
 def _clean(s: str) -> str:
-    # normalize whitespace but keep meaning
-    return re.sub(r"\s+", " ", (s or "").strip())
+    # normalize whitespace
+    s = re.sub(r"\s+", " ", (s or "").strip())
+    # fix common PDF merge: "derivation15" -> "derivation 15"
+    s = re.sub(r"([A-Za-z])(\d{1,4})\b", r"\1 \2", s)
+    return s
+
 
 
 def _compact(s: str) -> str:
@@ -121,49 +124,95 @@ def _find_best_hit(text: str, query: str) -> Tuple[int, int]:
         return (-1, -1)
     return (best[1], best[2])
 
-
 def _window_snippet(text: str, start: int, end: int, max_len: int = 280) -> str:
     """
     Build a readable snippet around (start,end).
-    Expands to nearby sentence boundaries when possible.
+    Expands to nearby sentence boundaries when possible,
+    and avoids ending with cut-off words.
     """
     t = _clean(text)
     if not t:
         return ""
 
+    # fallback: if no hit, just take beginning cleanly
     if start < 0 or end < 0:
-        return t[:max_len] + ("…" if len(t) > max_len else "")
+        raw = t[:max_len]
+        return _finish_clean(raw, max_len=max_len)
 
     # choose a window around the hit
     w0 = max(0, start - 180)
     w1 = min(len(t), end + 180)
 
-    # try to expand to sentence boundaries (period/semicolon/newline)
-    left = t.rfind(".", 0, w0)
-    left2 = t.rfind(";", 0, w0)
-    left = max(left, left2)
+    # try to expand left to a boundary
+    left_candidates = [
+        t.rfind(".", 0, w0),
+        t.rfind(";", 0, w0),
+        t.rfind(":", 0, w0),
+    ]
+    left = max(left_candidates)
     if left != -1:
         w0 = left + 1
 
-    right = t.find(".", w1)
-    right2 = t.find(";", w1)
-    candidates = [x for x in [right, right2] if x != -1]
-    if candidates:
-        w1 = min(candidates) + 1
+    # try to expand right to a boundary
+    right_candidates = []
+    for ch in [".", ";", ":"]:
+        idx = t.find(ch, w1)
+        if idx != -1:
+            right_candidates.append(idx + 1)
+    if right_candidates:
+        w1 = min(right_candidates)
 
     snippet = t[w0:w1].strip()
 
-    # clamp length
+    # clamp length (keep centered roughly around hit)
     if len(snippet) > max_len:
-        # keep center around hit
         mid = max(0, start - w0)
         a = max(0, mid - max_len // 2)
         b = min(len(snippet), a + max_len)
         snippet = snippet[a:b].strip()
         snippet = ("…" if a > 0 else "") + snippet + ("…" if b < len(snippet) else "")
 
-    return snippet
+    return _finish_clean(snippet, max_len=max_len)
+def _finish_clean(snippet: str, max_len: int = 320) -> str:
+    """
+    Make snippet end nicely:
+    - Prefer ending at a sentence boundary if present.
+    - Otherwise avoid mid-word endings and awkward trailing stopwords.
+    """
+    s = _clean(snippet)
+    if not s:
+        return ""
 
+    if len(s) > max_len:
+        s = s[:max_len].rstrip()
+
+    if s[-1] in [".", ";", ":"]:
+        return s
+
+    # If there is a boundary near the end, cut there (within last 80 chars)
+    tail = s[-80:]
+    best = max(tail.rfind("."), tail.rfind(";"), tail.rfind(":"))
+    if best != -1:
+        cut = len(s) - 80 + best + 1
+        s2 = s[:cut].rstrip()
+        if s2:
+            return s2
+
+    # Avoid ending on awkward stopwords if we're going to add ellipsis
+    stopwords = {"of", "and", "to", "the", "a", "an", "in", "on", "for", "by", "with", "at", "or", "but"}
+    parts = s.split()
+    if parts and parts[-1].lower().strip(" ,") in stopwords and len(parts) >= 2:
+        s = " ".join(parts[:-1]).rstrip()
+
+    # Avoid ending mid-word (trim to last space if last word is tiny/partial-ish)
+    last_space = s.rfind(" ")
+    if last_space > 0 and len(s) - last_space < 4:
+        s = s[:last_space].rstrip()
+
+    if s and s[-1] not in [".", ";", ":"]:
+        s = s.rstrip(" ,") + "…"
+
+    return s
 
 def build_citations(user_query: str, docs: List[Document], max_cites: int = 3) -> List[Dict[str, Any]]:
     """
@@ -186,7 +235,7 @@ def build_citations(user_query: str, docs: List[Document], max_cites: int = 3) -
 
         text = d.page_content or ""
         s, e = _find_best_hit(text, user_query)
-        quote = _window_snippet(text, s, e, max_len=280)
+        quote = _window_snippet(text, s, e, max_len=320)
 
         out.append(
             {
