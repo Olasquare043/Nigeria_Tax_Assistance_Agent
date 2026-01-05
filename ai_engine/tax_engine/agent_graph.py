@@ -12,7 +12,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
 from .config import settings
-from .prompts import ROUTER, SMALLTALK_PROMPT, CLARIFY_PROMPT
+from .prompts import ROUTER, SMALLTALK_PROMPT, CLARIFY_PROMPT, QA_PROMPT
 from .retriever import retrieve
 from .cite import build_citations
 
@@ -141,7 +141,6 @@ def _deterministic_route(user_text: str) -> str | None:
         return "qa"
 
     # 5) Clarify only when it's generic/vague
-    # Keep your original behavior for very broad prompts like:
     # "Explain the tax reforms", "Help me understand the bills", "Tell me about VAT"
     if len(t.split()) <= 7 and CLARIFY_RE.search(t):
         return "clarify"
@@ -285,19 +284,13 @@ def answer_node(state: TaxState) -> TaxState:
         return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
     quotes_block = "\n".join([f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations])
-    prompt = (
-        "You are a Nigerian Tax Reform Bills (2024) assistant.\n"
-        "Be friendly, calm, and plain-language.\n"
-        "Use ONLY the quotes below. Do NOT add facts not in the quotes.\n\n"
-        "Write exactly this structure (keep the numbering):\n"
-        "1) What the excerpts explicitly state (2–4 bullets)\n"
-        "2) What is unclear from these excerpts (1–2 bullets)\n"
-        "3) One short summary sentence (friendly tone)\n\n"
-        "Keep it concise (120–180 words).\n\n"
-        f"USER QUESTION: {user_text}\n\nEVIDENCE QUOTES:\n{quotes_block}\n"
-    )
-    answer = WRITE_LLM.invoke([HumanMessage(content=prompt)]).content.strip()
 
+    prompt = QA_PROMPT.format(
+        user_question=user_text,
+        evidence_quotes=quotes_block,
+    )
+
+    answer = WRITE_LLM.invoke([HumanMessage(content=prompt)]).content.strip()
     payload = {"answer": answer, "citations": citations, "refusal": False, "route": route}
     return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
