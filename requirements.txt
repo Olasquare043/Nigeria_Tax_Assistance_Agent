@@ -1,16 +1,49 @@
+# fastapi>=0.111.0
+# uvicorn>=0.30.0
+# python-dotenv>=1.0.1
+# pydantic>=2.7.0
+
+# langchain>=0.2.14
+# langchain-openai>=0.1.22
+# langchain-community>=0.2.12
+# langgraph>=0.2.40
+
+# chromadb>=0.5.5
+# langchain-chroma>=0.1.0
+
+# pdfplumber>=0.11.4
+# pypdf>=4.3.1
+# tiktoken>=0.7.0
+
+
+# ===== COMBINED REQUIREMENTS =====
+# Nigeria Tax Reform Assistant - Full Stack
+# Generated from backend + AI engine requirements
+
+# ===== FASTAPI & WEB SERVER =====
 fastapi>=0.111.0
-uvicorn>=0.30.0
+uvicorn[standard]>=0.30.0
 python-dotenv>=1.0.1
 pydantic>=2.7.0
 
+# ===== DATABASE =====
+sqlalchemy>=2.0.23
+pymysql>=1.1.0
+
+# ===== AI ENGINE (LANGCHAIN) =====
 langchain>=0.2.14
 langchain-openai>=0.1.22
 langchain-community>=0.2.12
 langgraph>=0.2.40
-
 chromadb>=0.5.5
 langchain-chroma>=0.1.0
 
+# ===== DOCUMENT PROCESSING =====
 pdfplumber>=0.11.4
 pypdf>=4.3.1
 tiktoken>=0.7.0
+
+# ===== UTILITIES =====
+requests>=2.31.0
+python-dateutil>=2.8.2
+typing-extensions>=4.9.0

@@ -27,6 +27,7 @@ Do NOT mention PDFs or "uploaded documents" unless the user asks.
 End with a helpful question like "What would you like to know about the tax reforms?"
 """
 
+
 # Clarify prompt: guide the user into a good question without sounding rigid.
 CLARIFY_PROMPT = """You are a helpful assistant for Nigerian Tax Reform Bills (2024).
 

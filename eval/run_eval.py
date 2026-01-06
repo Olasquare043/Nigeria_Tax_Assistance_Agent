@@ -26,7 +26,7 @@ def contains_all(haystack: str, needles):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--api", default="http://127.0.0.1:8000/chat")
+    ap.add_argument("--api", default="http://127.0.0.1:8000/api/chat")
     ap.add_argument("--session_prefix", default="EVAL")
     ap.add_argument("--infile", default=str(Path(__file__).parent / "testset.jsonl"))
     ap.add_argument("--outdir", default=str(Path(__file__).parent / "out"))

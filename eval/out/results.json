@@ -14,10 +14,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Hello! I'm doing well, thank you for asking. How about you? What would you like to know about the tax reforms?",
-      "refusal": false,
+      "answer": "Hello! I'm doing well, thank you for asking. How about you? What would you like to know today?",
+      "session_id": "EVAL-S01",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:17.249842",
       "route": "smalltalk",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -35,10 +37,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Good morning! I hope you’re having a wonderful day so far. What would you like to know about the tax reforms?",
-      "refusal": false,
+      "answer": "Good morning! I hope you're having a wonderful day so far. What would you like to know about the tax reforms?",
+      "session_id": "EVAL-S02",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:18.642360",
       "route": "smalltalk",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -56,10 +60,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "You're very welcome! I'm glad I could help. What would you like to know about the tax reforms?",
-      "refusal": false,
+      "answer": "I'm glad to hear that! Is there anything else you'd like to explore or ask about?",
+      "session_id": "EVAL-S03",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:20.219521",
       "route": "smalltalk",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -77,10 +83,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "I'm here to help with a variety of topics, from answering questions to providing information and guidance. What would you like to know about the tax reforms?",
-      "refusal": false,
+      "answer": "I can help you find information, answer questions, and provide guidance on a wide range of topics! What would you like to know about the tax reforms?",
+      "session_id": "EVAL-S04",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:23.299433",
       "route": "smalltalk",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -98,10 +106,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Hi there! It's great to see you. What would you like to chat about today?",
-      "refusal": false,
+      "answer": "Hi there! It's great to hear from you. What would you like to chat about today?",
+      "session_id": "EVAL-S05",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:24.534535",
       "route": "smalltalk",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -119,10 +129,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "I'm glad you're interested in the tax reforms! Could you clarify if you're looking for information on specific bills, general changes, or how they might affect individuals and businesses?\n\nHere are three example questions you might consider asking:\n1. How will the new VAT derivation and distribution rules impact local governments?\n2. What are the main changes proposed in HB-1759, HB-1756, HB-1757, and HB-1758?\n3. When do these tax reforms take effect?",
-      "refusal": false,
+      "answer": "I'm glad you're interested in the tax reforms! Could you clarify if you're looking for an overview of the entire reform package or specific details about certain bills? \n\nHere are three example questions you might consider asking:\n1. How will the new VAT derivation and distribution affect state revenues?\n2. What are the main changes proposed in HB-1759, HB-1756, HB-1757, and HB-1758?\n3. When do the new tax reforms take effect?",
+      "session_id": "EVAL-C01",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:27.766102",
       "route": "clarify",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -140,10 +152,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "I'm happy to help you understand the new tax bill! Could you please clarify which specific aspect of the bill you're interested in? \n\nHere are three example questions you might consider asking:\n1. How will VAT derivation and distribution change under this new bill?\n2. What do the different provisions in HB-1759, HB-1756, HB-1757, and HB-1758 entail?\n3. When does the new tax bill take effect?",
-      "refusal": false,
+      "answer": "Of course! I'd be happy to help you understand the new tax bill. Could you let me know which specific aspect of the bill you're interested in? \n\nHere are a few example questions you might consider asking:\n1. How will VAT derivation and distribution change under this new bill?\n2. What are the main differences between HB-1759, HB-1756, HB-1757, and HB-1758?\n3. When does this new tax bill start or take effect?",
+      "session_id": "EVAL-C02",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:30.447795",
       "route": "clarify",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -161,10 +175,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Hello! I'd be happy to help you with information about VAT. Could you please clarify if you're interested in understanding how VAT works, its recent changes, or something specific about the new tax reform bills?\n\nHere are three example questions you might consider asking:\n1. How is VAT derived and distributed under the new tax reform bills?\n2. What are the key differences between HB-1759, HB-1756, HB-1757, and HB-1758 regarding VAT?\n3. When does the new VAT policy take effect?",
-      "refusal": false,
+      "answer": "That's a great topic! Are you interested in how VAT works, recent changes in legislation, or its impact on consumers and businesses? \n\nHere are three example questions you might consider asking:\n1. How will VAT derivation and distribution change with the new tax reform bills?\n2. What are the key differences between HB-1759, HB-1756, HB-1757, and HB-1758 regarding VAT?\n3. When does the new VAT policy take effect after the reforms are passed?",
+      "session_id": "EVAL-C03",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:33.544648",
       "route": "clarify",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -182,10 +198,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Hello! I'd love to help you with that. Could you clarify if you're asking about specific tax changes, proposed bills, or something else related to taxes in Nigeria? \n\nHere are a few example questions you might consider asking:\n1. How will the new VAT derivation and distribution rules affect local governments?\n2. What are the main points of HB-1759 and how does it differ from HB-1756?\n3. When do the proposed tax changes take effect?",
-      "refusal": false,
+      "answer": "Hello! I'm glad you're interested in tax changes. Could you clarify if you're asking about specific tax rates, new bills, or overall tax reform? \n\nHere are three example questions you might consider asking:\n1. How will the new VAT derivation and distribution rules affect my business?\n2. What are the key points of HB-1759 / HB-1756 / HB-1757 / HB-1758?\n3. When do these tax changes take effect?",
+      "session_id": "EVAL-C04",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:35.766765",
       "route": "clarify",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -203,10 +221,12 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Hello! It’s great to hear your interest in the tax reform bills. Could you clarify if you're asking about the overall purpose of the bills, specific provisions, or their impact on taxpayers?\n\nHere are three example questions you might consider asking:\n1. What changes are proposed in HB-1759 / HB-1756 / HB-1757 / HB-1758?\n2. How will the new VAT derivation and distribution affect local governments?\n3. When do these tax reforms start or take effect?",
-      "refusal": false,
+      "answer": "Hello! I'm glad you're interested in the Nigerian Tax Reform Bills. Could you clarify if you're asking about the overall changes, specific bills, or their impact on taxpayers? \n\nHere are three example questions you might consider asking:\n1. How will the VAT derivation and distribution change under the new bills?\n2. What are the key differences between HB-1759, HB-1756, HB-1757, and HB-1758?\n3. When do these tax reforms start or take effect?",
+      "session_id": "EVAL-C05",
+      "citations": [],
+      "timestamp": "2026-01-05T23:07:39.317636",
       "route": "clarify",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -216,7 +236,7 @@
     "expected_route": "qa",
     "got_route": "qa",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -224,17 +244,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The bill proposes a reduction in the companies' income tax rate from 30% to 27.5% for 2025.\n   - The tax rate will further decrease to 25% in subsequent years.\n   - It mentions workers earning ₦800,000 annually, but does not provide further details about their tax implications.\n\n2) What is unclear from these excerpts:\n   - The specific details regarding how the changes will affect workers earning ₦800,000 annually are not provided.\n   - There is no information on the overall goals or additional provisions of HB-1756.\n\n3) In summary, HB-1756 aims to lower the companies' income tax rate, but more details are needed to understand its full impact!",
-      "refusal": false,
-      "route": "qa",
+      "answer": "HB-1756 is focused on the administration of tax in Nigeria, detailing requirements for businesses regarding their tax returns and assessments.\n\nWhat the bills say:\n- Businesses must provide specific details in their tax returns, including the derivation of taxable supplies by location.\n- Companies are required to submit income tax returns, even if they are exempt from tax under the Nigeria Tax Act or other tax laws.\n- The bill mandates that companies include information about their trading name, business location, and contact details in their tax documentation.\n- For incorporated entities, the bill requires disclosure of individuals holding 5% or more of the share capital and the beneficial owners of shares held by nominees.\n\nWhat I can’t confirm from your PDFs yet:\n- The specific penalties for non-compliance with these requirements.\n- Any additional provisions or amendments that may be included in the bill.\n\nWould you like to know more about a specific section of the bill?",
+      "session_id": "EVAL-Q01",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:07:51.327802",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -244,7 +278,7 @@
     "expected_route": "qa",
     "got_route": "qa",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -252,17 +286,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - HB-1757 establishes a reduction in the companies' income tax rate.\n   - The new tax rate will be 27.5% for the year 2025.\n   - For subsequent years, the tax rate will further decrease to 25%.\n   - It also mentions workers earning ₦800,000 annually, but further details are not provided.\n\n2) What is unclear from these excerpts:\n   - The specific implications or benefits of the tax rate reduction for companies and workers are not detailed.\n   - There is no information on how this change will affect the overall tax system or other tax categories.\n\n3) In summary, HB-1757 aims to lower the companies' income tax rate, making it more favorable for businesses in the coming years!",
-      "refusal": false,
-      "route": "qa",
+      "answer": "HB-1757 establishes provisions related to tax administration in Nigeria, focusing on the requirements for companies regarding their tax returns and the details they must provide.\n\nWhat the bills say:\n- Companies must submit income tax returns, even if they are exempt from tax, as per the Nigeria Tax Act or other tax laws.\n- The returns must include specific details such as the name, trading name, business location, and contact information of the company.\n- For incorporated entities, the returns should also disclose information about shareholders holding 5% or more of the share capital and the beneficial owners of shares held by nominees.\n- The Service may prescribe the timing for these returns and the manner in which taxable supplies are detailed by location.\n\nWhat I can’t confirm from your PDFs yet:\n- The specific provisions or changes introduced by HB-1757 compared to previous legislation.\n\nWould you like to know more about the implications of these requirements for businesses?",
+      "session_id": "EVAL-Q02",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:08:00.838024",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -272,7 +320,7 @@
     "expected_route": "qa",
     "got_route": "qa",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -280,17 +328,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The bill proposes to reduce the companies' income tax rate from 30% to 27.5% in 2025.\n   - The tax rate will further decrease to 25% in subsequent years.\n   - It mentions workers earning ₦800,000 annually, but does not provide further details about their tax implications.\n\n2) What is unclear from these excerpts:\n   - The specific details regarding how the changes will affect workers earning ₦800,000 annually are not provided.\n   - There is no information on other aspects of the tax reform or additional provisions in the bill.\n\n3) In summary, the HB-1759 bill aims to lower the companies' income tax rate, but more details are needed to understand its full impact!",
-      "refusal": false,
-      "route": "qa",
+      "answer": "HB-1759, also known as the Nigeria Tax Bill, focuses on the administration of tax returns, assessments, and payments for companies in Nigeria.\n\nWhat the bills say:\n- Every company must submit income tax returns, regardless of whether it is liable to pay tax under the Nigeria Tax Act or other tax laws.\n- Returns must include details of taxable supplies by location, as prescribed by the Service.\n- The bill addresses the reporting of various types of petroleum produced, including crude oil and natural gas, on a field-by-field basis.\n- It specifies the need for fiscal prices for different petroleum products to be reported.\n\nWhat I can’t confirm from your PDFs yet:\n- Specific details about the penalties for non-compliance or the timeline for implementing these requirements.\n- Any provisions related to exemptions or special considerations for certain types of companies.\n\nWould you like to know more about a specific aspect of the bill?",
+      "session_id": "EVAL-Q03",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00012",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.12–13",
+          "quote": "gas and natural gas liquids produced on a field-by-field basis and where 30 different types of petroleum are produced, the total volumes of each type; 2024 Nigeria Tax Administration Bill, 2024 C 4671 1 (b) the fiscal prices for crude oil, condensates, natural gas and 2 separately produced natural gas liquids;"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:08:09.255411",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -300,7 +362,7 @@
     "expected_route": "qa",
     "got_route": "qa",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -308,17 +370,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The bill proposes a reduction in the companies' income tax rate from 30% to 27.5% for 2025.\n   - The tax rate will further decrease to 25% in subsequent years.\n   - There is a mention of workers earning ₦800,000 annually, but further context is not provided.\n\n2) What is unclear from these excerpts:\n   - The specific details about the Joint Revenue Board and its functions are not mentioned.\n   - The implications of the tax rate changes on businesses and workers are not explained.\n\n3) In summary, the HB-1758 bill suggests lowering the companies' income tax rate, but more information is needed to understand its full impact!",
-      "refusal": false,
-      "route": "qa",
+      "answer": "HB-1758, known as the Joint Revenue Board, focuses on improving tax administration and compliance in Nigeria. It aims to streamline processes and enhance the collection of taxes.\n\nWhat the bills say:\n- The bill emphasizes the need for businesses to provide detailed information about their taxable supplies, including location, as prescribed by the Service.\n- It requires companies to submit income tax returns, regardless of their tax liability status, ensuring comprehensive reporting.\n- The bill mandates that businesses disclose key information, such as trading names, locations, and contact details, to improve transparency.\n- It also addresses the identification of shareholders and beneficial owners, particularly for incorporated entities and trusts.\n\nWhat I can’t confirm from your PDFs yet:\n- Specific details about the operational structure or functions of the Joint Revenue Board.\n- Any penalties or enforcement measures related to non-compliance with the provisions of the bill.\n\nWould you like to know more about another aspect of the tax reform?",
+      "session_id": "EVAL-Q04",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:08:19.487112",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -336,29 +412,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - Certain supplies are exempt from VAT, including oil and gas exports and crude petroleum oil.\n   - This information is found in both the Nigeria Tax Bill and the NASS Journal.\n   - The National Assembly currently lacks the constitutional powers to legislate VAT.\n\n2) What is unclear from these excerpts:\n   - It is not specified if there are other supplies exempt from VAT beyond those mentioned.\n   - The implications of the National Assembly's lack of power over VAT are not detailed.\n\n3) In summary, the documents do mention VAT exemptions for oil and gas exports, but some details remain unclear!",
-      "refusal": false,
-      "route": "qa",
+      "answer": "Yes, the documents mention VAT exemptions.\n\nWhat the bills say:\n- Certain supplies are exempt from VAT, including oil and gas exports.\n- The exemption applies to transactions involving amounts below N 10,000.00 or its equivalent in other currencies, as well as salary payments and intra-bank self-transfers.\n\nWhat I can’t confirm from your PDFs yet:\n- Details on any other specific exemptions or conditions related to VAT.\n- Information on how these exemptions will be implemented or enforced.\n\nIs there a specific type of transaction you’re curious about regarding VAT exemptions?",
+      "session_id": "EVAL-Q05",
       "citations": [
         {
-          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00057",
-          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
-          "pages": "p.118–120",
-          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00115",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.118–119",
+          "quote": "…f money of a sum below N 10,000.00 or its equivalent in other currencies, transfers for salary payment and intra-bank self transfers. S PART IV EXEMPTION FROM VALUE ADDED TAX 187. Exempt supplies (1) The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports;"
         },
         {
-          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00057",
-          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
-          "pages": "p.118–120",
-          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00004",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.5–7",
+          "quote": "…overing multiple transactions 140. Duty relating to multiple instruments covering same transaction 141. Provisions on non-monetary consideration 5 CHAPTER SIX VALUE ADDED TAX PART I IMPOSITION 142. Imposition of Value Added Tax 143. Charge of VAT 144. Taxable Supplies 145. Time of Supply 146. Rate of VAT S 147."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:08:27.615288",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -376,29 +454,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The National Assembly currently lacks the constitutional powers to legislate VAT, as previously decided.\n   - The powers of the Service over VAT are retained.\n   - VAT is imposed according to the provisions of chapter six of the relevant Act.\n\n2) What is unclear from these excerpts:\n   - The specific implications of the National Assembly's lack of power to legislate VAT.\n   - How the provisions in chapter six will affect the implementation and management of VAT.\n\n3) In summary, the documents highlight that while the Service retains authority over VAT, the National Assembly cannot legislate it, leaving some details a bit unclear.",
-      "refusal": false,
-      "route": "qa",
+      "answer": "The documents outline how VAT derivation is handled in Nigeria. They specify the distribution of VAT revenue among local governments and the requirements for reporting taxable supplies.\n\nWhat the bills say:\n- 60% of the VAT amount credited to states and local governments will be distributed based on derivation (p.47–48).\n- Tax authorities must provide details of the derivation of taxable supplies by location in returns, as prescribed by the Service (p.15–16).\n- The bills mention specific sectors and services that may be relevant to VAT, such as electricity and medical services, but do not detail their impact on derivation (p.119–120).\n\nWhat I can’t confirm from your PDFs yet:\n- The exact methodology for calculating derivation.\n- Any specific exemptions or additional details regarding VAT on certain goods or services.\n\nDo you have any specific areas of VAT you want to explore further?",
+      "session_id": "EVAL-Q06",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00047",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.47–48",
+          "quote": "…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…"
         },
         {
-          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00046",
-          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
-          "pages": "p.95–98",
-          "quote": "of Value Added Tax Value Added Tax (VAT) is imposed in accordance with the provisions of chapter six of this Act. N 143. Charge of"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00046",
-          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
-          "pages": "p.95–98",
-          "quote": "of Value Added Tax Value Added Tax (VAT) is imposed in accordance with the provisions of chapter six of this Act. N 143. Charge of"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00116",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.119–120",
+          "quote": "…lied to National Grid or Nigeria Bulk Electricity Trading Company (NBET); (j) Electricity transmitted by Transmission Company of Nigeria (TCN) to Electricity Distribution Companies (DISCOs); (k) medical services; (l) tuition relating to nursery, primary, secondary or tertiary education;"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:08:39.421231",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -416,29 +496,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The powers over VAT are retained by the Service.\n   - The National Assembly currently lacks the constitutional powers to legislate VAT.\n   - There are references to VAT charges and considerations, but no specific details on distribution to states.\n\n2) What is unclear from these excerpts:\n   - The exact mechanism or formula for how VAT is distributed to states is not mentioned.\n   - There is no information on any changes or proposals regarding state allocations from VAT.\n\n3) It seems the documents don't provide clear information on how VAT is distributed to states, but they do discuss the powers related to VAT.",
-      "refusal": false,
-      "route": "qa",
+      "answer": "The documents do not specify how VAT is distributed to states. They mainly focus on the imposition and collection of VAT.\n\nWhat the bills say:\n- VAT is imposed on taxable supplies and is charged at a specified rate.\n- Taxable persons must provide VAT invoices to purchasers, which include details like the supplier's tax ID and invoice number.\n- VAT collected must be remitted to the relevant authority by the 14th day of the month following the transaction.\n\nWhat I can’t confirm from your PDFs yet:\n- The specific distribution mechanism of VAT revenues to states.\n- Any details on how states might receive their share of VAT.\n\nWould you like to know more about any other aspect of the tax bills?",
+      "session_id": "EVAL-Q07",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00004",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.5–7",
+          "quote": "…overing multiple transactions 140. Duty relating to multiple instruments covering same transaction 141. Provisions on non-monetary consideration 5 CHAPTER SIX VALUE ADDED TAX PART I IMPOSITION 142. Imposition of Value Added Tax 143. Charge of VAT 144. Taxable Supplies 145. Time of Supply 146. Rate of VAT S 147."
         },
         {
-          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00047",
-          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
-          "pages": "p.98–100",
-          "quote": "amount which with the addition of the VAT chargeable is equal to the consideration; and (b) not for a money coSnsideration, the value of the"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00098",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.101–102",
+          "quote": "e and address of the contractor or supplier, invoice number, gross amount of invoice, amount of the VAT and the month to which the return relates. 101 (4) The VAT collected, withheld or self-accounted under this section shall be remitted to the Service on or before the 14 t h day of the month immediately following…"
         },
         {
-          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00047",
-          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
-          "pages": "p.98–100",
-          "quote": "amount which with the addition of the VAT chargeable is equal to the consideration; and (b) not for a money coSnsideration, the value of the"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00097",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.100–101",
+          "quote": "A taxable person who makes a taxable supply shall, in respect of that supply, furnish the purchaser with a VAT invoice containing, the following— 100 (a) supplier’s tax ID; (b) name and address of the supplier and sequential invoice number; (c) supplier’s incorporation or business registration number as applicable;"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:08:47.903433",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -448,7 +530,7 @@
     "expected_route": "qa",
     "got_route": "qa",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -456,17 +538,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The current companies income tax rate is 30%.\n   - The tax rate will change to 27.5% in 2025.\n   - The tax rate will further decrease to 25% for subsequent years.\n\n2) What is unclear from these excerpts:\n   - The specific timeline for when the new rates will be implemented beyond 2025.\n   - Any conditions or exceptions that might apply to these new tax rates.\n\n3) In summary, the documents indicate that the companies income tax rate will decrease from 30% to 27.5% in 2025 and then to 25% in the following years!",
-      "refusal": false,
-      "route": "qa",
+      "answer": "The documents do not specifically mention changes to the company income tax rate. \n\nWhat the bills say:\n- Every company, regardless of its tax liability status, is required to submit income tax returns (p.4–5).\n- The returns must include details of taxable supplies by location, as prescribed by the Service (p.15–16).\n- Companies granted exemption from incorporation are also included in the requirement to file returns (p.4–5).\n\nWhat I can’t confirm from your PDFs yet:\n- Any specific changes to the company income tax rates or new rates proposed.\n- Details on how the tax compliance process may change for companies.\n\nWould you like to know more about other aspects of the tax reform?",
+      "session_id": "EVAL-Q08",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "nce or documents 29 submitted, lodged, or used for the purposes of tax compliance; 30 (b) stated on a document prepared, produced, issued or submitted C 4662 Nigeria Tax Administration Bill, 2024 2024 1 in respect of a transaction;"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:08:57.535247",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -476,7 +572,7 @@
     "expected_route": "qa",
     "got_route": "qa",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -484,17 +580,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The companies income tax rate will change from 30% to 27.5% in 2025.\n   - The companies income tax rate will further decrease to 25% in subsequent years.\n   - There is a mention of workers earning ₦800,000 annually, but no specific details about personal income tax rates are provided.\n\n2) What is unclear from these excerpts:\n   - There is no information regarding changes to personal income tax rates.\n   - The context or implications for workers earning ₦800,000 annually is not fully explained.\n\n3) It looks like the documents focus on corporate tax changes, but they don’t clarify anything about personal income tax rates.",
-      "refusal": false,
-      "route": "qa",
+      "answer": "The documents do not mention any changes to personal income tax rates. \n\nWhat the bills say:\n- They require a true and correct statement of profits from all sources in Nigeria.\n- Taxpayers must complete Income Tax Self-Assessment Forms.\n- Evidence of payment of the tax due is necessary.\n- There is a computation of the effective tax rate and additional tax payable included in the requirements.\n\nWhat I can’t confirm from your PDFs yet:\n- Specific details about any proposed changes to personal income tax rates.\n- Information on how these changes might affect different income brackets.\n\nWould you like to know more about other aspects of the tax reform?",
+      "session_id": "EVAL-Q09",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00005",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.5–6",
+          "quote": "…8 Nigerian operations; 9 (c) a true and correct statement, in writing, containing the profits from 10 each and every source in Nigeria; 11 (d) duly completed Income Tax Self-Assessment Forms; 12 (e) evidence of payment of the tax due; and 13 (f) a computation of the effective tax rate and additional tax payable, 14…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00012",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.12–13",
+          "quote": "…d, the total volumes of each type; 2024 Nigeria Tax Administration Bill, 2024 C 4671 1 (b) the fiscal prices for crude oil, condensates, natural gas and 2 separately produced natural gas liquids; 3 (c) computation of royalty based on production; 4 (d) computation of royalty by price;"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00013",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.13–14",
+          "quote": "…nerals royalty with the Service in the 4 prescribed form. 5 (2) Pay the correct royalty due to the government on the minerals sold 6 or used at the prescribed rate in the Ninth schedule to the Nigeria Tax Act. 7 (3) The returns of royalty for each month shall be filed on or before the 8 21st day of the following month…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:05.935505",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -512,29 +622,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - Taxpayers who undercharge or fail to charge tax due to false declarations must pay the tax amount owed, plus any additional penalties.\n   - There is an administrative penalty of 10% per annum on the amount of tax that was not self-accounted for.\n   - Relevant tax authorities are empowered to enforce these penalties as outlined in the Act and other tax laws.\n\n2) What is unclear from these excerpts:\n   - The specific process or criteria for determining what constitutes a \"false declaration\" is not detailed.\n   - It is unclear how the penalties will be enforced or if there are any appeals processes available for taxpayers.\n\n3) In summary, the documents outline penalties for tax non-compliance, including additional payments and administrative fees, but some details about enforcement and definitions remain unclear.",
-      "refusal": false,
-      "route": "qa",
+      "answer": "The documents outline specific penalties for tax non-compliance, including financial charges and interest on unpaid taxes. \n\nWhat the bills say:\n- For fixed duties, a penalty of 10% of the unpaid duty is applied, along with interest at 4% above the Central Bank of Nigeria's Monetary Policy Rate.\n- For ad valorem duties, the penalty is also 10% of the duty, with interest at 2% above the Central Bank's Monetary Policy Rate.\n- Unpaid taxes in naira will accrue interest at the prevailing monetary policy rate plus an additional spread determined by the Minister until paid.\n- A daily penalty of N10,000 is imposed for each day of continued default after the first day of non-compliance.\n- Failing to provide requested information or documents to an authorized officer can also lead to penalties.\n\nWhat I can’t confirm from your PDFs yet:\n- Details on the specific enforcement mechanisms for these penalties.\n- Any additional penalties or consequences beyond those mentioned.\n\nWould you like to know more about a specific aspect of the tax reform?",
+      "session_id": "EVAL-Q10",
       "citations": [
         {
-          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00031",
-          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
-          "pages": "p.62–64",
-          "quote": "addition to the 27 payment of the tax undercharged or not charged in consequence of false 28 declaration, plus payment of the amount of tax"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00057",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.57–58",
+          "quote": "…Tax Act is liable to pay- 3 (a) in the case of the fixed duty, 10% of the unpaid duty and interest at 4 2% above the Central Bank of Nigeria Monetary Policy Rate; and 5 (b) in the case of ad valorem duty, 10% of the duty and interest at 2% 6 above the Central Bank of Nigeria Monetary Policy Rate. Failure to 7 105."
         },
         {
-          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00028",
-          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
-          "pages": "p.56–58",
-          "quote": "is liable to pay- 28 (a) the tax not self-accounted for; 29 (b) an administrative penalty of 10% per annum of the amount not self"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00041",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.41–42",
+          "quote": "…apply to the collection and recovery of the sum; 6 (b) in the case of naira remittances, the tax due shall carry interest at 7 the prevailing monetary policy rate of the Central Bank of Nigeria plus spread 8 to be determined by the Minister from the date when the tax becomes payable 9 until it is paid, and the provisi…"
         },
         {
-          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00027",
-          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
-          "pages": "p.54–56",
-          "quote": "officials of 28 Chairman of the relevant tax authority by this Act and other tax laws, shall be the relevant tax authority 29 exercised by"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00056",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.56–57",
+          "quote": "…first day of 14 default and N 10,000.00 for every subsequent day where the default 15 continues. 16 (2) A person who fails or refuses to supply information, 17 documents, or records as demanded or requested for by an authorised officer 18 relating to any tax issue under this Act or any other tax law within the time…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:14.408267",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -544,7 +656,7 @@
     "expected_route": "claim_check",
     "got_route": "claim_check",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -552,17 +664,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Claim: I heard I will pay 50% tax now. Is it true?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.1–2) \"in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and\"\n\nConclusion: Not confirmed by the excerpts.",
-      "refusal": false,
-      "route": "claim_check",
+      "answer": "Claim: I heard I will pay 50% tax now. Is it true?\n\nWhat the documents say (quotes):\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.15–16) \"…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23.\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.3–4) \"…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.4–5) \"…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…\"\n\nConclusion: Not confirmed by the excerpts.",
+      "session_id": "EVAL-CC01",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:19.635080",
+      "route": "claim_check",
+      "refusal": false
     }
   },
   {
@@ -572,18 +698,39 @@
     "expected_route": "claim_check",
     "got_route": "claim_check",
     "expect_citations": false,
-    "got_citations_n": 0,
+    "got_citations_n": 3,
     "expect_refusal": true,
-    "got_refusal": true,
-    "contains_ok": true,
+    "got_refusal": false,
+    "contains_ok": false,
     "route_ok": true,
-    "citations_ok": true,
-    "refusal_ok": true,
+    "citations_ok": false,
+    "refusal_ok": false,
     "raw": {
-      "answer": "I get why that would worry you. I couldn’t find a clause in the uploaded excerpts that supports that exact claim.\n\nQuick check: which tax do you mean?\n• VAT?\n• Personal income tax (PAYE)?\n• Company income tax (CIT)?\n\nOnce you specify, I’ll pull the exact clause (with page citations) if it exists in your PDFs.",
-      "refusal": true,
+      "answer": "Claim: They increased VAT to 50%. True?\n\nWhat the documents say (quotes):\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.15–16) \"…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23.\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.3–4) \"…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.4–5) \"…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…\"\n\nConclusion: Not confirmed by the excerpts.",
+      "session_id": "EVAL-CC02",
+      "citations": [
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
+        }
+      ],
+      "timestamp": "2026-01-05T23:09:24.686952",
       "route": "claim_check",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -601,29 +748,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Claim: This reform will destroy the North. True or false?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.4–5) \"a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.5–8) \"more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.8–12) \"those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on\"\n\nConclusion: Unclear from these excerpts.",
-      "refusal": false,
-      "route": "claim_check",
+      "answer": "Claim: This reform will destroy the North. True or false?\n\nWhat the documents say (quotes):\n- (HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf p.1) \"…shed a body known as the Nigeria Revenue Establishment of the Nigeria 11 Service (the Service). Revenue Service 12 (2) The Service- 13 (a) shall be a body corporate with perpetual succession, and a 14 common seal; 15 (b) may sue or be sued in its name;\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.46–47) \"…6 source, on any ground which appears to be sufficient, provided that the order 27 is published in the Official Gazette stating the grounds upon which the 28 exemption is granted to the company or the class of companies. 29 (2) The President may, by order amend, add to or repeal any 30 exemption.\"\n- (HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf p.12–13) \"…, testamentary dispositions, endowments and contributions from 19 any source; 20 (c) such moneys as may be granted to the Service by the Federal, 21 State or Local Governments or other donor agencies, provided such grants 22 are not intended for purposes contrary to the objective of the Act or functions 23 of the Serv…\"\n\nConclusion: Unclear from these excerpts.",
+      "session_id": "EVAL-CC03",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.4–5",
-          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+          "chunk_id": "HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf::c00000",
+          "source": "HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf",
+          "pages": "p.1",
+          "quote": "…shed a body known as the Nigeria Revenue Establishment of the Nigeria 11 Service (the Service). Revenue Service 12 (2) The Service- 13 (a) shall be a body corporate with perpetual succession, and a 14 common seal; 15 (b) may sue or be sued in its name;"
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00001",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.5–8",
-          "quote": "more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00046",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.46–47",
+          "quote": "…6 source, on any ground which appears to be sufficient, provided that the order 27 is published in the Official Gazette stating the grounds upon which the 28 exemption is granted to the company or the class of companies. 29 (2) The President may, by order amend, add to or repeal any 30 exemption."
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.8–12",
-          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+          "chunk_id": "HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf::c00012",
+          "source": "HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf",
+          "pages": "p.12–13",
+          "quote": "…, testamentary dispositions, endowments and contributions from 19 any source; 20 (c) such moneys as may be granted to the Service by the Federal, 21 State or Local Governments or other donor agencies, provided such grants 22 are not intended for purposes contrary to the objective of the Act or functions 23 of the Serv…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:27.376532",
+      "route": "claim_check",
+      "refusal": false
     }
   },
   {
@@ -641,29 +790,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Claim: I heard small businesses will collapse because VAT is changing.\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.8–9) \"list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.4–5) \"a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.12–16) \"98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive\"\n\nConclusion: Unclear from these excerpts.",
-      "refusal": false,
-      "route": "claim_check",
+      "answer": "Claim: I heard small businesses will collapse because VAT is changing.\n\nWhat the documents say (quotes):\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.15–16) \"…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23.\"\n- (HB.-1759-The-Nigeria-Tax-Bill-2024.pdf p.97–98) \"…xable supply is delivered or the time any payment of consideration is received by the supplier in respect of the supply, whichever occurs first. 146. Rate of VAT Subject to the provisions of part IV of chapter eight of this Act, VAT shall be charged on the value of all taxable supplies at the following rates — a.\"\n- (HB.-1759-The-Nigeria-Tax-Bill-2024.pdf p.5–7) \"…overing multiple transactions 140. Duty relating to multiple instruments covering same transaction 141. Provisions on non-monetary consideration 5 CHAPTER SIX VALUE ADDED TAX PART I IMPOSITION 142. Imposition of Value Added Tax 143. Charge of VAT 144. Taxable Supplies 145. Time of Supply 146. Rate of VAT S 147.\"\n\nConclusion: Unclear from these excerpts.",
+      "session_id": "EVAL-CC04",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.8–9",
-          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.4–5",
-          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00094",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.97–98",
+          "quote": "…xable supply is delivered or the time any payment of consideration is received by the supplier in respect of the supply, whichever occurs first. 146. Rate of VAT Subject to the provisions of part IV of chapter eight of this Act, VAT shall be charged on the value of all taxable supplies at the following rates — a."
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.12–16",
-          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00004",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.5–7",
+          "quote": "…overing multiple transactions 140. Duty relating to multiple instruments covering same transaction 141. Provisions on non-monetary consideration 5 CHAPTER SIX VALUE ADDED TAX PART I IMPOSITION 142. Imposition of Value Added Tax 143. Charge of VAT 144. Taxable Supplies 145. Time of Supply 146. Rate of VAT S 147."
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:32.227950",
+      "route": "claim_check",
+      "refusal": false
     }
   },
   {
@@ -681,29 +832,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Claim: People said states will lose all VAT. Is that in the bills?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.3–4) \"retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.1–2) \"healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.8–9) \"list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One\"\n\nConclusion: Unclear from these excerpts.",
-      "refusal": false,
-      "route": "claim_check",
+      "answer": "Claim: People said states will lose all VAT. Is that in the bills?\n\nWhat the documents say (quotes):\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.15–16) \"…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23.\"\n- (HB.-1759-The-Nigeria-Tax-Bill-2024.pdf p.97–98) \"…xable supply is delivered or the time any payment of consideration is received by the supplier in respect of the supply, whichever occurs first. 146. Rate of VAT Subject to the provisions of part IV of chapter eight of this Act, VAT shall be charged on the value of all taxable supplies at the following rates — a.\"\n- (HB.-1759-The-Nigeria-Tax-Bill-2024.pdf p.98–99) \"…e supplies shall be determined as follows, where the supply is— S (a) for a money consideration, its value shall be the amount which with the addition of the VAT chargeable is equal to the consideration; and (b) not for a money coSnsideration, the value of the supply shall be its market value.\"\n\nConclusion: Unclear from these excerpts.",
+      "session_id": "EVAL-CC05",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00094",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.97–98",
+          "quote": "…xable supply is delivered or the time any payment of consideration is received by the supplier in respect of the supply, whichever occurs first. 146. Rate of VAT Subject to the provisions of part IV of chapter eight of this Act, VAT shall be charged on the value of all taxable supplies at the following rates — a."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.8–9",
-          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00095",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.98–99",
+          "quote": "…e supplies shall be determined as follows, where the supply is— S (a) for a money consideration, its value shall be the amount which with the addition of the VAT chargeable is equal to the consideration; and (b) not for a money coSnsideration, the value of the supply shall be its market value."
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:37.489940",
+      "route": "claim_check",
+      "refusal": false
     }
   },
   {
@@ -721,29 +874,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Claim: Is it true the bills removed VAT derivation completely?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.3–4) \"retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.1–2) \"healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.7–8) \"Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks\"\n\nConclusion: Unclear from these excerpts.",
-      "refusal": false,
-      "route": "claim_check",
+      "answer": "Claim: Is it true the bills removed VAT derivation completely?\n\nWhat the documents say (quotes):\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.47–48) \"…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.15–16) \"…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23.\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.31–32) \"…hall not be charged to further 10 tax. 11 (4) Where a franked investment income is redistributed and tax is to 12 be accounted for on the gross amount of the distribution in accordance with 13 regulations relating to deduction of tax at source, the company may set off the 14 amount deducted at source which it has itse…\"\n\nConclusion: Unclear from these excerpts.",
+      "session_id": "EVAL-CC06",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00047",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.47–48",
+          "quote": "…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…"
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.7–8",
-          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00031",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.31–32",
+          "quote": "…hall not be charged to further 10 tax. 11 (4) Where a franked investment income is redistributed and tax is to 12 be accounted for on the gross amount of the distribution in accordance with 13 regulations relating to deduction of tax at source, the company may set off the 14 amount deducted at source which it has itse…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:43.174067",
+      "route": "claim_check",
+      "refusal": false
     }
   },
   {
@@ -761,29 +916,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Claim: I heard they increased penalties massively. Is it true?\n\nWhat the documents say (quotes):\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.8–12) \"those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on\"\n- (The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf p.12–16) \"98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive\"\n- (HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.60–62) \"55 of this False or fictitious of VAT refund 12 Act, through a false or fictitious claim, is, in addition to the recovery of the\"\n\nConclusion: Unclear from these excerpts.",
-      "refusal": false,
-      "route": "claim_check",
+      "answer": "Claim: I heard they increased penalties massively. Is it true?\n\nWhat the documents say (quotes):\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.56–57) \"…30 -accounted for; and 2024 Nigeria Tax Administration Bill, 2024 C 4715 1 (c) interest at 2% above the prevailing Central Bank of Nigeria 2 monetary policy rate. 3 (3) A person convicted of any of the offences under this section, 4 shall, in addition to the administrative penalty in subsections (1) and (2) of 5 this…\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.57–58) \"…Tax Act is liable to pay- 3 (a) in the case of the fixed duty, 10% of the unpaid duty and interest at 4 2% above the Central Bank of Nigeria Monetary Policy Rate; and 5 (b) in the case of ad valorem duty, 10% of the duty and interest at 2% 6 above the Central Bank of Nigeria Monetary Policy Rate. Failure to 7 105.\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.64–65) \"interest at 2% above the prevailing Central Bank Monetary 29 Policy Rate. 30 (2) In addition to the provisions of subsection (1) of this section, the 2024 Nigeria Tax Administration Bill, 2024 C 4723 1 licensee or lessee shall be liable to- 2 (a) N 10,000,000.\"\n\nConclusion: Unclear from these excerpts.",
+      "session_id": "EVAL-CC07",
       "citations": [
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.8–12",
-          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00056",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.56–57",
+          "quote": "…30 -accounted for; and 2024 Nigeria Tax Administration Bill, 2024 C 4715 1 (c) interest at 2% above the prevailing Central Bank of Nigeria 2 monetary policy rate. 3 (3) A person convicted of any of the offences under this section, 4 shall, in addition to the administrative penalty in subsections (1) and (2) of 5 this…"
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.12–16",
-          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00057",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.57–58",
+          "quote": "…Tax Act is liable to pay- 3 (a) in the case of the fixed duty, 10% of the unpaid duty and interest at 4 2% above the Central Bank of Nigeria Monetary Policy Rate; and 5 (b) in the case of ad valorem duty, 10% of the duty and interest at 2% 6 above the Central Bank of Nigeria Monetary Policy Rate. Failure to 7 105."
         },
         {
-          "chunk_id": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00030",
-          "source": "HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
-          "pages": "p.60–62",
-          "quote": "55 of this False or fictitious of VAT refund 12 Act, through a false or fictitious claim, is, in addition to the recovery of the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00064",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.64–65",
+          "quote": "interest at 2% above the prevailing Central Bank Monetary 29 Policy Rate. 30 (2) In addition to the provisions of subsection (1) of this section, the 2024 Nigeria Tax Administration Bill, 2024 C 4723 1 licensee or lessee shall be liable to- 2 (a) N 10,000,000."
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:45.480514",
+      "route": "claim_check",
+      "refusal": false
     }
   },
   {
@@ -801,29 +958,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "Claim: Someone said the National Assembly cannot legislate VAT. Is that stated?\n\nWhat the documents say (quotes):\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.3–4) \"retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.7–8) \"Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks\"\n- (Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf p.8–9) \"list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One\"\n\nConclusion: Unclear from these excerpts.",
-      "refusal": false,
-      "route": "claim_check",
+      "answer": "Claim: Someone said the National Assembly cannot legislate VAT. Is that stated?\n\nWhat the documents say (quotes):\n- (HB.-1759-The-Nigeria-Tax-Bill-2024.pdf p.101–102) \"e and address of the contractor or supplier, invoice number, gross amount of invoice, amount of the VAT and the month to which the return relates. 101 (4) The VAT collected, withheld or self-accounted under this section shall be remitted to the Service on or before the 14 t h day of the month immediately following…\"\n- (HB.-1759-The-Nigeria-Tax-Bill-2024.pdf p.119–120) \"…lied to National Grid or Nigeria Bulk Electricity Trading Company (NBET); (j) Electricity transmitted by Transmission Company of Nigeria (TCN) to Electricity Distribution Companies (DISCOs); (k) medical services; (l) tuition relating to nursery, primary, secondary or tertiary education;\"\n- (HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf p.26–27) \"…nment. 15 5. Any other law for the assessment, collection and accounting of 16 revenue accruable to the Government of the Federation as may be made by 17 the National Assembly from time to time or regulation incidental to those 18 laws, conferring any power, duty and obligation on the Service, or where no 19 administr…\"\n\nConclusion: Unclear from these excerpts.",
+      "session_id": "EVAL-CC08",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00098",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.101–102",
+          "quote": "e and address of the contractor or supplier, invoice number, gross amount of invoice, amount of the VAT and the month to which the return relates. 101 (4) The VAT collected, withheld or self-accounted under this section shall be remitted to the Service on or before the 14 t h day of the month immediately following…"
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.7–8",
-          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00116",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.119–120",
+          "quote": "…lied to National Grid or Nigeria Bulk Electricity Trading Company (NBET); (j) Electricity transmitted by Transmission Company of Nigeria (TCN) to Electricity Distribution Companies (DISCOs); (k) medical services; (l) tuition relating to nursery, primary, secondary or tertiary education;"
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.8–9",
-          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+          "chunk_id": "HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf::c00025",
+          "source": "HB.-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf",
+          "pages": "p.26–27",
+          "quote": "…nment. 15 5. Any other law for the assessment, collection and accounting of 16 revenue accruable to the Government of the Federation as may be made by 17 the National Assembly from time to time or regulation incidental to those 18 laws, conferring any power, duty and obligation on the Service, or where no 19 administr…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:51.765064",
+      "route": "claim_check",
+      "refusal": false
     }
   },
   {
@@ -841,29 +1000,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "1) What the excerpts explicitly state:\n   - The proposed tax reform includes a list of goods and services that are exempt from VAT, which adds to previously zero-rated items.\n   - 98% of workers in both the public and private sectors will pay lower taxes.\n   - The top 2% of earners will pay slightly more in a progressive tax system.\n\n2) What is unclear from these excerpts:\n   - It is not specified how much more the top 2% will pay or the exact impact on overall tax rates for workers.\n   - There is no detailed information on how the exemptions will affect the overall tax burden for workers.\n\n3) In summary, while most workers will see lower taxes, the top earners may face a slight increase, but details are a bit fuzzy!",
-      "refusal": false,
-      "route": "qa",
+      "answer": "There isn't a specific clause in the bills that directly states workers will pay more tax. However, there are provisions related to tax distribution and levies that could indirectly affect tax burdens.\n\nWhat the bills say:\n- The tax authority is responsible for distributing revenue among local governments based on derivation (p.47–48).\n- A levy of 2% is introduced for the Student Education Loan Fund, which will be collected and paid into a special account (p.45–46).\n- The revenue from this levy will be distributed to various educational funds, which may imply a broader tax impact (p.45–46).\n\nWhat I can’t confirm from your PDFs yet:\n- Specific details on how these changes might affect individual workers' tax rates.\n- Any additional clauses that might directly increase tax rates for workers.\n\nWould you like to know more about how these changes might impact education funding?",
+      "session_id": "EVAL-CC09",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.8–9",
-          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00047",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.47–48",
+          "quote": "…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…"
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.12–16",
-          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00031",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.31–32",
+          "quote": "…hall not be charged to further 10 tax. 11 (4) Where a franked investment income is redistributed and tax is to 12 be accounted for on the gross amount of the distribution in accordance with 13 regulations relating to deduction of tax at source, the company may set off the 14 amount deducted at source which it has itse…"
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.8–12",
-          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00042",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.45–46",
+          "quote": "and (c) 2030 year of assessment and thereafter, 2% which shall be solely for the Student Education Loan Fund. (2) The Service shall collect the levy and pay it into a special account created for that purpose. (3) The revenue accruing from the levy shall be distributed as follows- (a) Tertiary Education Trust Fund—…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:09:58.755774",
+      "route": "qa",
+      "refusal": false
     }
   },
   {
@@ -873,18 +1034,39 @@
     "expected_route": "claim_check",
     "got_route": "claim_check",
     "expect_citations": true,
-    "got_citations_n": 0,
+    "got_citations_n": 3,
     "expect_refusal": false,
-    "got_refusal": true,
-    "contains_ok": false,
+    "got_refusal": false,
+    "contains_ok": true,
     "route_ok": true,
-    "citations_ok": false,
-    "refusal_ok": false,
+    "citations_ok": true,
+    "refusal_ok": true,
     "raw": {
-      "answer": "I get why that would worry you. I couldn’t find a clause in the uploaded excerpts that supports that exact claim.\n\nQuick check: which tax do you mean?\n• VAT?\n• Personal income tax (PAYE)?\n• Company income tax (CIT)?\n\nOnce you specify, I’ll pull the exact clause (with page citations) if it exists in your PDFs.",
-      "refusal": true,
+      "answer": "Claim: Twitter says VAT sharing is now 60% derivation. Is that in the documents?\n\nWhat the documents say (quotes):\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.47–48) \"…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.15–16) \"…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23.\"\n- (HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf p.31–32) \"…hall not be charged to further 10 tax. 11 (4) Where a franked investment income is redistributed and tax is to 12 be accounted for on the gross amount of the distribution in accordance with 13 regulations relating to deduction of tax at source, the company may set off the 14 amount deducted at source which it has itse…\"\n\nConclusion: Confirmed by the excerpts.",
+      "session_id": "EVAL-CC10",
+      "citations": [
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00047",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.47–48",
+          "quote": "…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00031",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.31–32",
+          "quote": "…hall not be charged to further 10 tax. 11 (4) Where a franked investment income is redistributed and tax is to 12 be accounted for on the gross amount of the distribution in accordance with 13 regulations relating to deduction of tax at source, the company may set off the 14 amount deducted at source which it has itse…"
+        }
+      ],
+      "timestamp": "2026-01-05T23:10:04.792285",
       "route": "claim_check",
-      "citations": []
+      "refusal": false
     }
   },
   {
@@ -894,7 +1076,7 @@
     "expected_route": "compare",
     "got_route": "compare",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -902,17 +1084,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) What the excerpts describe as the CURRENT/EXTANT system:\n- The current company income tax rate is 30%.\n\nB) What the excerpts describe as the PROPOSED/NEW approach:\n- The proposed company income tax rate will be reduced to 27.5% for the year 2025.\n- The rate will further decrease to 25% for subsequent years.\n\nC) Differences explicitly supported by the excerpts:\n- The current rate of 30% will be lowered to 27.5% in 2025.\n- After 2025, the rate will be further reduced to 25%.\n\nD) What is unclear from these excerpts:\n- The specific criteria or conditions under which these new rates will apply are not mentioned.\n- It is unclear if there are any exceptions or additional provisions related to the proposed rates.\n\nE) Overall, the proposed changes aim to lower the company income tax rate, making it more favorable for businesses in the coming years!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- The current company income tax rate is not explicitly stated in the provided excerpts.\n- Companies, including those exempt from incorporation, are required to file income tax returns under the Nigeria Tax Act or other tax laws.\n\nB) PROPOSED/NEW approach:\n- The proposed changes do not specify a new company income tax rate in the provided excerpts.\n- The new approach includes detailed requirements for companies to provide information about their taxable supplies and the derivation of these supplies by location.\n\nC) Differences explicitly supported by the excerpts:\n- There is no explicit mention of a change in the company income tax rate between the current and proposed systems in the excerpts provided.\n- The proposed system emphasizes the need for detailed reporting of taxable supplies, which may not be as emphasized in the current system.\n\nD) What is unclear from these excerpts:\n- The specific company income tax rate under both the current and proposed systems is not mentioned.\n- The overall impact of the proposed changes on tax liabilities is not clear.\n\nE) In summary, while the excerpts provide some insights into reporting requirements, they do not clarify the company income tax rates.",
+      "session_id": "EVAL-CMP01",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:10:15.773262",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -930,29 +1126,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The powers over VAT are retained by the Service.\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) PROPOSED/NEW approach:\n- The proposed changes aim to consolidate the legal frameworks of various tax acts, including the Value Added Tax Act.\n- The new approach seeks a fairer and more consumption-aligned distribution of VAT revenue.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed system includes a consolidation of legal frameworks, which is not mentioned in the current system.\n- The new approach emphasizes a fairer distribution of VAT revenue, contrasting with the existing system's lack of focus on consumption alignment.\n\nD) What is unclear from these excerpts:\n- The specific mechanisms for achieving a fairer distribution of VAT revenue are not detailed.\n- The implications of consolidating the legal frameworks on VAT administration are not explained.\n\nE) Overall, the proposed changes aim to improve VAT distribution and streamline tax laws for better efficiency!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- 60% of the amount credited to states and local governments is distributed based on derivation.\n- Tax authorities must provide details of taxable supplies by location for attribution purposes.\n\nB) PROPOSED/NEW approach:\n- A special account will be created for revenue from the levy.\n- Revenue distribution will change, with specific percentages allocated to the Tertiary Education Trust Fund over different years.\n\nC) Differences explicitly supported by the excerpts:\n- The new system introduces a special account for revenue, which is not mentioned in the current system.\n- The distribution percentages for the Tertiary Education Trust Fund are specified for future years, indicating a structured approach to revenue allocation that differs from the current method.\n\nD) What is unclear from these excerpts:\n- The exact mechanism of how the new special account will operate is not detailed.\n- It is unclear how the changes in revenue distribution will impact local governments and states beyond the specified percentages.\n\nIn summary, the proposed changes to VAT derivation introduce a special account and a structured revenue distribution plan, marking a shift from the current system.",
+      "session_id": "EVAL-CMP02",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00047",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.47–48",
+          "quote": "…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…"
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.7–8",
-          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.4–5",
-          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00043",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.46–47",
+          "quote": "pecial account created for that purpose. (3) The revenue accruing from the levy shall be distributed as follows- (a) Tertiary Education Trust Fund— 46 (i) 50% in 2025 and 2026 years of assessment, (ii) 66⅔% in 2027, 2028 and 2029 years of assessment, (iii) 0% in 2030 year of assessment and thereafter;"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:10:26.487353",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -970,29 +1168,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n- The Federal Inland Revenue Service retains powers over VAT.\n\nB) PROPOSED/NEW approach:\n- The reform proposes a fairer and more consumption-aligned distribution of VAT revenue.\n- Certain sectors, such as healthcare, will enjoy a 0% VAT rate, while rent, public transportation, and renewable energy will be exempted.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed system aims for a more equitable distribution of VAT revenue compared to the current system.\n- The new approach introduces specific exemptions for low-income households, which are not mentioned in the current system.\n\nD) What is unclear from these excerpts:\n- The specific details of how the new VAT distribution formula will be implemented are not provided.\n- The exact implications of the proposed changes on revenue generation and allocation are not discussed.\n\nE) Overall, the proposed reforms aim to create a more equitable VAT system that supports low-income households!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- 60% of the VAT amount credited to states and local governments is distributed based on derivation.\n- The relevant tax authority must provide details of taxable supplies by location for attribution purposes.\n\nB) PROPOSED/NEW approach:\n- The proposed reform does not specify a new distribution formula for VAT in the provided excerpts.\n\nC) Differences explicitly supported by the excerpts:\n- The excerpts do not outline any differences between the current VAT distribution formula and the proposed approach.\n\nD) What is unclear from these excerpts:\n- The proposed changes to the VAT distribution formula are not detailed in the excerpts.\n- It is unclear if there are any new criteria or methods for distribution in the reform.\n\nE) In summary, the current VAT distribution relies on derivation, but the proposed changes are not clearly defined in the excerpts provided.",
+      "session_id": "EVAL-CMP03",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00047",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.47–48",
+          "quote": "…to the Local Governments. 15 provided that 60% of the amount standing to the credit of states and local 16 governments shall be distributed among them on the basis of derivation. Transfer of tax 17 78.-(1) The relevant tax authority, shall, not later than 7 days after the revenue for refund 18 end of each month, furni…"
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.4–5",
-          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00116",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.119–120",
+          "quote": "…lied to National Grid or Nigeria Bulk Electricity Trading Company (NBET); (j) Electricity transmitted by Transmission Company of Nigeria (TCN) to Electricity Distribution Companies (DISCOs); (k) medical services; (l) tuition relating to nursery, primary, secondary or tertiary education;"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:10:36.574024",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -1010,29 +1210,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- Oil and gas exports are exempt from VAT.\n- Crude petroleum oil is also exempt from VAT.\n\nB) PROPOSED/NEW approach:\n- The proposed exemption list will include new introductions along with items that were previously zero-rated.\n\nC) Differences explicitly supported by the excerpts:\n- The current system has specific exemptions (oil and gas exports, crude petroleum oil), while the proposed system will expand the exemption list to include new items in addition to those already zero-rated.\n\nD) What is unclear from these excerpts:\n- The specific new items that will be added to the exemption list are not detailed.\n- It is unclear how the proposed changes will affect existing exemptions.\n\nE) In summary, the proposed VAT exemptions aim to broaden the list while maintaining some current exemptions, but details on new items are still needed!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- Exempt supplies from VAT include oil and gas exports.\n- Transfers for salary payments and intra-bank self-transfers are also exempt if below N 10,000.00 or its equivalent in other currencies.\n\nB) PROPOSED/NEW approach:\n- The excerpts do not provide specific details on new VAT exemptions or changes to the current exemptions.\n\nC) Differences explicitly supported by the excerpts:\n- There are no explicit differences mentioned regarding VAT exemptions between the current and proposed systems in the provided excerpts.\n\nD) What is unclear from these excerpts:\n- The proposed changes to VAT exemptions are not detailed in the excerpts.\n- It is unclear if any new categories of exempt supplies will be introduced in the proposed system.\n\nE) In summary, while the current VAT exemptions include oil and gas exports and certain low-value transfers, the proposed changes are not clearly outlined in the provided information.",
+      "session_id": "EVAL-CMP04",
       "citations": [
         {
-          "chunk_id": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf::c00057",
-          "source": "HB-1759-The-Nigeria-Tax-Bill-2024.pdf",
-          "pages": "p.118–120",
-          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00115",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.118–119",
+          "quote": "…f money of a sum below N 10,000.00 or its equivalent in other currencies, transfers for salary payment and intra-bank self transfers. S PART IV EXEMPTION FROM VALUE ADDED TAX 187. Exempt supplies (1) The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports;"
         },
         {
-          "chunk_id": "NASS-Journal_Nigeria-Tax-Bill.pdf::c00057",
-          "source": "NASS-Journal_Nigeria-Tax-Bill.pdf",
-          "pages": "p.118–120",
-          "quote": "The following supplies arSe exempt from the VAT imposed under chapter six of this Act— (a) oil and gas exports; (b) crude petroleum oil and"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00004",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.5–7",
+          "quote": "…overing multiple transactions 140. Duty relating to multiple instruments covering same transaction 141. Provisions on non-monetary consideration 5 CHAPTER SIX VALUE ADDED TAX PART I IMPOSITION 142. Imposition of Value Added Tax 143. Charge of VAT 144. Taxable Supplies 145. Time of Supply 146. Rate of VAT S 147."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.8–9",
-          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:10:48.280377",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -1050,29 +1252,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The powers over VAT are retained by the Service.\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) PROPOSED/NEW approach:\n- The new approach aims to consolidate the legal frameworks of various tax acts, including the Value Added Tax Act.\n- It proposes a fairer and more consumption-aligned distribution of VAT revenue.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed system seeks to consolidate legal frameworks, which may streamline VAT regulations.\n- The new approach emphasizes a fairer distribution of VAT revenue compared to the current system.\n\nD) What is unclear from these excerpts:\n- Specific details on how the consolidation of legal frameworks will affect VAT filing processes are not provided.\n- The exact mechanisms for achieving a fairer distribution of VAT revenue are not detailed.\n\nE) Overall, the proposed changes aim to improve the VAT system in Nigeria, making it more efficient and equitable!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- A taxable person must submit a Value Added Tax (VAT) return regardless of whether an economic activity has occurred.\n- Returns are submitted at a time prescribed by the Service.\n\nB) PROPOSED/NEW approach:\n- The new bill emphasizes providing details of the derivation of taxable supplies by location in the VAT return.\n- The timing for submitting returns may be further prescribed by the Service.\n\nC) Differences explicitly supported by the excerpts:\n- The new approach requires more detailed information about taxable supplies, specifically by location, which was not mentioned in the current system.\n- The new bill may allow for more flexibility in the timing of return submissions, as it states that the Service may prescribe the time.\n\nD) What is unclear from these excerpts:\n- It is not clear how the new requirements for location-based details will be implemented or enforced.\n- The specific implications of the timing flexibility on compliance are not detailed.\n\nIn summary, the new VAT return requirements aim to enhance detail and flexibility, making the process clearer for taxpayers!",
+      "session_id": "EVAL-CMP05",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00006",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.7–8",
-          "quote": "Tax Act, Petroleum Profits Tax Act, the Value Added Tax Act, Stamp Duties Act, and Capital Gains Tax Act and (ii) consolidate the legal frameworks"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00014",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.14–15",
+          "quote": "…ons or any other incidental income and payment of tax in 13 respect of its non-freight or incidental income. 14 22.-(1) A taxable person shall, in respect of Value Added Tax Returns Value Added Tax 15 (VAT), with or without a notice and whether or not an economic activity has 16 taken place, submit a return to the Ser…"
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.4–5",
-          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00089",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.91–92",
+          "quote": "…nue deducted and not remitted. 2. The particulars of the revenue to be deducted and remitted are as follows- C 4750 Nigeria Tax Administration Bill, 2024 2024 Value Added Tax Amount of Tax N: K ………………………...................... ……………...................................... Withholding Tax Amount of Tax N: K ………………………....."
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:10:58.456308",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -1082,7 +1286,7 @@
     "expected_route": "compare",
     "got_route": "compare",
     "expect_citations": true,
-    "got_citations_n": 1,
+    "got_citations_n": 3,
     "expect_refusal": false,
     "got_refusal": false,
     "contains_ok": true,
@@ -1090,17 +1294,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The current companies income tax rate is 30%.\n\nB) PROPOSED/NEW approach:\n- The proposed companies income tax rate will be reduced to 27.5% for 2025 and further reduced to 25% for subsequent years.\n\nC) Differences explicitly supported by the excerpts:\n- The main difference is the reduction of the companies income tax rate from 30% to 27.5% in 2025, and then to 25% in the following years.\n\nD) What is unclear from these excerpts:\n- The excerpts do not provide information on the structure of tax authorities or any changes to their organization.\n\nE) It looks like the proposed tax reform aims to lower the companies income tax rate, which could be beneficial for businesses!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- Tax authorities require businesses to provide detailed information about their taxable supplies, including location.\n- Companies must submit income tax returns, regardless of their tax liability status.\n\nB) PROPOSED/NEW approach:\n- The new bill suggests that the tax authorities may prescribe specific times for submitting returns.\n- The bill emphasizes the need for detailed identification of shareholders and beneficial owners for incorporated entities and trusts.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed system allows the tax authorities to set specific deadlines for return submissions, which may differ from the current system.\n- The new approach places a stronger emphasis on transparency regarding ownership and control of companies and trusts.\n\nD) What is unclear from these excerpts:\n- The specific changes in the structure of tax authorities are not detailed in the excerpts.\n- It is unclear how the proposed changes will affect the overall efficiency of tax administration.\n\nE) In summary, the proposed tax reform aims to enhance transparency and flexibility in tax return submissions while maintaining essential reporting requirements.",
+      "session_id": "EVAL-CMP06",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "in companies income tax from the current rate of 30% to 27.5% for 2025 and 25% for subsequent years3. d. Workers earning ₦800,000 annually and"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00003",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.3–4",
+          "quote": "…) name, including trading name, location of business, telephone 11 numbers or e-mail address, and registered address; 12 (b) in the case of- 13 (i) an incorporated person, persons holding 5% or more of its share 14 capital, or the beneficial owner of the shares held by nominees, 15 (ii) a trust, the full identity, add…"
+        },
+        {
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00004",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.4–5",
+          "quote": "…re-issued with the same Tax ID. 11 CHAPTER TWO 12 RETURNS, ASSESSMENTS AND PAYMENTS 13 PART I - RETURNS 14 11.-(1) Every company, including a company granted exemption Income tax returns for companies 15 from incorporation, whether or not it is liable to pay tax under the Nigeria 16 Tax Act or any other tax law, for…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:11:09.966796",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -1118,29 +1336,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate on VAT.\n- The Federal Government retains the powers of the Service over VAT.\n\nB) PROPOSED/NEW approach:\n- The new framework may involve changes to how VAT is legislated and managed, potentially allowing for more collaboration between federal and state authorities.\n\nC) Differences explicitly supported by the excerpts:\n- The current system restricts the National Assembly's ability to legislate VAT, while the proposed changes may enable a more integrated approach to VAT management between federal and state levels.\n\nD) What is unclear from these excerpts:\n- The specific details of how the new framework will change the roles of federal and state authorities regarding VAT are not provided.\n- The exact mechanisms for collaboration or changes in authority are not outlined.\n\nE) It looks like the new tax reform could bring some exciting changes to how VAT is managed in Nigeria!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- Federal authorities are responsible for the assessment, collection, and accounting of revenue accruing to the federation.\n- State authorities have functions prescribed by state laws and are overseen by a State Board for overall supervision.\n\nB) PROPOSED/NEW approach:\n- Federal authorities will continue to make recommendations to the Joint Revenue Board on tax policy, reform, and related matters.\n- State authorities will still carry out functions as prescribed by state laws, with a focus on efficient performance.\n\nC) Differences explicitly supported by the excerpts:\n- The new framework emphasizes the federal authorities' role in making recommendations to the Joint Revenue Board, which may enhance collaboration on tax policy.\n- The establishment of a State Board for each State Service suggests a more structured oversight of state tax administration.\n\nD) What is unclear from these excerpts:\n- The specific changes in the powers and functions of federal and state authorities under the new framework are not detailed.\n- The impact of the proposed recommendations on the existing tax policies is not explained.\n\nE) Overall, the new framework aims to clarify roles while promoting better collaboration between federal and state tax authorities!",
+      "session_id": "EVAL-CMP07",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00050",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.50–51",
+          "quote": "…ection and administration; 25 (g) make recommendations, where appropriate, to the Joint 26 Revenue Board on tax policy, reform, legislation, treaties and tax exemption 27 as may be required, from time to time; and 28 (h) do such other things which in its opinion are necessary to ensure 29 efficient performance…"
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00001",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.5–8",
-          "quote": "more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00049",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.49–50",
+          "quote": "…nd 6 (e) carry out such other functions as may be prescribed by a law of the 7 State House of Assembly. Establishment 8 84.-(1) There is established for each State Service a Management and composition of the management 9 Board (State Board) which shall have overall supervision of the State Service board of the State…"
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00002",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.8–12",
-          "quote": "those with low margins, grant of input VAT credit to businesses on assets and services to reduce cost of investment, ability to pay taxes on"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00000",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.1",
+          "quote": "…56] C 4659 A BILL EXECUTIVE FOR AN ACT TO PROVIDE FOR THE ASSESSMENT, COLLECTION OF, AND ACCOUNTING FOR REVENUE ACCRUING TO THE FEDERATION, FEDERAL, STATES AND LOCAL GOVERNMENTS; PRESCRIBE THE POWERS AND FUNCTIONS OF TAX AUTHORITIES, AND FOR RELATED MATTERS [ ] Commencement ENACTED by the National Assembly of the Fede…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:11:16.679935",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -1158,29 +1378,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The current tax system does not specify penalties related to tax compliance or non-compliance in the provided excerpts.\n\nB) PROPOSED/NEW approach:\n- The proposed reforms aim for a fairer distribution of VAT revenue, which may imply changes in penalties related to VAT compliance.\n- The new approach suggests that 98% of workers will pay lower taxes, while the top 2% will pay slightly more, indicating a shift in tax burden that could affect penalties.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed reforms focus on a more equitable tax structure, which may lead to changes in how penalties are applied, particularly for different income brackets.\n\nD) What is unclear from these excerpts:\n- The specific details of the proposed tax penalties are not outlined in the excerpts.\n- It is unclear how the changes in tax distribution will directly impact penalties for non-compliance.\n\nE) In summary, the proposed tax reforms suggest a shift towards a fairer system, but details on penalties remain unclear.",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- Tax due carries interest at the prevailing monetary policy rate of the Central Bank of Nigeria.\n- A penalty of N10,000 is imposed for the first day of default, with an additional N10,000 for each subsequent day of continued default.\n- Failure to provide requested information or documents results in penalties as determined by the existing tax laws.\n\nB) PROPOSED/NEW approach:\n- Interest on tax due will be set at 2% above the prevailing Central Bank Monetary Policy Rate.\n- A fixed penalty of N10,000,000 will be introduced for certain tax-related defaults.\n\nC) Differences explicitly supported by the excerpts:\n- The interest rate for tax due will increase from the prevailing monetary policy rate to 2% above it.\n- The penalty for certain defaults will significantly increase from N10,000 to N10,000,000.\n\nD) What is unclear from these excerpts:\n- The specific circumstances under which the new N10,000,000 penalty will apply are not detailed.\n- The criteria for determining the \"spread\" to be added to the interest rate is not explained.\n\nE) Overall, the proposed reforms suggest a significant increase in penalties for tax defaults, aiming to enhance compliance!",
+      "session_id": "EVAL-CMP08",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.4–5",
-          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00064",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.64–65",
+          "quote": "interest at 2% above the prevailing Central Bank Monetary 29 Policy Rate. 30 (2) In addition to the provisions of subsection (1) of this section, the 2024 Nigeria Tax Administration Bill, 2024 C 4723 1 licensee or lessee shall be liable to- 2 (a) N 10,000,000."
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00001",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.5–8",
-          "quote": "more than 20 government institutions, the organised private sector, trade associations, professional bodies, professional services firms, and the civil society. The composition ensures there is"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00041",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.41–42",
+          "quote": "…apply to the collection and recovery of the sum; 6 (b) in the case of naira remittances, the tax due shall carry interest at 7 the prevailing monetary policy rate of the Central Bank of Nigeria plus spread 8 to be determined by the Minister from the date when the tax becomes payable 9 until it is paid, and the provisi…"
         },
         {
-          "chunk_id": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf::c00003",
-          "source": "The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf",
-          "pages": "p.12–16",
-          "quote": "98% of workers in the public and private sector paying lower taxes while the top 2% will pay YOU ASK, slightly more in a progressive"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00056",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.56–57",
+          "quote": "…first day of 14 default and N 10,000.00 for every subsequent day where the default 15 continues. 16 (2) A person who fails or refuses to supply information, 17 documents, or records as demanded or requested for by an authorised officer 18 relating to any tax issue under this Act or any other tax law within the time…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:11:24.490901",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -1198,29 +1420,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The tax service retains powers over VAT.\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n\nB) PROPOSED/NEW approach:\n- A new exemption list for VAT is proposed, which includes new introductions along with items that were previously zero-rated.\n- Healthcare will enjoy a 0% VAT rate, while rent, public transportation, and renewable energy will be exempted.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed approach introduces a new exemption list for VAT, expanding the categories of goods and services that are exempt.\n- The current system does not allow the National Assembly to legislate VAT, while the proposed changes may imply a shift in how exemptions are managed.\n\nD) What is unclear from these excerpts:\n- The specific details on how the new exemption list will be implemented and enforced are not provided.\n- It is unclear if the proposed changes will affect the existing powers of the tax service over VAT.\n\nE) Overall, these changes aim to provide more relief for low-income households while potentially reshaping the VAT landscape!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- VAT is imposed on taxable supplies and charged at a specified rate.\n- Returns must include details of taxable supplies, but the specifics of how this is done are not clearly defined.\n- VAT collected must be remitted to the tax service by the 14th day of the month following the transaction.\n\nB) PROPOSED/NEW approach:\n- The tax service will have the authority to prescribe the timing for VAT returns.\n- Returns will need to provide detailed information about the derivation of taxable supplies by location, as prescribed by the service.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed system grants the tax service more power to dictate the timing of VAT returns.\n- The new approach requires more detailed reporting on taxable supplies, including location, which is not specified in the current system.\n\nD) What is unclear from these excerpts:\n- The specific details of how the tax service will prescribe the timing for VAT returns are not provided.\n- It is unclear how the new requirements for location-based reporting will be implemented in practice.\n\nIn summary, the proposed changes aim to enhance the tax service's authority and improve reporting requirements for VAT.",
+      "session_id": "EVAL-CMP09",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00004",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.5–7",
+          "quote": "…overing multiple transactions 140. Duty relating to multiple instruments covering same transaction 141. Provisions on non-monetary consideration 5 CHAPTER SIX VALUE ADDED TAX PART I IMPOSITION 142. Imposition of Value Added Tax 143. Charge of VAT 144. Taxable Supplies 145. Time of Supply 146. Rate of VAT S 147."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+          "chunk_id": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf::c00015",
+          "source": "HB.-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf",
+          "pages": "p.15–16",
+          "quote": "…time or at such other time as the Service may 14 prescribe. 15 (12) For the purpose of attribution, any return under this section shall 16 provide details of derivation of taxable supplies by location in a manner 17 prescribed by the Service. Value Added 18 23."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00007",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.8–9",
-          "quote": "list of goods and services exempt from VAT. The proposed exemption list comprises the new introductions in addition to items that were previously zero-rated. One"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00098",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.101–102",
+          "quote": "e and address of the contractor or supplier, invoice number, gross amount of invoice, amount of the VAT and the month to which the return relates. 101 (4) The VAT collected, withheld or self-accounted under this section shall be remitted to the Service on or before the 14 t h day of the month immediately following…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:11:34.932413",
+      "route": "compare",
+      "refusal": false
     }
   },
   {
@@ -1238,29 +1462,31 @@
     "citations_ok": true,
     "refusal_ok": true,
     "raw": {
-      "answer": "A) CURRENT/EXTANT system:\n- The National Assembly currently lacks the constitutional powers to legislate VAT.\n- The Federal Inland Revenue Service retains powers over VAT.\n\nB) PROPOSED/NEW approach:\n- Healthcare will enjoy a 0% VAT rate.\n- Rent, public transportation, and renewable energy will be exempt from VAT.\n- The proposed changes aim for a fairer and more consumption-aligned distribution of VAT revenue.\n\nC) Differences explicitly supported by the excerpts:\n- The proposed system introduces specific exemptions and a 0% VAT rate for certain sectors, which is not mentioned in the current system.\n- The new approach seeks to address the distribution of VAT revenue more equitably compared to the current system.\n\nD) What is unclear from these excerpts:\n- The specific mechanisms for implementing the proposed VAT changes are not detailed.\n- The impact of these changes on overall VAT revenue and compliance is not addressed.\n\nIn summary, the proposed VAT reforms aim to provide relief for low-income households while ensuring a fairer distribution of VAT revenue!",
-      "refusal": false,
-      "route": "compare",
+      "answer": "A) CURRENT/EXTANT system:\n- VAT is imposed on taxable supplies.\n- The charge of VAT occurs at the time the taxable supply is delivered or when payment is received, whichever happens first.\n- VAT is remitted to the tax authority by the 14th day of the month following the transaction.\n\nB) PROPOSED/NEW approach:\n- The proposed bill includes provisions for multiple transactions and non-monetary considerations.\n- The rate of VAT will be subject to specific provisions outlined in a later chapter of the bill.\n\nC) Differences explicitly supported by the excerpts:\n- The new approach introduces regulations for multiple instruments covering the same transaction and non-monetary considerations, which are not mentioned in the current system.\n- The proposed bill indicates that the VAT rate will be defined in a separate part of the legislation, suggesting potential changes to the current VAT rate structure.\n\nD) What is unclear from these excerpts:\n- The specific rates of VAT under the proposed system are not detailed.\n- The implications of the provisions for multiple transactions and non-monetary considerations are not fully explained.\n\nE) In summary, the proposed VAT changes aim to clarify multiple transaction scenarios while potentially adjusting the VAT rate structure!",
+      "session_id": "EVAL-CMP10",
       "citations": [
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00002",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.3–4",
-          "quote": "retain the powers of the Service over VAT. However, the National Assembly presently lacks the constitutional powers to legislate VAT as was decided by the"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00004",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.5–7",
+          "quote": "…overing multiple transactions 140. Duty relating to multiple instruments covering same transaction 141. Provisions on non-monetary consideration 5 CHAPTER SIX VALUE ADDED TAX PART I IMPOSITION 142. Imposition of Value Added Tax 143. Charge of VAT 144. Taxable Supplies 145. Time of Supply 146. Rate of VAT S 147."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00000",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.1–2",
-          "quote": "healthcare will enjoy 0%5 Value Added Tax (VAT) while rent, public transportation, and renewable energy will be exempted6, providing relief for low-income households that spend"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00094",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.97–98",
+          "quote": "…xable supply is delivered or the time any payment of consideration is received by the supplier in respect of the supply, whichever occurs first. 146. Rate of VAT Subject to the provisions of part IV of chapter eight of this Act, VAT shall be charged on the value of all taxable supplies at the following rates — a."
         },
         {
-          "chunk_id": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf::c00003",
-          "source": "Analysis-of-the-Nigerian-Tax-Reform-Bills.pdf",
-          "pages": "p.4–5",
-          "quote": "a fairer and more consumption-aligned distribution of VAT revenue.16 15 Clause 77 of the Nigeria Tax Administration Bill 16 Clause 22(12) of the Nigeria Tax"
+          "chunk_id": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf::c00098",
+          "source": "HB.-1759-The-Nigeria-Tax-Bill-2024.pdf",
+          "pages": "p.101–102",
+          "quote": "e and address of the contractor or supplier, invoice number, gross amount of invoice, amount of the VAT and the month to which the return relates. 101 (4) The VAT collected, withheld or self-accounted under this section shall be remitted to the Service on or before the 14 t h day of the month immediately following…"
         }
-      ]
+      ],
+      "timestamp": "2026-01-05T23:11:45.231594",
+      "route": "compare",
+      "refusal": false
     }
   }
 ]
