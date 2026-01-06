@@ -2,23 +2,28 @@ from __future__ import annotations
 
 import json
 import re
-from typing import TypedDict, Literal, Annotated, Any, Dict
+from typing import Literal, Any, Dict
 
-from langgraph.graph import START, END, StateGraph
-from langgraph.graph.message import add_messages
+from langgraph.graph import START, END, StateGraph, MessagesState
 from langgraph.checkpoint.memory import MemorySaver
 
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
 from .config import settings
-from .prompts import ROUTER, SMALLTALK_PROMPT, CLARIFY_PROMPT, QA_PROMPT
+from .prompts import (
+    ROUTER,
+    SMALLTALK_PROMPT,
+    CLARIFY_PROMPT,
+    QA_PROMPT,
+    CLAIM_CHECK_PROMPT,
+    COMPARE_PROMPT,
+)
 from .retriever import retrieve
 from .cite import build_citations
 
 
-class TaxState(TypedDict, total=False):
-    messages: Annotated[list, add_messages]
+class TaxState(MessagesState, total=False):
     route: str
     need_retrieval: bool
     retrieved: list
@@ -32,6 +37,7 @@ WRITE_LLM = ChatOpenAI(model=settings.openai_chat_model, temperature=0)
 
 # Patterns
 PERCENT_RE = re.compile(r"\b\d+(\.\d+)?\s*%|\b\d+(\.\d+)?\s*percent\b", re.IGNORECASE)
+RATE_WORD_RE = re.compile(r"\brate(s)?\b", re.IGNORECASE)
 
 SMALLTALK_RE = re.compile(
     r"^\s*(hi|hello|hey|good\s*(morning|afternoon|evening)|how\s+are\s+you|thanks?|thank\s+you)\b",
@@ -53,6 +59,7 @@ CLAIM_RE = re.compile(
     r"\b(i\s+heard|rumou?r|twitter\s+says|people\s+said|is\s+it\s+true|true\s+or\s+false|they\s+increased|destroy\s+the\s+north|50%\b|50\s*percent\b)\b",
     re.IGNORECASE,
 )
+
 # strong policy keywords => should retrieve
 STRONG_POLICY_RE = re.compile(
     r"\b(derivation|allocation|distribution|proceeds|exemptions?|exempt|rate|penalt(y|ies)|return(s)?|filing|credit|input\s+vat|output\s+vat)\b",
@@ -64,6 +71,7 @@ BILL_REF_RE = re.compile(
     r"\b(hb[-\s]?(1756|1757|1758|1759)|nigeria\s+tax\s+bill|tax\s+administration\s+bill|revenue\s+service\s+establishment|joint\s+revenue\s+board)\b",
     re.IGNORECASE,
 )
+
 
 def _json_call(llm: ChatOpenAI, system: str, user: str) -> Dict[str, Any]:
     resp = llm.invoke([SystemMessage(content=system), HumanMessage(content=user)])
@@ -136,21 +144,20 @@ def _deterministic_route(user_text: str) -> str | None:
         return "claim_check"
 
     # 4) Strong policy signal => QA (retrieve)
-    # Examples: "VAT derivation", "VAT distribution", "tax rate", "penalties", "exemptions", "HB-1756"
     if BILL_REF_RE.search(t) or STRONG_POLICY_RE.search(t):
         return "qa"
 
     # 5) Clarify only when it's generic/vague
-    # "Explain the tax reforms", "Help me understand the bills", "Tell me about VAT"
     if len(t.split()) <= 7 and CLARIFY_RE.search(t):
         return "clarify"
 
     return None
 
+
 def route_node(state: TaxState) -> TaxState:
     user_text = _last_user_text(state)
 
-    # ✅ deterministic first
+    # deterministic first
     d = _deterministic_route(user_text)
     if d is not None:
         route = d
@@ -209,24 +216,138 @@ def answer_node(state: TaxState) -> TaxState:
 
     citations = build_citations(user_text, retrieved, max_cites=3)
 
-    if route == "claim_check" and not citations:
+    # -------------------------
+    # CLAIM CHECK PATH
+    # -------------------------
+    if route == "claim_check":
+        claim_num = _extract_claim_number(user_text)
+        ql = (user_text or "").lower()
+
+        # Detect claim type
+        is_vat_claim = ("vat" in ql) or ("value added tax" in ql)
+        is_distribution_claim = any(
+            k in ql for k in ["derivation", "distribution", "allocation", "proceeds", "vat sharing"]
+        )
+        is_rate_claim = (claim_num is not None) or ("rate" in ql) or ("%" in ql) or ("percent" in ql)
+
+        def _looks_like_vat_quote(q: str) -> bool:
+            t = (q or "").lower()
+            return ("vat" in t) or ("value added tax" in t)
+
+        def _looks_like_distribution_quote(q: str) -> bool:
+            t = (q or "").lower()
+            return (
+                (
+                    "distributed" in t
+                    or "distribution" in t
+                    or "allocation" in t
+                    or "credit of states" in t
+                    or "local government" in t
+                    or "states" in t
+                    or "f.c.t" in t
+                    or "derivation" in t
+                )
+                and ("rate" not in t)
+            )
+
+        def _looks_like_penalty_quote(q: str) -> bool:
+            t = (q or "").lower()
+            return ("penalty" in t) or ("administrative penalty" in t)
+
+        def _looks_like_vat_rate_quote(q: str) -> bool:
+            """
+            A "VAT rate" quote must:
+            - mention VAT (or Value Added Tax)
+            - AND contain either an explicit percent OR the word rate/rates
+            """
+            if not _looks_like_vat_quote(q):
+                return False
+            return bool(PERCENT_RE.search(q or "")) or bool(RATE_WORD_RE.search(q or ""))
+
+        # 1) Filter obvious mismatches (penalties, distribution-share % when user means "tax rate")
+        filtered = []
+        for c in citations:
+            q = (c.get("quote") or "")
+
+            if _looks_like_penalty_quote(q) and ("penalty" not in ql):
+                continue
+
+            # If user is asking about a "rate" claim (e.g., "50% tax") but not distribution,
+            # do not use distribution-share percentages as evidence.
+            if is_rate_claim and (not is_distribution_claim):
+                if _looks_like_distribution_quote(q):
+                    continue
+
+            filtered.append(c)
+
+        if filtered:
+            citations = filtered
+
+        # 2) Special guard: VAT + RATE claims should NEVER cite non-VAT evidence (e.g., CIT rates).
+        if is_vat_claim and is_rate_claim and (not is_distribution_claim):
+            # Try targeted retrieval for VAT rate clauses
+            extra_docs = []
+            for qq in [
+                "VAT rate",
+                "Value Added Tax rate",
+                "rate of Value Added Tax",
+                "Charge of VAT",
+                "VAT is imposed",
+                "chapter six Value Added Tax",
+            ]:
+                extra_docs.extend(retrieve(qq))
+
+            extra_cites = build_citations("VAT rate", extra_docs, max_cites=8)
+            extra_cites = [c for c in extra_cites if _looks_like_vat_rate_quote(c.get("quote", ""))]
+
+            if extra_cites:
+                citations = extra_cites[:3]
+            else:
+                # Fallback: at least keep VAT-related evidence only (drop CIT-only quotes).
+                citations = [c for c in citations if _looks_like_vat_quote(c.get("quote", ""))]
+
+        quotes = [c.get("quote", "") for c in citations]
+
+        evidence_quotes = "\n".join(
+            f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"'
+            for c in citations
+        )
+
+        # Verdict logic (deterministic)
+        verdict = "Unclear"
+        if claim_num:
+            if any(_has_exact_percent(q, claim_num) for q in quotes):
+                verdict = "Confirmed"
+            elif any(_has_any_percent(q) for q in quotes):
+                verdict = "Not confirmed"
+            else:
+                verdict = "Unclear"
+        else:
+            verdict = "Not confirmed"
+
+        prompt = CLAIM_CHECK_PROMPT.format(
+            claim=user_text.strip(),
+            verdict=verdict,
+            evidence_quotes=evidence_quotes,
+        )
+
+        answer = WRITE_LLM.invoke([HumanMessage(content=prompt)]).content.strip()
+
         payload = {
-            "answer": (
-                "I get why that would worry you. I couldn’t find a clause in the uploaded excerpts that supports that exact claim.\n\n"
-                "Quick check: which tax do you mean?\n"
-                "• VAT?\n• Personal income tax (PAYE)?\n• Company income tax (CIT)?\n\n"
-                "Once you specify, I’ll pull the exact clause (with page citations) if it exists in your PDFs."
-            ),
-            "citations": [],
-            "refusal": True,
+            "answer": answer,
+            "citations": citations,
+            "refusal": False,
             "route": route,
         }
         return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
+    # -------------------------
+    # QA / COMPARE PATHS
+    # -------------------------
     if not citations:
         payload = {
             "answer": (
-                "I want to be careful here — I couldn’t find a clear clause in your PDFs that answers that exactly.\n\n"
+                "I want to be careful here — I couldn’t find a clear clause in my memory that answers that exactly.\n\n"
                 "Quick ways to help me locate it:\n"
                 "• Mention the bill: HB-1759 / HB-1756 / HB-1757 / HB-1758\n"
                 "• Add keywords you expect to appear (e.g., “VAT derivation”, “distribution of proceeds”, “tax rate”, “exemption”)\n"
@@ -238,45 +359,12 @@ def answer_node(state: TaxState) -> TaxState:
         }
         return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
 
-    if route == "claim_check":
-        claim_num = _extract_claim_number(user_text)
-        quotes = [c["quote"] for c in citations]
-        joined = "\n".join(
-            f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations
-        )
-
-        conclusion = "Unclear from these excerpts."
-        if claim_num:
-            if any(_has_exact_percent(q, claim_num) for q in quotes):
-                conclusion = "Confirmed by the excerpts."
-            elif any(_has_any_percent(q) for q in quotes):
-                conclusion = "Not confirmed by the excerpts."
-            else:
-                conclusion = "Unclear from these excerpts."
-
-        answer = (
-            f"Claim: {user_text}\n\n"
-            f"What the documents say (quotes):\n{joined}\n\n"
-            f"Conclusion: {conclusion}"
-        )
-        payload = {"answer": answer, "citations": citations, "refusal": False, "route": route}
-        return {"messages": [AIMessage(content=json.dumps(payload, ensure_ascii=False))], "retrieved": []}
-
     if route == "compare":
         quotes_block = "\n".join([f'- ({c["source"]} {c["pages"]}) "{c["quote"]}"' for c in citations])
-        prompt = (
-            "You are a Nigerian Tax Reform Bills (2024) assistant.\n"
-            "Be friendly, neutral, and plain-language.\n"
-            "Use ONLY the quotes below.\n"
-            "Do NOT assume what the old law says unless a quote explicitly describes the current/extant system.\n\n"
-            "Write exactly this structure:\n"
-            "A) What the excerpts describe as the CURRENT/EXTANT system (bullets)\n"
-            "B) What the excerpts describe as the PROPOSED/NEW approach (bullets)\n"
-            "C) Differences explicitly supported by the excerpts (bullets)\n"
-            "D) What is unclear from these excerpts (1–2 bullets)\n"
-            "E) One short summary sentence (friendly tone)\n\n"
-            "Keep it concise (140–220 words).\n\n"
-            f"USER QUESTION: {user_text}\n\nEVIDENCE QUOTES:\n{quotes_block}\n"
+
+        prompt = COMPARE_PROMPT.format(
+            user_question=user_text,
+            evidence_quotes=quotes_block,
         )
 
         answer = WRITE_LLM.invoke([HumanMessage(content=prompt)]).content.strip()
@@ -307,10 +395,10 @@ def build_graph():
     g.add_edge(START, "route")
 
     def pick_path(s: TaxState) -> Literal["smalltalk", "clarify", "retrieve"]:
-        route = s.get("route", "qa")
-        if route == "smalltalk":
+        r = s.get("route", "qa")
+        if r == "smalltalk":
             return "smalltalk"
-        if route == "clarify":
+        if r == "clarify":
             return "clarify"
         return "retrieve"
 

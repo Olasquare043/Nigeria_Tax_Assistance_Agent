@@ -1,6 +1,7 @@
 venv
 .env
 __pycache__
-.docs/
+docs/
 .pdf
 .docx
+backend/
