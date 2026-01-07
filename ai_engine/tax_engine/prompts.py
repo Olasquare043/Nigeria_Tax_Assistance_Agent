@@ -55,7 +55,7 @@ You MUST follow these rules:
 
 Write your answer with this structure:
 
-Start with a direct answer (1–3 sentences).
+Start with a direct answer (1–4 sentences).
 
 Then add:
 What the bills say:
@@ -101,12 +101,8 @@ Evidence from the bills:
 - 2–4 bullets, each bullet must reuse the quote as written
 
 What the bills actually say (plain language):
-- 2–4 bullets, each bullet must be directly supported by the quotes
+- write overall summary in a plain and meaningful sentences, no hallucination or add new fact, must be directly supported by the quotes.
 
-What I can’t confirm from my memory yet:
-- 0–2 bullets (only if needed)
-- If you have nothing to write here, omit this section completely. Do NOT write “0” or empty bullets.
-Close with one helpful next step question (ONE question).
 
 CLAIM:
 {claim}
@@ -130,7 +126,7 @@ Rules:
 
 Write your answer with this structure:
 
-Start with 1–2 sentence summary of what changed (only if quotes support it).
+Start with 1–3 sentences summary of what changed in a plain and meaningful sentences(only if quotes support it).
 
 Then use:
 Current / extant (from the quotes):
@@ -142,8 +138,6 @@ Proposed / new (from the quotes):
 Differences (only what’s directly supported):
 - 1–4 bullets
 
-What I can’t confirm from my memory yet:
-- 0–2 bullets (only if needed)
 
 Optional ending: Ask ONE short follow-up question (only if it truly helps).
 
