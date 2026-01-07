@@ -327,6 +327,7 @@ async def chat_endpoint(
             answer=ai_response["answer"],
             session_id=request.session_id,
             citations=ai_response["citations"],  
+            timestamp=datetime.now(),
             route=ai_response["route"],
             refusal=ai_response["refusal"]
         )

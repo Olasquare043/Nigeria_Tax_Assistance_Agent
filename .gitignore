@@ -4,7 +4,7 @@ __pycache__
 docs/
 .pdf
 .docx
-backend/
 node_modules
 package-lock.json
 package.json
+chroma_db
