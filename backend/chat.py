@@ -23,7 +23,7 @@ if str(PROJECT_ROOT) not in sys.path:
 # AI Engine imports
 try:
     from ai_engine.tax_engine.agent_graph import build_graph
-    from langchain_core.messages import HumanMessage
+    from langchain_core.messages import HumanMessage, AIMessage
     AI_ENGINE_AVAILABLE = True
 except ImportError as e:
     print(f"⚠️ AI Engine import failed: {e}")
@@ -197,18 +197,76 @@ def get_conversation_history(db: Session, session_id: str, limit: int = 50) -> L
         print(f"⚠️ Error fetching history: {e}")
         return []
 
+def get_recent_conversation_history(db: Session, session_id: str, last_n_messages: int = 5) -> List[Dict]:
+    """Get only the last N messages from conversation history"""
+    try:
+        result = db.execute(
+            text("""
+                SELECT m.id, m.role, m.text, m.timestamp, m.citations, m.route
+                FROM messages_table m
+                JOIN conversations_table c ON m.conversation_id = c.id
+                WHERE c.session_id = :session_id
+                ORDER BY m.timestamp DESC
+                LIMIT :limit
+            """),
+            {"session_id": session_id, "limit": last_n_messages}
+        )
+        
+        messages = []
+        for row in result:
+            citations = None
+            if row[4]:
+                try:
+                    citations_raw = json.loads(row[4])
+                    citations = [Citation(**cite) for cite in citations_raw]
+                except:
+                    pass
+            
+            messages.append({
+                "id": row[0],
+                "role": row[1],
+                "text": row[2],
+                "timestamp": row[3],
+                "citations": citations,
+                "route": row[5]
+            })
+        
+        # Reverse to get chronological order (oldest first)
+        messages.reverse()
+        return messages
+    except Exception as e:
+        print(f"⚠️ Error fetching recent history: {e}")
+        return []
+
 # AI Client
 class AIClient:
     @staticmethod
-    def get_response(session_id: str, user_message: str) -> Dict:
-        """Get response from AI engine with proper route extraction"""
+    def get_response(session_id: str, user_message: str, conversation_history: List[Dict] = None) -> Dict:
+        """Get response from AI engine with conversation history"""
         if not AI_ENGINE_AVAILABLE or not ai_graph:
             return AIClient._fallback_response(user_message)
         
         try:
-            # Call LangGraph
+            # Prepare messages for LangGraph
+            messages = []
+            
+            # Add conversation history if available
+            if conversation_history:
+                print(f"📜 Adding {len(conversation_history)} recent messages from history")
+                for msg in conversation_history:
+                    if msg["role"] == "user":
+                        messages.append(HumanMessage(content=msg["text"]))
+                    elif msg["role"] == "assistant":
+                        messages.append(AIMessage(content=msg["text"]))
+            
+            # Add current user message
+            messages.append(HumanMessage(content=user_message))
+            
+            print(f"📤 Total messages sent to AI: {len(messages)}")
+            
+            # Call LangGraph WITH history
             out = ai_graph.invoke(
-                {"messages": [HumanMessage(content=user_message)]},
+                {"messages": messages},  # Send all messages
                 config={"configurable": {"thread_id": session_id}},
             )
             
@@ -248,7 +306,7 @@ class AIClient:
                     "refusal": refusal
                 }
             except json.JSONDecodeError:
-                
+                # Non-JSON response (e.g., smalltalk, clarify)
                 return {
                     "answer": content,
                     "citations": [],  
@@ -258,6 +316,7 @@ class AIClient:
                 
         except Exception as e:
             print(f"⚠️ AI Engine error: {e}")
+            traceback.print_exc()
             return AIClient._fallback_response(user_message)
     
     @staticmethod
@@ -305,8 +364,16 @@ async def chat_endpoint(
         # Save user message
         save_message(db, conversation_id, "user", request.message) 
         
-        # Get AI response
-        ai_response = AIClient.get_response(request.session_id, request.message)
+        # Get only the last 5 messages from conversation history
+        recent_history = get_recent_conversation_history(db, request.session_id, last_n_messages=5)
+        
+        # Get AI response WITH recent history
+        ai_response = AIClient.get_response(
+            session_id=request.session_id,
+            user_message=request.message,
+            conversation_history=recent_history  # Pass only last 5 messages
+        )
+        
         print(f"🤖 AI Response - Route: {ai_response['route']}, Citations: {len(ai_response['citations'])}")
         
         # Save AI response
@@ -364,6 +431,32 @@ async def get_history(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error fetching history: {str(e)}"
+        )
+
+@router.get("/history/{session_id}/recent")
+async def get_recent_history(
+    session_id: str,
+    db: Session = Depends(get_db)
+):
+    """Get only recent conversation history (last 5 messages)"""
+    try:
+        messages = get_recent_conversation_history(db, session_id, last_n_messages=5)
+        
+        # Convert to MessageRead format
+        message_list = []
+        for msg in messages:
+            message_list.append(MessageRead(**msg))
+        
+        return {
+            "session_id": session_id,
+            "messages": message_list,
+            "count": len(message_list),
+            "note": "Showing last 5 messages only"
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error fetching recent history: {str(e)}"
         )
 
 @router.post("/new-session")
@@ -478,3 +571,4 @@ async def debug_db_status(db: Session = Depends(get_db)):
             "error": str(e),
             "timestamp": datetime.now().isoformat()
         }
+
