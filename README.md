@@ -48,6 +48,17 @@ taxify-ai-assistant/
 
 ---
 
+## Chatinterface for mobile,tablet and desktop view 
+
+### desktop
+![destktop](https://github.com/user-attachments/assets/99ba9b21-4f0b-4ec0-94ad-c4b18cdff98b)
+
+### tablet
+![tablet](https://github.com/user-attachments/assets/26cb36e1-4326-4a95-a681-161416295fb6)
+
+### mobile
+![mobile](https://github.com/user-attachments/assets/8088dbd4-253c-4134-9444-f3f79c7fa885)
+
 ## ⚙️ Quick Start (Developer Mode)
 
 ### 0️⃣ Prerequisites
