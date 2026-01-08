@@ -694,6 +694,32 @@ async def get_user_conversations(
             detail=str(e)
         )
 
+@router.get("/history/{session_id}/recent")
+async def get_recent_history(
+    session_id: str,
+    db: Session = Depends(get_db)
+):
+    """Get only recent conversation history (last 5 messages)"""
+    try:
+        messages = get_recent_conversation_history(db, session_id, last_n_messages=5)
+        
+        # Convert to MessageRead format
+        message_list = []
+        for msg in messages:
+            message_list.append(MessageRead(**msg))
+        
+        return {
+            "session_id": session_id,
+            "messages": message_list,
+            "count": len(message_list),
+            "note": "Showing last 5 messages only"
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error fetching recent history: {str(e)}"
+        )
+
 @router.post("/new-session")
 async def create_new_session(
     current_user: Optional[dict] = Depends(get_current_user),
