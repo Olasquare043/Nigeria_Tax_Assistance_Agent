@@ -43,10 +43,11 @@ Install dependencies
 
 ```bash
 npm install
+npm install tailwindcss @tailwindcss/vite 
 
 env
 VITE_API_URL=http://localhost:8000
-VITE_APP_NAME="Nigerian Tax Reform Assistant"
+VITE_APP_NAME="Taxify I assistant"
 ```
 
 Run the development server

@@ -14,24 +14,24 @@ from database import get_db
 
 router = APIRouter()
 
-# ===== CRITICAL: AI ENGINE IMPORT PATH =====
+#  AI engine import path
 CURRENT_DIR = Path(__file__).resolve().parent  # backend/
 PROJECT_ROOT = CURRENT_DIR.parent  # project_root/
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-# Import AI engine components AT MODULE LEVEL
+# Import AI engine components 
 try:
     from ai_engine.tax_engine.ingest import ingest_pdfs
     from ai_engine.tax_engine.vectorstore import upsert_incremental
     from ai_engine.tax_engine.config import settings
     AI_INGEST_AVAILABLE = True
-    print("✅ AI Engine ingest module loaded")
+    print("AI Engine ingest module loaded")
 except ImportError as e:
     AI_INGEST_AVAILABLE = False
-    print(f"⚠️ AI Engine ingest import failed: {e}")
-    print(f"📁 Python path: {sys.path}")
-    print(f"📁 Project root: {PROJECT_ROOT}")
+    print(f" AI Engine ingest import failed: {e}")
+    print(f" Python path: {sys.path}")
+    print(f" Project root: {PROJECT_ROOT}")
 
 # Pydantic models
 class IngestResponse(BaseModel):
@@ -80,9 +80,9 @@ async def ingest_documents(
                 detail="No documents found in docs/ folder. Add PDF files first."
             )
         
-        print(f"✅ Extracted {len(docs)} document chunks")
+        print(f" Extracted {len(docs)} document chunks")
         
-        # Add content hash for deduplication
+        # content hash for deduplication
         for doc in docs:
             if "content_hash" not in doc.metadata:
                 doc.metadata["content_hash"] = sha1_text(doc.page_content)
@@ -108,7 +108,7 @@ async def ingest_documents(
             )
             db.commit()
         except Exception as log_error:
-            print(f"⚠️ Failed to log to database: {log_error}")
+            print(f" Failed to log to database: {log_error}")
         
         # Prepare response
         duration = (datetime.now() - start_time).total_seconds()
@@ -123,7 +123,7 @@ async def ingest_documents(
         
     except FileNotFoundError as e:
         error_msg = f"PDF files not found: {str(e)}"
-        print(f"❌ {error_msg}")
+        print(f" {error_msg}")
         raise HTTPException(status_code=400, detail=error_msg)
     
     except HTTPException:
@@ -131,7 +131,7 @@ async def ingest_documents(
     
     except Exception as e:
         error_msg = f"Ingestion failed: {str(e)}"
-        print(f"❌ {error_msg}")
+        print(f" {error_msg}")
         import traceback
         traceback.print_exc()
         

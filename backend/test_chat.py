@@ -1,20 +1,20 @@
-# test_chat_integration.py
+# testing chat integration  
 import sys
 import os
 from pathlib import Path
 
-# Add project root to path
+
 CURRENT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = CURRENT_DIR.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-print("🧪 Testing Chat Integration with AI Agent...")
+print(" Testing Chat Integration with AI Agent...")
 
 # Import from chat.py
 try:
     from chat import AIClient
-    print("✅ AIClient imported successfully")
+    print(" AIClient imported successfully")
     
     # Test 1: Simple test without conversation history
     print("\n1. Testing AI response without history...")
@@ -30,9 +30,9 @@ try:
     
     # Test 2: Check if it's using fallback
     if response.get('route') == 'fallback':
-        print("   ⚠️ Using fallback response - AI agent may not be working properly")
+        print("    Using fallback response - AI agent may not be working properly")
     else:
-        print("   ✅ Using AI agent response")
+        print("    Using AI agent response")
     
     # Test 3: Test with conversation history
     print("\n2. Testing AI response with conversation history...")
@@ -52,12 +52,12 @@ try:
     print(f"   Route: {response2.get('route', 'unknown')}")
     
 except ImportError as e:
-    print(f"❌ Import error: {e}")
+    print(f" Import error: {e}")
     import traceback
     traceback.print_exc()
 except Exception as e:
-    print(f"❌ Test failed: {e}")
+    print(f" Test failed: {e}")
     import traceback
     traceback.print_exc()
 
-print("\n✅ Test completed")
+print("\n Test completed")

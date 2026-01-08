@@ -59,7 +59,7 @@ const LegalDisclaimerModal = ({ isOpen, onClose }) => {
                   <div className="border-l-4 border-amber-500 pl-4 py-2">
                     <h4 className="font-medium text-gray-900">1. Informational Purpose Only</h4>
                     <p className="text-gray-600 text-sm mt-1">
-                      The Nigeria Tax Reform Bills 2024 Q&A Assistant is designed to provide general information about proposed tax reforms. It should not be relied upon as a substitute for professional advice from qualified tax practitioners, legal counsel, or the Federal Inland Revenue Service (FIRS).
+                      The Taxify Assistant Q&A is designed to provide general information about the tax reforms. It should not be relied upon as a substitute for professional advice from qualified tax practitioners, legal counsel, or the Federal Inland Revenue Service (FIRS).
                     </p>
                   </div>
 

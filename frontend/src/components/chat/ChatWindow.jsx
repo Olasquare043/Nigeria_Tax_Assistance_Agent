@@ -30,7 +30,7 @@ const ChatWindow = ({
     <div className="flex flex-col h-full">
       {/* Chat header */}
       <div className="border-b border-border px-6 py-4">
-        <h1 className="text-xl font-bold text-text">Tax Reform 2024 Q&A</h1>
+        <h1 className="text-xl font-bold text-text"> TAXIFY AI ASSISTANT Q&A</h1>
         <p className="text-sm text-text-light mt-1">Get clear answers about Nigeria's new tax laws</p>
       </div>
 

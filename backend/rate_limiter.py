@@ -1,4 +1,3 @@
-# rate_limiter.py - RATE LIMITING MIDDLEWARE
 from functools import wraps
 from datetime import datetime, timedelta
 from typing import Optional, Callable
@@ -14,11 +13,11 @@ from errors import RateLimitError
 class RateLimiter:
     def __init__(self):
         self.rate_limit_config = {
-            "default": {"limit": 100, "window": 60},  # 100 requests per minute
-            "login": {"limit": 10, "window": 60},     # 10 login attempts per minute
-            "register": {"limit": 5, "window": 60},   # 5 registrations per minute
-            "chat": {"limit": 50, "window": 3600},    # 50 messages per hour
-            "password_reset": {"limit": 3, "window": 3600},  # 3 resets per hour
+            "default": {"limit": 100, "window": 60},  
+            "login": {"limit": 10, "window": 60},    
+            "register": {"limit": 5, "window": 60},   
+            "chat": {"limit": 50, "window": 3600},    
+            "password_reset": {"limit": 3, "window": 3600},  
         }
     
     def check_rate_limit(
@@ -55,7 +54,7 @@ class RateLimiter:
         if current_count >= limit:
             return False
         
-        # Log this request
+        
         db.execute(
             text("""
                 INSERT INTO rate_limit_logs 

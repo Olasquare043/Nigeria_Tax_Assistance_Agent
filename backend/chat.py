@@ -1,4 +1,3 @@
-# chat.py - UPDATED WITH FIXED AI AGENT INTEGRATION
 from fastapi import APIRouter, HTTPException, Depends, Request
 from pydantic import BaseModel, ConfigDict, Field, validator
 from typing import List, Optional, Dict, Any
@@ -23,7 +22,7 @@ from errors import (
     AuthenticationError, create_error_response
 )
 
-# ===== AI ENGINE IMPORT PATH =====
+# AI engine import path
 CURRENT_DIR = Path(__file__).resolve().parent  # backend/
 PROJECT_ROOT = CURRENT_DIR.parent  # project_root/
 if str(PROJECT_ROOT) not in sys.path:
@@ -45,13 +44,13 @@ ai_graph = None
 if AI_ENGINE_AVAILABLE:
     try:
         ai_graph = build_graph()
-        print("✅ AI Engine graph built successfully")
+        print(" AI Engine graph built successfully")
     except Exception as e:
-        print(f"❌ AI Engine initialization failed: {e}")
+        print(f" AI Engine initialization failed: {e}")
         traceback.print_exc()
         AI_ENGINE_AVAILABLE = False
 
-# ===== PYDANTIC MODELS =====
+# Pydanti models
 class Citation(BaseModel):
     chunk_id: str
     source: str
@@ -108,7 +107,6 @@ class ConversationItem(BaseModel):
     updated_at: datetime
     last_message: Optional[str] = None
 
-# ===== HELPER FUNCTIONS WITH ERROR HANDLING =====
 def get_or_create_conversation(
     db: Session, 
     session_id: str, 
@@ -153,11 +151,11 @@ def get_or_create_conversation(
                 )
             db.commit()
             
-            print(f"✅ Found existing conversation: {conv_id}")
+            print(f" Found existing conversation: {conv_id}")
             return conv_id
         else:
             # Create new conversation
-            print(f"🆕 Creating new conversation for session: {session_id}")
+            print(f" Creating new conversation for session: {session_id}")
             
             if user_id:
                 result = db.execute(
@@ -190,7 +188,7 @@ def get_or_create_conversation(
             
             if result:
                 conv_id = result[0]
-                print(f"✅ Created new conversation: {conv_id}")
+                print(f" Created new conversation: {conv_id}")
                 return conv_id
             else:
                 raise AppException(
@@ -203,7 +201,7 @@ def get_or_create_conversation(
         raise
     except Exception as e:
         db.rollback()
-        print(f"❌ Database error: {e}")
+        print(f" Database error: {e}")
         traceback.print_exc()
         raise AppException(
             error_code="DATABASE_ERROR",
@@ -257,13 +255,12 @@ def save_message(
                 )
                 db.commit()
         
-        print(f"✅ Saved {role} message, ID: {message_id}")
+        print(f" Saved {role} message, ID: {message_id}")
         return True
         
     except Exception as e:
-        print(f"❌ Failed to save message: {e}")
+        print(f" Failed to save message: {e}")
         db.rollback()
-        # Don't raise error - allow chat to continue even if save fails
         return False
 
 def get_conversation_history(
@@ -320,7 +317,7 @@ def get_conversation_history(
         traceback.print_exc()
         return []
 
-# ===== AI CLIENT WITH FIXED INTEGRATION =====
+# AIclient with fixed integration
 class AIClient:
     @staticmethod
     def get_response(
@@ -330,13 +327,11 @@ class AIClient:
     ) -> Dict:
         """Get response from AI engine - FIXED VERSION"""
         if not AI_ENGINE_AVAILABLE or not ai_graph:
-            print("⚠️ AI Engine not available, using fallback")
+            print(" AI Engine not available, using fallback")
             return AIClient._fallback_response(user_message)
         
         try:
-            print(f"🤖 Calling AI Agent for session: {session_id}")
-            
-            # Prepare messages for LangGraph - MUST use LangChain message objects
+            print(f" Calling AI Agent for session: {session_id}")
             messages = []
             
             # Add conversation history if available
@@ -359,24 +354,23 @@ class AIClient:
             
             print(f"📤 Total messages being sent to AI: {len(messages)}")
             
-            # Debug: Print message types
+            # Debug
             for i, msg in enumerate(messages):
                 print(f"  [{i}] {type(msg).__name__}: {msg.content[:80]}...")
             
-            # Call LangGraph with the correct state structure
-            # The graph expects a dict with "messages" key containing LangChain messages
+            # Call LangGraph with the correct state structure (The graph expects a dict with "messages" key containing LangChain messages)
             out = ai_graph.invoke(
                 {"messages": messages},
                 config={"configurable": {"thread_id": session_id}},
             )
             
-            print(f"✅ AI Graph invoked successfully")
+            print(f" AI Graph invoked successfully")
             
             # Extract the AI response
             ai_messages = out.get("messages", [])
             
             if not ai_messages:
-                print("❌ No messages in AI response")
+                print(" No messages in AI response")
                 raise AppException(
                     error_code="AI_NO_RESPONSE",
                     message="AI engine did not return a response",
@@ -395,13 +389,13 @@ class AIClient:
             else:
                 content = str(last_message)
             
-            print(f"🤖 AI Response content length: {len(content)}")
-            print(f"🤖 AI Response preview: {content[:200]}...")
+            print(f" AI Response content length: {len(content)}")
+            print(f" AI Response preview: {content[:200]}...")
             
             # Try to parse as JSON (your agent should return JSON)
             try:
                 payload = json.loads(content)
-                print(f"✅ AI response parsed as JSON")
+                print(f" AI response parsed as JSON")
                 
                 answer = payload.get("answer", "")
                 citations_raw = payload.get("citations", [])
@@ -427,8 +421,8 @@ class AIClient:
                 }
                 
             except json.JSONDecodeError:
-                # If not JSON, it's a plain text response
-                print(f"⚠️ AI response not JSON, treating as plain text")
+            
+                print(f" AI response not JSON, treating as plain text")
                 return {
                     "answer": content,
                     "citations": [],  
@@ -437,10 +431,10 @@ class AIClient:
                 }
                 
         except AppException as ae:
-            print(f"❌ AppException in AI client: {ae}")
+            print(f" AppException in AI client: {ae}")
             raise
         except Exception as e:
-            print(f"❌ AI Engine error: {e}")
+            print(f" AI Engine error: {e}")
             traceback.print_exc()
             return AIClient._fallback_response(user_message)
     
@@ -467,7 +461,7 @@ class AIClient:
             "refusal": False
         }
 
-# ===== API ENDPOINTS WITH RATE LIMITING =====
+# API endpoints with rate limiting
 @router.post("/chat", response_model=ChatResponse)
 @rate_limit("chat")  # 50 messages per hour
 async def chat_endpoint(
@@ -497,7 +491,7 @@ async def chat_endpoint(
         
         # Get recent history (last 6 messages for context)
         recent_history = get_conversation_history(db, session_id, limit=6)
-        print(f"📜 Recent history loaded: {len(recent_history)} messages")
+        print(f" Recent history loaded: {len(recent_history)} messages")
         
         # Get AI response
         ai_response = AIClient.get_response(
@@ -506,7 +500,7 @@ async def chat_endpoint(
             conversation_history=recent_history
         )
         
-        print(f"🤖 AI Response - Route: {ai_response['route']}, Citations: {len(ai_response['citations'] or [])}")
+        print(f" AI Response - Route: {ai_response['route']}, Citations: {len(ai_response['citations'] or [])}")
         
         # Save AI response
         citations_for_db = None
@@ -538,7 +532,7 @@ async def chat_endpoint(
             )
             db.commit()
         except Exception as log_error:
-            print(f"⚠️ Failed to log to database: {log_error}")
+            print(f" Failed to log to database: {log_error}")
         
         return ChatResponse(
             answer=ai_response["answer"],
@@ -551,10 +545,10 @@ async def chat_endpoint(
         )
         
     except AppException as ae:
-        print(f"🔥 AppException in chat endpoint: {ae}")
+        print(f" AppException in chat endpoint: {ae}")
         raise
     except Exception as e:
-        print(f"🔥 Chat error: {e}")
+        print(f" Chat error: {e}")
         traceback.print_exc()
         
         # Log error
@@ -633,7 +627,7 @@ async def get_history(
     except AppException:
         raise
     except Exception as e:
-        print(f"❌ Error in get_history: {e}")
+        print(f" Error in get_history: {e}")
         traceback.print_exc()
         raise AppException(
             error_code="HISTORY_FETCH_ERROR",
@@ -686,7 +680,7 @@ async def get_user_conversations(
         return conversations
         
     except Exception as e:
-        print(f"❌ Error in get_user_conversations: {e}")
+        print(f" Error in get_user_conversations: {e}")
         raise AppException(
             error_code="CONVERSATIONS_FETCH_ERROR",
             message="Failed to fetch your conversations",
@@ -741,7 +735,7 @@ async def create_new_session(
         }
         
     except Exception as e:
-        print(f"❌ Error in create_new_session: {e}")
+        print(f" Error in create_new_session: {e}")
         raise AppException(
             error_code="SESSION_CREATION_ERROR",
             message="Failed to create new session",
@@ -749,7 +743,7 @@ async def create_new_session(
             detail=str(e)
         )
 
-# ===== ADMIN ENDPOINTS =====
+# Admin endpoints
 @router.get("/debug/conversations")
 async def debug_conversations(db: Session = Depends(get_db)):
     """Debug endpoint to list all conversations"""
@@ -824,7 +818,7 @@ async def delete_conversation(
         raise
     except Exception as e:
         db.rollback()
-        print(f"❌ Error deleting conversation: {e}")
+        print(f" Error deleting conversation: {e}")
         raise AppException(
             error_code="CONVERSATION_DELETION_ERROR",
             message="Failed to delete conversation",

@@ -1,4 +1,3 @@
-# database.py - COMPLETE DATABASE WITH ALL TABLES
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
@@ -25,12 +24,12 @@ class Database:
             with self.engine.connect() as conn:
                 conn.execute(text("SELECT 1"))
             
-            print("✅ Database connection established")
+            print(" Database connection established")
             self._create_tables()
             
         except Exception as e:
-            print(f"❌ Database connection failed: {e}")
-            print("⚠️ Running in fallback mode")
+            print(f" Database connection failed: {e}")
+            print(" Running in fallback mode")
             self.SessionLocal = sessionmaker()
     
     def _create_tables(self):
@@ -39,7 +38,7 @@ class Database:
             with self.engine.begin() as conn:
                 print("🔄 Creating database tables...")
                 
-                # ===== 1. USERS TABLE =====
+                # users table 
                 conn.execute(text("""
                     CREATE TABLE IF NOT EXISTS users (
                         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -60,7 +59,7 @@ class Database:
                 """))
                 print("    ✅ Users table created")
                 
-                # ===== 2. PASSWORD_RESET_TOKENS TABLE =====
+                # password reset tokens table 
                 conn.execute(text("""
                     CREATE TABLE IF NOT EXISTS password_reset_tokens (
                         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -77,7 +76,7 @@ class Database:
                 """))
                 print("    ✅ Password reset tokens table created")
                 
-                # ===== 3. CONVERSATIONS TABLE =====
+                # conversations table
                 conn.execute(text("""
                     CREATE TABLE IF NOT EXISTS conversations (
                         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -94,7 +93,7 @@ class Database:
                 """))
                 print("    ✅ Conversations table created")
                 
-                # ===== 4. MESSAGES TABLE =====
+                # messages table
                 conn.execute(text("""
                     CREATE TABLE IF NOT EXISTS messages (
                         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -111,7 +110,7 @@ class Database:
                 """))
                 print("    ✅ Messages table created")
                 
-                # ===== 5. RATE_LIMIT_LOGS TABLE =====
+                # Rate limit logs table
                 conn.execute(text("""
                     CREATE TABLE IF NOT EXISTS rate_limit_logs (
                         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -127,7 +126,7 @@ class Database:
                 """))
                 print("    ✅ Rate limit logs table created")
                 
-                # ===== 6. SYSTEM_LOGS TABLE =====
+                # System logs table 
                 conn.execute(text("""
                     CREATE TABLE IF NOT EXISTS system_logs (
                         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -144,12 +143,12 @@ class Database:
                         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
                 """))
-                print("    ✅ System logs table created")
+                print(" System logs table created")
                 
-                print("✅ All database tables created successfully!")
+                print("All database tables created successfully!")
                 
         except Exception as e:
-            print(f"❌ Table creation error: {e}")
+            print(f" Table creation error: {e}")
             import traceback
             traceback.print_exc()
     
@@ -161,12 +160,12 @@ class Database:
         """Close database connection"""
         if self.engine:
             self.engine.dispose()
-            print("✅ Database connection closed")
+            print(" Database connection closed")
 
 # Global database instance
 db_manager = Database()
 
-# Convenience function for FastAPI dependency injection
+
 def get_db():
     """
     FastAPI dependency that yields a database session.
@@ -179,13 +178,13 @@ def get_db():
         session.close()
 
 if __name__ == "__main__":
-    print("🧪 Testing database...")
+    print(" Testing database...")
     try:
         with db_manager.engine.connect() as conn:
             tables = conn.execute(text("SHOW TABLES")).fetchall()
-            print(f"📋 Found {len(tables)} tables:")
+            print(f" Found {len(tables)} tables:")
             for table in tables:
                 print(f"  - {table[0]}")
     except Exception as e:
-        print(f"❌ Test failed: {e}")
+        print(f" Test failed: {e}")
     db_manager.close()

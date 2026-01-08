@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authAPI } from '../utils/api'; // Import from our API module
+import { authAPI } from '../utils/api'; 
 
 const AuthContext = createContext(null);
 
@@ -99,12 +99,12 @@ export const AuthProvider = ({ children }) => {
       const recentChats = JSON.parse(localStorage.getItem('recent_chats') || '[]');
       
       if (anonymousSessionId || recentChats.length > 0) {
-        console.log('🔗 Linking anonymous chats to user account...');
+        console.log(' Linking anonymous chats to user account...');
         
         // Clear anonymous session ID to start fresh with user context
         localStorage.removeItem('tax_reform_active_session');
         
-        console.log('✅ Anonymous chats will be linked on next chat request');
+        console.log(' Anonymous chats will be linked on next chat request');
       }
     } catch (error) {
       console.error('Error linking chats:', error);

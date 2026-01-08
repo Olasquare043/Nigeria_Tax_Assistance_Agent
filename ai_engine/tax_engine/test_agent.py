@@ -1,4 +1,3 @@
-# test_agent.py
 import sys
 from pathlib import Path
 
@@ -13,7 +12,7 @@ from langchain_core.messages import HumanMessage
 # Build the graph
 graph = build_graph()
 
-# Test with a simple message
+
 test_state = {
     "messages": [HumanMessage(content="What are the VAT changes?")]
 }
