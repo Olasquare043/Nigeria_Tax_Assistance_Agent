@@ -48,10 +48,10 @@ const WelcomeMessage = ({ onQuickTopicSelect }) => {
           <FiFileText size={32} />
         </div>
         <h2 className="text-2xl font-bold text-text mb-3">
-          Nigeria Tax Reform Bills 
+          TAXIFY AI ASSISTANT 
         </h2>
         <p className="text-text-light max-w-2xl mx-auto">
-          Official Q&A Assistant for the 2024 Tax Reform Legislation
+          Official Q&A Assistant for the Tax Reform Legislation
         </p>
         <div className="mt-3 h-px w-24 bg-border mx-auto"></div>
       </div>

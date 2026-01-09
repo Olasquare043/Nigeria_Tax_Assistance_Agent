@@ -15,7 +15,7 @@ const Home = () => {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <FiBook className="text-white" size={18} />
               </div>
-              <span className="text-xl font-bold text-gray-800">Tax Reform Assistant</span>
+              <span className="text-xl font-bold text-gray-800">Taxify AI Assistant</span>
             </div>
             <div className="flex items-center space-x-4">
               <Link 
@@ -44,8 +44,8 @@ const Home = () => {
               <span className="text-primary block">Made Simple</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-              Get clear, accurate answers about the 2024 Tax Reform Bills from official documents. 
-              No legal jargon, no confusion—just straight answers you can trust.
+              Get accurate, easy to understand answers about the Tax Reform Bills based strictly on official government documents.
+              Trusted explanations of the Tax Reform Bills, sourced directly from official records and written in plain language.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -223,12 +223,13 @@ const Home = () => {
               </ul>
             </div>
             
+             
             <div>
               <h4 className="font-bold mb-4">Documents</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>Finance Bill 2024</li>
-                <li>Tax Reform Act</li>
-                <li>VAT Amendment</li>
+                <li>Tax Reform Bills</li>
+                <li>Presidential statements</li>
+                <li>FIRS clalicication</li>
                 <li>Official Memoranda</li>
               </ul>
             </div>
@@ -243,7 +244,7 @@ const Home = () => {
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} Nigeria Tax Reform Q&A Assistant. Capstone Project.</p>
+            <p>© {new Date().getFullYear()} Taxify AI Assistant </p>
           </div>
         </div>
       </footer>

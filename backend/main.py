@@ -1,5 +1,4 @@
-# main.py - CORRECTED VERSION
-from fastapi import FastAPI, HTTPException, status, Request  # Added Request here
+from fastapi import FastAPI, HTTPException, status, Request  
 from fastapi.middleware.cors import CORSMiddleware 
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
@@ -22,27 +21,27 @@ from errors import (
     ErrorResponse, create_error_response
 )
 
-# ===== Check AI Engine Availability =====
+# Check AI Engine Availability 
 CURRENT_DIR = Path(__file__).resolve().parent  # backend/
 PROJECT_ROOT = CURRENT_DIR.parent  # project_root/
 AI_ENGINE_PATH = PROJECT_ROOT / "ai_engine"
 
-print(f"🚀 Starting Nigeria Tax Reform Assistant")
-print(f"📁 Project root: {PROJECT_ROOT}")
-print(f"📁 AI Engine path: {AI_ENGINE_PATH}")
+print(f" Starting Taxify AI assistant")
+print(f" Project root: {PROJECT_ROOT}")
+print(f" AI Engine path: {AI_ENGINE_PATH}")
 
 if AI_ENGINE_PATH.exists():
-    print(f"✅ AI Engine folder found")
+    print(f" AI Engine folder found")
     if str(PROJECT_ROOT) not in sys.path:
         sys.path.insert(0, str(PROJECT_ROOT))
 else:
-    print(f"⚠️ WARNING: AI Engine folder not found at {AI_ENGINE_PATH}")
-    print(f"⚠️ The /chat and /ingest endpoints will not work!")
+    print(f" WARNING: AI Engine folder not found at {AI_ENGINE_PATH}")
+    print(f" The /chat and /ingest endpoints will not work!")
 
 load_dotenv()
 
 app = FastAPI(
-    title="Nigeria Tax Reform 2024 Q&A Assistant",
+    title="Taxify AI Assistant",
     version="1.0.0",
     description="Agentic RAG System for Nigerian Tax Reform Bills",
     docs_url="/docs",
@@ -60,7 +59,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ===== GLOBAL ERROR HANDLERS =====
+
 @app.exception_handler(AppException)
 async def handle_app_exception(request: Request, exc: AppException):
     """Handle custom application exceptions"""
@@ -118,7 +117,7 @@ async def handle_generic_exception(request: Request, exc: Exception):
         content=error_response.model_dump()
     )
 
-# ===== REQUEST MIDDLEWARE =====
+# Middleware
 @app.middleware("http")
 async def add_request_id(request: Request, call_next):
     """Add request ID to all requests"""
@@ -135,21 +134,21 @@ async def log_requests(request: Request, call_next):
     
     duration = (datetime.now() - start_time).total_seconds() * 1000
     
-    # Log to console
+    
     print(f"{request.method} {request.url.path} - {response.status_code} - {duration:.2f}ms")
     
     return response
 
-# Include routers
+# routers
 app.include_router(auth_router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(chat_router, prefix="/api", tags=["Chat"])
 app.include_router(ingest_router, prefix="/api", tags=["Ingest"])
 
-# ===== HEALTH AND INFO ENDPOINTS =====
+# Health and info endpoints
 @app.get("/")
 def home():
     return {
-        "service": "Nigeria Tax Reform Bills 2024 Q&A Assistant",
+        "service": "Taxify AI Assistant",
         "version": "1.0.0",
         "status": "operational",
         "documentation": "/docs",

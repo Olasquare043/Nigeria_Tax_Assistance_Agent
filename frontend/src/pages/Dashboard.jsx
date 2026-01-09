@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useChat } from '../hooks/useChat';
@@ -21,28 +22,29 @@ function Dashboard() {
     sendMessage,
     startNewChat,
     loadChat,
+    clearRecentChats, 
     setError
-  } = useChat();
+  } = useChat(); 
 
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  // Mobile state management
+ ent
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [mobileView, setMobileView] = useState('chat');
 
-  // Modal states
   const [showOfficialModal, setShowOfficialModal] = useState(false);
   const [showDisclaimerModal, setShowDisclaimerModal] = useState(false);
   const [showFAQsModal, setShowFAQsModal] = useState(false);
 
-  // Debug logging
+  
   useEffect(() => {
-    console.log(':mag: Dashboard State - User:', user?.email);
-    console.log(':mag: Dashboard State - Session ID:', sessionId);
-    console.log(':mag: Dashboard State - Message count:', messages.length);
-    console.log(':mag: Dashboard State - Recent chats:', recentChats.length);
-  }, [user, sessionId, messages, recentChats]);
+    console.log('🔍 Dashboard State - User:', user?.email);
+    console.log('🔍 Dashboard State - Session ID:', sessionId);
+    console.log('🔍 Dashboard State - Message count:', messages.length);
+    console.log('🔍 Dashboard State - Recent chats:', recentChats.length);
+    console.log('🔍 Dashboard State - Has clear function:', !!clearRecentChats);
+  }, [user, sessionId, messages, recentChats, clearRecentChats]);
 
   // Close sidebar on desktop
   useEffect(() => {
@@ -67,11 +69,10 @@ function Dashboard() {
   // Handle loading a specific chat from recent chats
   const handleSelectChat = async (chat) => {
     if (chat && chat.sessionId) {
-      console.log(':open_file_folder: Loading chat from recent:', chat.title);
+      console.log('📂 Loading chat from recent:', chat.title);
       try {
         await loadChat(chat);
 
-        // Close sidebar on mobile after loading chat
         if (window.innerWidth < 1024) {
           setIsSidebarOpen(false);
           setMobileView('chat');
@@ -84,7 +85,7 @@ function Dashboard() {
     }
   };
 
-  // Handle quick topic selection
+
   const handleQuickTopicSelect = (question) => {
     handleSendMessage(question);
     if (window.innerWidth < 1024) {
@@ -119,7 +120,7 @@ function Dashboard() {
       <div className="hidden lg:block absolute top-0 left-0 right-0 bg-primary text-white py-2 px-4 text-center text-xl z-50">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span>Nigeria Tax Reform Bills Q&A Assistant</span>
+            <span>TAXIFY AI ASSISTANT</span>
             <span className="text-sm bg-white/20 px-2 py-1 rounded">
               {user ? `Welcome, ${user.username}` : 'Guest Mode'}
             </span>
@@ -165,6 +166,7 @@ function Dashboard() {
               onOfficialSourcesClick={() => setShowOfficialModal(true)}
               onDisclaimerClick={() => setShowDisclaimerModal(true)}
               onFAQsClick={() => setShowFAQsModal(true)}
+              onClearRecentChats={clearRecentChats} 
               user={user}
               onProfileClick={() => navigate('/profile')}
               onLogout={handleLogout}
@@ -254,3 +256,4 @@ function Dashboard() {
 }
 
 export default Dashboard;
+

@@ -1,4 +1,3 @@
-# auth.py - COMPLETE AUTHENTICATION WITH ALL FEATURES
 from fastapi import APIRouter, HTTPException, Depends, status, Request
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel, EmailStr, Field, validator
@@ -140,7 +139,7 @@ def check_account_lockout(user: Dict[str, Any], db: Session) -> bool:
 
 # API Endpoints
 @router.post("/register", response_model=Token)
-@rate_limit("5/minute")  # 5 registrations per minute per IP
+@rate_limit("5/minute")  
 async def register(
     request: Request,
     user: UserCreate,

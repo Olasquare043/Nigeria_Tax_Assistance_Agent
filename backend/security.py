@@ -1,4 +1,3 @@
-# security.py - SIMPLIFIED WITH PURE BCRYPT
 import bcrypt
 import jwt
 import secrets
@@ -18,10 +17,10 @@ PASSWORD_RESET_EXPIRE_MINUTES = int(os.getenv("PASSWORD_RESET_EXPIRE_MINUTES", "
 
 def hash_password(password: str) -> str:
     """Hash a password using bcrypt"""
-    # Encode password to bytes and hash
+   
     password_bytes = password.encode('utf-8')
     
-    # Truncate password if it's too long for bcrypt (72 bytes max)
+    
     if len(password_bytes) > 72:
         password_bytes = password_bytes[:72]
     
@@ -88,9 +87,7 @@ def validate_password_strength(password: str) -> Tuple[bool, Optional[str]]:
     if len(password) > 128:
         return False, "Password is too long (max 128 characters)"
     
-    # Optional: Add more strength checks
-    # if not any(char.isdigit() for char in password):
-    #     return False, "Password must contain at least one number"
+   
     
     return True, None
 
@@ -100,4 +97,3 @@ def validate_email(email: str) -> bool:
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     return bool(re.match(pattern, email))
 
-# Remove passlib context completely

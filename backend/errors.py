@@ -1,4 +1,3 @@
-# errors.py - CUSTOM ERROR HANDLING
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
 from datetime import datetime
@@ -6,12 +5,12 @@ import uuid
 
 class ErrorResponse(BaseModel):
     """Standard error response format"""
-    error: str                    # Error code: "INVALID_TOKEN"
-    message: str                  # User-friendly message
-    detail: Optional[str] = None  # Technical details
-    code: Optional[str] = None    # Error code: "AUTH-1001"
+    error: str                   
+    message: str                
+    detail: Optional[str] = None  
+    code: Optional[str] = None  
     timestamp: str = datetime.now().isoformat()
-    request_id: Optional[str] = None  # For support tracking
+    request_id: Optional[str] = None  
     
     class Config:
         json_schema_extra = {

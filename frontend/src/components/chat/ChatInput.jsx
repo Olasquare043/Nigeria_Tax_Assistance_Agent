@@ -14,7 +14,7 @@ const ChatInput = ({ onSend, loading = false, disabled = false }) => {
       onSend(message);
       setMessage('');
       
-      // Reset textarea height
+      
       if (textareaRef.current) {
         textareaRef.current.style.height = 'auto';
       }
@@ -31,7 +31,7 @@ const ChatInput = ({ onSend, loading = false, disabled = false }) => {
   const handleChange = (e) => {
     setMessage(e.target.value);
     
-    // Auto-resize textarea
+    
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
       textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 120)}px`;

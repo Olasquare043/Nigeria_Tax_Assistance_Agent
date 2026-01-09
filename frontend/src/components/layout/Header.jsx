@@ -14,7 +14,7 @@ const Header = ({ onMenuClick, user, onLogout }) => {
         </button>
         
         <div className="flex-1 text-center">
-          <h1 className="font-bold text-text">Tax Reform  Q&A</h1>
+          <h1 className="font-bold text-text">TAXIFY ASSISTANT Q&A</h1>
           {user && (
             <p className="text-xs text-text-light">Welcome, {user.username}</p>
           )}

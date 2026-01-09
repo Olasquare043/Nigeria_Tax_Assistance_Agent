@@ -1,17 +1,72 @@
-# Nigeria Tax Reform Bills (2024) — Q&A Assistant (Dev Mode)
+# 🇳🇬 Taxify AI Assistant: Nigerian Tax Reform Q&A
 
-This project is split into 3 parts:
+Bridging the gap between 500+ pages of tax law and 200 million citizens.
 
-1) **AI Engine** (`ai_engine/`) — ingestion, chunking, ChromaDB indexing, retrieval, and a simple LangGraph agent.
-2) **Backend API** (`backend/`) — FastAPI chat API (session-based) that calls the AI engine.
-3) **Frontend** (`frontend/`) — React + Tailwind chat UI that shows citations.
-
-✅ **Developer mode only**: Uses **ChromaDB local persistence**.
+Taxify AI is an Agentic RAG-powered assistant designed to help Nigerians understand the 2024 Tax Reform Bills. By transforming dense legal PDFs into a conversational interface, we empower small business owners, employees, and citizens with factual, source-backed answers to complex fiscal questions.
 
 ---
-## 0) Put your PDFs in `docs/`
 
-Copy your PDFs into the `docs/` folder. Recommended filenames (but not required):
+## 👥 The Development Team
+
+Our group is structured into two specialized units to ensure high-performance AI and seamless user experience:
+
+- **AI Engineers**: Responsible for the "Brain" of the project—document ingestion, vector database management (ChromaDB), and designing the Agentic workflows in LangGraph.
+  - *Team Members*: [ Saheed Olayinka], [Ridwanullah Osho]
+
+- **AI Developers (Full-Stack)**: Responsible for the "Bridge" and "Face"—building the FastAPI backend, session management, and the React +tailwind frontend interface.
+  - *Team Members*: [Mariam Adesina], [Oluwaseyi Alebiosu]
+
+---
+
+## 🛠️ Technical Stack
+
+- **AI Engine**: LangChain, LangGraph, OpenAI (GPT-4o), ChromaDB
+- **Backend**: FastAPI (Python), Database(MYSQL)
+- **Frontend**: React , Vite, Tailwind CSS
+
+---
+
+## ✨ Key Features
+
+- **Agentic Routing**: Identifies greetings vs. policy questions to save compute and improve accuracy
+- **Source Anchoring**: Prevents hallucinations by citing the specific 2024 Bill (e.g., Nigeria Tax Bill or Nigeria Revenue Service Bill)
+- **Contextual Memory**: Remembers previous questions in a session for natural follow-up inquiries
+- **Mobile-First Design**: Fully responsive UI tailored for the Nigerian mobile-user demographic
+
+---
+
+## 📂 Project Structure
+
+```
+taxify-ai-assistant/
+├── ai_engine/          # LangGraph agents, ChromaDB scripts, and document processing
+├── backend/            # FastAPI server, session management, and API logic
+├── frontend/           # React 19 UI (Vite, Tailwind, React Router DOM)
+├── docs/               # The 4 official Tax Reform Bill PDFs (2024)
+└── data/               # Persistent ChromaDB vector store
+```
+
+---
+
+## Chatinterface for mobile,tablet and desktop view 
+
+### desktop
+![destktop](https://github.com/user-attachments/assets/99ba9b21-4f0b-4ec0-94ad-c4b18cdff98b)
+
+### tablet
+![tablet](https://github.com/user-attachments/assets/26cb36e1-4326-4a95-a681-161416295fb6)
+
+### mobile
+![mobile](https://github.com/user-attachments/assets/8088dbd4-253c-4134-9444-f3f79c7fa885)
+
+## ⚙️ Quick Start (Developer Mode)
+
+### 0️⃣ Prerequisites
+- Python 3.10+ & Node.js 18+
+- OpenAI API Key
+
+### 1️⃣ Prepare Your Documents
+Place your PDFs in the `docs/` folder. Recommended filenames (not required):
 - `HB-1756-The-Nigeria-Tax-Administration-Bill-2024.pdf`
 - `HB-1757-The-Nigeria-Revenue-Service-Establishment-Bill-2024.pdf`
 - `HB-1758-The-Joint-Revenue-Board-Establishment-Bill-2024.pdf`
@@ -21,63 +76,68 @@ Copy your PDFs into the `docs/` folder. Recommended filenames (but not required)
 - `The-Nigeria-Tax-Bill-2024-An-Intricate-Interrogation.pdf`
 - `The-Nigerian-Tax-Reform-Bills-You-Ask-We-Answer.pdf`
 
----
-## 1) Install Python dependencies
-
+### 2️⃣ Setup AI Engine & Backend
 ```bash
+# Clone and setup environment
+git clone <your-repo-link>
+cd taxify-ai-assistant
 python -m venv .venv
+
+
+# Activate virtual environment
 # Windows:
 .venv\Scripts\activate
 # Mac/Linux:
 source .venv/bin/activate
 
+# Install Python dependencies
 pip install -r requirements.txt
-```
 
-Create `.env` in the project root:
-```bash
-.env   # Windows
-# or:
-.env     # Mac/Linux
-```
+# Configure environment
+# Create .env file with your OpenAI API key:
+# OPENAI_API_KEY=your_key_here
 
-Add your OpenAI key in `.env`.
-
----
-## 2) Build the index (ingest PDFs)
-
-```bash
+# Ingest PDFs and build vector index
 python ai_engine/scripts/build_index.py
-```
+# Creates/updates ChromaDB index in data/chroma/
 
-This creates/updates a Chroma index in `data/chroma/`.
+#load database 
+python database.py
 
----
-## 3) Run Backend API
 
-```bash
+# Start backend server
 uvicorn backend.main:app --reload --port 8000
 ```
+Health check: http://localhost:8000/health
 
-Health check:
-- http://localhost:8000/health
-
----
-## 4) Run Frontend
-
+### 3️⃣ Setup Frontend
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-
-Open:
-- http://localhost:5173
+Open: http://localhost:5173
 
 ---
-## What we should expect to get
 
-- Answers use retrieved excerpts only.
-- If the sources don’t support a claim, the assistant says:
-  **"I can't confirm from the available sources."**
-- Every factual answer includes citations (source + page + chunk id + short quote).
+## ✅ Expected Behavior
+
+- Answers use retrieved excerpts only from the provided sources
+- If sources don't support a claim, the assistant responds: **"I can't confirm from the available sources."**
+- Every factual answer includes citations with:
+  - Source document name
+  - Page number
+  - Chunk ID
+  - Short supporting quote
+
+---
+
+## 🛣️ Roadmap & Future Improvements
+
+- **Technical Pivot**: Migrated from simple sequential chains to Agentic Routing to prevent hallucinations with non-tax questions
+- **Multilingual Support**: Planned integration for Hausa, Yoruba, Igbo, and Nigerian Pidgin
+- **Accessibility**: Expanding to WhatsApp for users in low-connectivity regions
+
+---
+
+
