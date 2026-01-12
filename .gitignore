@@ -8,3 +8,4 @@ package-lock.json
 chroma_db
 package.json
 docs/
+*__pycache__
