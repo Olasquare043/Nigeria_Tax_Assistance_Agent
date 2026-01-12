@@ -2,7 +2,7 @@
 
 Bridging the gap between 500+ pages of tax law and 200 million citizens.
 
-Taxify AI is an Agentic RAG-powered assistant designed to help Nigerians understand the 2024 Tax Reform Bills. By transforming dense legal PDFs into a conversational interface, we empower small business owners, employees, and citizens with factual, source-backed answers to complex fiscal questions.
+Taxify AI is an Agentic RAG-powered assistant designed to help Nigerians understand the Tax Reform Bills. By transforming dense legal PDFs into a conversational interface, we empower small business owners, employees, and citizens with factual, source-backed answers to complex fiscal questions.
 
 ---
 
@@ -10,10 +10,10 @@ Taxify AI is an Agentic RAG-powered assistant designed to help Nigerians underst
 
 Our group is structured into two specialized units to ensure high-performance AI and seamless user experience:
 
-- **AI Engineers**: Responsible for the "Brain" of the project—document ingestion, vector database management (ChromaDB), and designing the Agentic workflows in LangGraph.
+- **AI Engineers**: Responsible for the "Brain" of the project: document ingestion, vector database management (ChromaDB), and designing the Agentic workflows in LangGraph.
   - *Team Members*: [ Saheed Olayinka], [Ridwanullah Osho]
 
-- **AI Developers (Full-Stack)**: Responsible for the "Bridge" and "Face"—building the FastAPI backend, session management, and the React +tailwind frontend interface.
+- **AI Developers (Full-Stack)**: Responsible for the "Bridge" and "UI": building the FastAPI backend, session management, and the React +tailwind frontend interface.
   - *Team Members*: [Mariam Adesina], [Oluwaseyi Alebiosu]
 
 ---
@@ -22,7 +22,7 @@ Our group is structured into two specialized units to ensure high-performance AI
 
 - **AI Engine**: LangChain, LangGraph, OpenAI (GPT-4o), ChromaDB
 - **Backend**: FastAPI (Python), Database(MYSQL)
-- **Frontend**: React , Vite, Tailwind CSS
+- **Frontend**: React , Tailwind CSS
 
 ---
 
@@ -112,8 +112,11 @@ Health check: http://localhost:8000/health
 
 ### 3️⃣ Setup Frontend
 ```bash
+npm create vite@latest frontend
 cd frontend
-npm install
+npm install tailwindcss @tailwindcss/vite
+npm install react-router-dom
+npm install 
 npm run dev
 ```
 Open: http://localhost:5173
