@@ -116,7 +116,7 @@ npm create vite@latest frontend
 cd frontend
 npm install tailwindcss @tailwindcss/vite
 npm install react-router-dom
-npm install 
+npm install react-icons
 npm run dev
 ```
 Open: http://localhost:5173
@@ -137,7 +137,7 @@ Open: http://localhost:5173
 
 ## 🛣️ Roadmap & Future Improvements
 
-- **Technical Pivot**: Migrated from simple sequential chains to Agentic Routing to prevent hallucinations with non-tax questions
+- **Technical Pivot**: WE migrated from simple sequential chains to Agentic Routing to prevent hallucinations with non-tax questions
 - **Multilingual Support**: Planned integration for Hausa, Yoruba, Igbo, and Nigerian Pidgin
 - **Accessibility**: Expanding to WhatsApp for users in low-connectivity regions
 
