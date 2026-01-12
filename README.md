@@ -108,12 +108,12 @@ python database.py
 # Start backend server
 uvicorn backend.main:app --reload --port 8000
 ```
-Health check: http://localhost:8000/health
+
 
 ### 3️⃣ Setup Frontend
 ```bash
-npm create vite@latest frontend
 cd frontend
+npm install 
 npm install tailwindcss @tailwindcss/vite
 npm install react-router-dom
 npm install react-icons
@@ -137,9 +137,9 @@ Open: http://localhost:5173
 
 ## 🛣️ Roadmap & Future Improvements
 
-- **Technical Pivot**: WE migrated from simple sequential chains to Agentic Routing to prevent hallucinations with non-tax questions
-- **Multilingual Support**: Planned integration for Hausa, Yoruba, Igbo, and Nigerian Pidgin
-- **Accessibility**: Expanding to WhatsApp for users in low-connectivity regions
+- **Technical Pivot**: We migrated from simple sequential chains(langchains) to Agentic Routing to prevent hallucinations with non-tax questions
+- **Multilingual Support**: We plan to integrate Hausa, Yoruba, Igbo, and Nigerian Pidgin in the future
+- **Accessibility**: We plan to expand to WhatsApp and Telegram for users in low-connectivity regions
 
 ---
 
