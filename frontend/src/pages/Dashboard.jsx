@@ -29,7 +29,7 @@ function Dashboard() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
- ent
+ 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [mobileView, setMobileView] = useState('chat');
 

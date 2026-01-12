@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-# Router prompt (LLM fallback only). Must output JSON only.
 ROUTER = """You are a router for a Nigerian Tax Reform Bills (2024) assistant.
 
 Classify the user's message into exactly ONE route:
@@ -26,7 +25,6 @@ SMALLTALK_PROMPT = """You are a friendly assistant.
 
 User said: "{user_message}"
 
-Recall the last five conversation for follow up context
 Write a warm, natural reply in 1–2 short sentences.
 Do NOT mention PDFs or “uploaded documents” unless the user asks.
 End with one helpful question like: “What would you like to know about the tax reform bills?”
@@ -37,8 +35,6 @@ CLARIFY_PROMPT = """You are a helpful assistant for Nigerian Tax Reform Bills (2
 
 User said: "{user_message}"
 
-
-Recall the last five conversation for follow up context
 Respond warmly and ask ONE clarifying question to pinpoint what they mean.
 
 
@@ -61,7 +57,7 @@ STRICT RULES (do not break):
 - If the user asks for something that is not covered by the quotes, say:
 - Be friendly, calm, and plain-language (explain like to a non-lawyer).
 - Do NOT mention PDFs or “uploaded documents” unless the user asks.
-- Recall the last five conversation for follow up context
+
 
 Writing style:
 - Prefer 2–3 short paragraphs (human, meaningful).
