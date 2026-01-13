@@ -1,6 +1,6 @@
-# Nigerian Tax Reform Bills 2024 Q&A Assistant (Frontend)
+# Taxify AI Assistant (Frontend)
 
-A modern, responsive React application that provides an intuitive interface for Nigerians to understand the 2024 Tax Reform Bills with clear, source-backed answers.
+A modern, responsive React application that provides an intuitive interface for Nigerians to understand the Tax Reform Bills with clear, source-backed answers.
 
 ## Project Overview
 
@@ -17,7 +17,7 @@ This frontend application provides a user-friendly Q&A interface where users can
 
 ## Tech Stack
 
-· Framework: React 19
+· Framework: React 
 · Build Tool: Vite
 · Styling: Tailwind CSS
 · HTTP Client: Fetch API
@@ -44,10 +44,12 @@ Install dependencies
 ```bash
 npm install
 npm install tailwindcss @tailwindcss/vite 
+npm install react-icons
+npm install react-router-dom
 
 env
 VITE_API_URL=http://localhost:8000
-VITE_APP_NAME="Taxify I assistant"
+VITE_APP_NAME="Taxify AI assistant"
 ```
 
 Run the development server
@@ -63,13 +65,6 @@ The application will start at http://localhost:3000
 
 
 The frontend communicates with the backend API at VITE_API_URL (default: http://localhost:8000).
-
-API Endpoints Used
-
-Method Endpoint Description
-POST /api/chat Send message and get AI response
-GET /api/history/{session_id} Get conversation history
-POST /api/new-session Create new chat session
 
 
 ### Key Features Implementation

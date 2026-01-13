@@ -40,7 +40,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Understand Nigerian Tax Reform 
+              Understand Nigerian Tax Bills
               <span className="text-primary block">Made Simple</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
@@ -61,9 +61,6 @@ const Home = () => {
                 Sign In
               </button>
             </div>
-            <p className="text-gray-500 text-sm mt-4">
-              No credit card required • Start chatting immediately
-            </p>
           </div>
         </div>
       </section>
@@ -207,10 +204,10 @@ const Home = () => {
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                   <FiBook size={18} />
                 </div>
-                <span className="text-xl font-bold">Tax Reform Assistant</span>
+                <span className="text-xl font-bold">Taxify AI Assistant</span>
               </div>
               <p className="text-gray-400">
-                Making Nigerian tax reform understandable for everyone.
+                Making Nigerian tax bills understandable for everyone.
               </p>
             </div>
             

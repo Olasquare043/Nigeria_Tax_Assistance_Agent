@@ -56,11 +56,14 @@ taxify-ai-assistant/
 ### tablet
 ![tablet](https://github.com/user-attachments/assets/26cb36e1-4326-4a95-a681-161416295fb6)
 
-### mobile
+### Mobile Home
 ![mobile](https://github.com/user-attachments/assets/8088dbd4-253c-4134-9444-f3f79c7fa885)
 
+### Mobile Dashboard
+![mobilechat](https://github.com/user-attachments/assets/2d1986ed-1c1c-44a5-ac88-317b71197d79)
 
-## Agentic routing flow
+
+## 🔁 Agentic routing flow
 ![Langgraph flow](https://github.com/user-attachments/assets/e742aba5-a2aa-4c53-bf06-d8cf034c5447)
 
 ## ⚙️ Quick Start (Developer Mode)

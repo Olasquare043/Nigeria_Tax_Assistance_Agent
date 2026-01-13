@@ -106,7 +106,7 @@ const WelcomeMessage = ({ onQuickTopicSelect }) => {
       {/* Official Disclaimer */}
       <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-md">
         <div className="flex items-start gap-3">
-          <div className="text-blue-500 mt-0.5">:information_source:</div>
+          <div className="text-blue-500 mt-0.5">Information source:</div>
           <div className="flex-1">
             <p className="text-sm text-blue-800">
               <span className="font-semibold">Disclaimer:</span> This assistant provides informational answers based on available tax reform documents. The information here is for general guidance only and should not be considered as legal or tax advice. For specific tax matters, please consult a qualified tax professional or the Federal Inland Revenue Service (FIRS).
