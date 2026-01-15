@@ -86,8 +86,8 @@ Place your PDFs in the `docs/` folder. Recommended filenames (not required):
 ### 2️⃣ Setup AI Engine & Backend
 ```bash
 # Clone and setup environment
-git clone <your-repo-link>
-cd taxify-ai-assistant
+git clone https://github.com/Olasquare043/Nigeria_Tax_Assistance_Agent
+cd Nigeria_Tax_Assistance_Agent
 python -m venv .venv
 
 
