@@ -48,7 +48,7 @@ taxify-ai-assistant/
 
 ---
 
-## 📱 Chatinterface for mobile,tablet and desktop view 
+## 📱 Chat interface for mobile, tablet and desktop view 
 
 ### desktop
 ![destktop](https://github.com/user-attachments/assets/99ba9b21-4f0b-4ec0-94ad-c4b18cdff98b)
