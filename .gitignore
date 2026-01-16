@@ -9,3 +9,5 @@ chroma_db
 package.json
 docs/
 *__pycache__
+*\__pycache__
+.vscode
