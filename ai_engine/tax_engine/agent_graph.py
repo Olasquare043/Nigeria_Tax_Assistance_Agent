@@ -230,8 +230,9 @@ def smalltalk_node(state: TaxState) -> TaxState:
 
     ans = SMALLTALK_LLM.invoke(
         [
-            SystemMessage(content="You are a helpful assistant."),
-            HumanMessage(content=SMALLTALK_PROMPT.format(user_message=user_text_with_context)),
+            # SystemMessage(content="You are a helpful assistant."),
+            SystemMessage(content=SMALLTALK_PROMPT),
+            HumanMessage(content=user_text_with_context),
         ]
     ).content.strip()
 
@@ -246,7 +247,7 @@ def clarify_node(state: TaxState) -> TaxState:
 
     ans = CLARIFY_LLM.invoke(
         [
-            SystemMessage(content="You are a helpful assistant."),
+            SystemMessage(content=CLARIFY_PROMPT),
             HumanMessage(content=CLARIFY_PROMPT.format(user_message=user_text_with_context)),
         ]
     ).content.strip()
