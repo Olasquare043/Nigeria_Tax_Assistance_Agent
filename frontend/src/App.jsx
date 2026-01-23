@@ -11,6 +11,10 @@ const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Profile = lazy(() => import('./pages/Profile'));
 
+// NEW: Lazy load legal pages
+const Terms = lazy(() => import('./pages/Terms'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+
 // Protected Route component
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -61,6 +65,10 @@ function AppContent() {
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Home />} />
+        
+        {/* NEW: Legal Routes */}
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
         
         <Route path="/login" element={
           <PublicRoute>

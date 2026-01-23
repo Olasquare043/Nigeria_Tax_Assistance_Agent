@@ -1,123 +1,175 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiArrowRight, FiBook, FiCheckCircle, FiMessageSquare, FiShield, FiUsers } from 'react-icons/fi';
+import { 
+  FiArrowRight, 
+  FiBook, 
+  FiCheckCircle, 
+  FiMessageSquare, 
+  FiShield, 
+  FiUsers, 
+  FiGlobe, 
+  FiAlertTriangle, 
+  FiFileText,
+  FiSearch
+} from 'react-icons/fi';
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-background">
+      {/* TOP UTILITY BAR - Original Green */}
+      <div className="bg-[#005c39] text-white py-2 text-[10px] md:text-xs">
+        <div className="container mx-auto px-6 flex justify-between items-center opacity-90 tracking-widest uppercase">
+          <div className="flex gap-6">
+            <span>Official Reform Portal</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <FiGlobe /> FEDERAL REPUBLIC OF NIGERIA
+          </div>
+        </div>
+      </div>
+
+      {/* NAVIGATION - Logo placed here */}
+      <nav className="bg-white py-4 border-b sticky top-0 z-50">
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <FiBook className="text-white" size={18} />
+              <div className="w-8 h-8 bg-[#005c39] rounded-lg flex items-center justify-center text-white">
+                <FiBook size={18} />
               </div>
-              <span className="text-xl font-bold text-gray-800">Taxify AI Assistant</span>
+              <span className="text-xl font-bold text-gray-800 tracking-tight">TaxAble AI</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <Link 
-                to="/login" 
-                className="text-gray-600 hover:text-primary font-medium transition-colors"
-              >
-                Login
-              </Link>
-              <Link 
-                to="/signup" 
-                className="bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors"
-              >
-                Get Started
-              </Link>
+            
+            {/* NRS Logo Integration - UPDATED */}
+            <div className="h-6 w-px bg-gray-200 hidden md:block"></div>
+            <div className="hidden md:flex items-center gap-2">
+              <img 
+                src="/nrs-logo.png" 
+                alt="NRS Logo" 
+                className="w-10 h-10 object-contain" 
+              />
+              <span className="text-[10px] leading-tight font-bold text-gray-500 uppercase tracking-tighter">
+                Nigeria <br/> Revenue Service
+              </span>
             </div>
+          </div>
+          
+          <div className="hidden md:flex items-center space-x-6 text-sm font-semibold uppercase tracking-wider">
+            <Link to="/login" className="text-gray-600 hover:text-[#005c39]">Login</Link>
+            <button 
+              onClick={() => navigate('/signup')}
+              className="bg-[#005c39] text-white px-5 py-2 rounded-md hover:bg-opacity-90 transition-all flex items-center gap-2 shadow-sm"
+            >
+              Get Started <FiArrowRight size={14} />
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Understand Nigerian Tax Bills
-              <span className="text-primary block">Made Simple</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-              Get accurate, easy to understand answers about the Tax Reform Bills based strictly on official government documents.
-              Trusted explanations of the Tax Reform Bills, sourced directly from official records and written in plain language.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => navigate('/signup')}
-                className="bg-primary text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-dark transition-colors flex items-center justify-center gap-2"
-              >
-                Start Asking Questions <FiArrowRight />
-              </button>
-              <button
-                onClick={() => navigate('/login')}
-                className="bg-white text-primary border-2 border-primary px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary hover:text-white transition-colors"
-              >
-                Sign In
-              </button>
+      {/* HERO SECTION */}
+      <section className="bg-[#005c39] text-white py-16 lg:py-24 relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <h1 className="text-5xl lg:text-7xl font-serif font-medium leading-tight mb-6">
+                Understand Nigerian <br />
+                <span className="text-accent text-yellow-400">Tax Bills</span> Made Simple.
+              </h1>
+              <p className="text-gray-100 text-lg max-w-lg mb-10 leading-relaxed opacity-90">
+                Get accurate, easy to understand answers about the Tax Reform Bills based strictly on official documents from the NRS and Federal Government.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={() => navigate('/signup')}
+                  className="bg-white text-[#005c39] px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-100 transition-all flex items-center gap-2 shadow-xl"
+                >
+                  Start Asking Questions <FiArrowRight />
+                </button>
+              </div>
+            </div>
+
+            {/* UPDATED CARD: Replacing highlights with common questions */}
+            <div className="lg:w-1/2 w-full max-w-xl">
+              <div className="bg-white text-gray-900 p-8 lg:p-12 rounded-2xl shadow-2xl border-t-4 border-[#005c39]">
+                <h2 className="text-2xl font-bold uppercase tracking-widest mb-8 text-[#005c39] border-b pb-4">
+                  Common Questions
+                </h2>
+                <div className="space-y-4">
+                  {[
+                    "Will my personal income tax increase?",
+                    "Do small businesses still pay Company Tax?",
+                    "How does the new VAT affect food items?",
+                    "What happens to my state's revenue?"
+                  ].map((question, index) => (
+                    <button 
+                      key={index}
+                      onClick={() => navigate('/signup')}
+                      className="w-full text-left p-4 rounded-xl border border-gray-100 hover:border-[#005c39] hover:bg-green-50 transition-all group flex justify-between items-center"
+                    >
+                      <span className="text-sm font-medium text-gray-700 group-hover:text-[#005c39]">{question}</span>
+                      <FiArrowRight className="text-gray-300 group-hover:text-[#005c39]" size={16} />
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+      {/* PROBLEM SECTION */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-serif font-bold text-center text-gray-900 mb-16">
             The Problem We're Solving
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="bg-red-50 p-8 rounded-2xl border border-red-100">
-              <div className="text-red-500 mb-4">
-                <FiUsers size={32} />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Confusion Everywhere</h3>
-              <p className="text-gray-600">
-                Over <strong>200 million Nigerians</strong> are affected by the tax reforms, but few understand 
-                what the changes mean for them. Misinformation spreads faster than facts.
+            <div className="bg-red-50 p-10 rounded-2xl border border-red-100">
+              <FiUsers className="text-red-500 mb-6" size={40} />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Information Vacuum</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                Over 200 million Nigerians are affected, but misinformation spreads faster than official facts.
               </p>
-              <ul className="mt-4 space-y-2">
-                <li className="flex items-start">
-                  <FiCheckCircle className="text-red-500 mt-1 mr-2 flex-shrink-0" />
-                  <span>500+ pages of complex legal language</span>
-                </li>
-                <li className="flex items-start">
-                  <FiCheckCircle className="text-red-500 mt-1 mr-2 flex-shrink-0" />
-                  <span>Conflicting information on social media</span>
-                </li>
-                <li className="flex items-start">
-                  <FiCheckCircle className="text-red-500 mt-1 mr-2 flex-shrink-0" />
-                  <span>No simple way to get accurate answers</span>
-                </li>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li className="flex items-center gap-2"><FiCheckCircle className="text-red-500" /> 500+ pages of legal jargon</li>
+                <li className="flex items-center gap-2"><FiCheckCircle className="text-red-500" /> Conflicting social media info</li>
               </ul>
             </div>
-            
-            <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100">
-              <div className="text-blue-500 mb-4">
-                <FiMessageSquare size={32} />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Real Questions, Real People</h3>
-              <p className="text-gray-600">
-                Everyday Nigerians are searching for answers to life-changing questions about taxes, 
-                but struggle to find reliable information.
+
+            <div className="bg-orange-50 p-10 rounded-2xl border border-orange-100">
+              <FiAlertTriangle className="text-orange-500 mb-6" size={40} />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Multiple Taxation</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                Small businesses face 60+ taxes. The new NRS system unifies these, but many don't know how it works.
               </p>
-              <div className="mt-6 space-y-4">
-                <div className="bg-white p-4 rounded-lg border">
-                  <p className="text-gray-800 italic">"Will I pay more tax under the new law?"</p>
-                  <p className="text-sm text-gray-500 mt-1">— Aunty Ngozi, small business owner</p>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li className="flex items-center gap-2"><FiCheckCircle className="text-orange-500" /> Overlapping tax jurisdictions</li>
+                <li className="flex items-center gap-2"><FiCheckCircle className="text-orange-500" /> Confusing state vs federal rules</li>
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 p-10 rounded-2xl border border-purple-100">
+              <FiFileText className="text-purple-500 mb-6" size={40} />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Compliance Gap</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                Many qualify for 0% tax rates but miss out because of the high cost of legal consultants.
+              </p>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li className="flex items-center gap-2"><FiCheckCircle className="text-purple-500" /> Unknown tax exemptions</li>
+                <li className="flex items-center gap-2"><FiCheckCircle className="text-purple-500" /> Complex filing procedures</li>
+              </ul>
+            </div>
+
+            <div className="bg-blue-50 p-10 rounded-2xl border border-blue-100">
+              <FiMessageSquare className="text-blue-500 mb-6" size={40} />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Real Questions</h3>
+              <div className="space-y-4">
+                <div className="bg-white p-4 rounded-lg shadow-sm border border-blue-100 italic text-sm text-gray-700">
+                  "How does the VAT derivation affect my state's revenue?" 
                 </div>
-                <div className="bg-white p-4 rounded-lg border">
-                  <p className="text-gray-800 italic">"How does VAT derivation affect my state's revenue?"</p>
-                  <p className="text-sm text-gray-500 mt-1">— Governor Yahaya, state governor</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg border">
-                  <p className="text-gray-800 italic">"What documents do I need for the new tax filing?"</p>
-                  <p className="text-sm text-gray-500 mt-1">— Chidi, software developer</p>
+                <div className="bg-white p-4 rounded-lg shadow-sm border border-blue-100 italic text-sm text-gray-400">
+                  — Public Official
                 </div>
               </div>
             </div>
@@ -125,123 +177,55 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            How Our AI Assistant Helps
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FiBook className="text-primary" size={24} />
+      {/* FEATURES SECTION */}
+      <section className="py-24 bg-gray-50 border-t">
+        <div className="container mx-auto px-6">
+          <h3 className="text-4xl font-serif font-bold text-gray-900 text-center mb-16">Built for Accuracy</h3>
+          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white text-[#005c39] rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm">
+                <FiShield size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Official Sources Only</h3>
-              <p className="text-gray-600">
-                Answers are sourced directly from the 4 Tax Reform Bills, official government documents, 
-                and verified memoranda.
-              </p>
+              <h4 className="text-xl font-bold mb-3 text-gray-800">Verified Citations</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">Every answer includes the specific Bill, Section, and Page number.</p>
             </div>
-            
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FiShield className="text-primary" size={24} />
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white text-[#005c39] rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm">
+                <FiSearch size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Citation & Verification</h3>
-              <p className="text-gray-600">
-                Every answer includes citations showing exactly which document and page the information 
-                comes from.
-              </p>
+              <h4 className="text-xl font-bold mb-3 text-gray-800">4-Bill Context</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">Analyzed across all four New Reform Bills simultaneously for 100% accuracy.</p>
             </div>
-            
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FiMessageSquare className="text-primary" size={24} />
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white text-[#005c39] rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm">
+                <FiBook size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Simple Conversation</h3>
-              <p className="text-gray-600">
-                Ask questions in plain English. Our AI understands context and provides follow-up 
-                explanations when needed.
-              </p>
+              <h4 className="text-xl font-bold mb-3 text-gray-800">Citizen Friendly</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">Translating complex legal language into simple English and actionable advice.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Understand Your Taxes?</h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-            Join thousands of Nigerians who are getting clear answers about the tax reforms.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/signup')}
-              className="bg-white text-primary px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Start Free Today
-            </button>
-            <button
-              onClick={() => navigate('/login')}
-              className="bg-transparent border-2 border-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-colors"
-            >
-              Sign In to Continue
-            </button>
-          </div>
-          <p className="mt-6 text-white/80">
-            No installation needed • Works on any device • Private and secure
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <FiBook size={18} />
-                </div>
-                <span className="text-xl font-bold">Taxify AI Assistant</span>
-              </div>
-              <p className="text-gray-400">
-                Making Nigerian tax bills understandable for everyone.
-              </p>
+      {/* FOOTER */}
+      <footer className="bg-[#005c39] text-white py-16 border-t border-white/10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col items-center text-center">
+            <div className="flex items-center space-x-2 mb-6">
+              <FiBook className="text-white" size={24} />
+              <span className="text-2xl font-bold">TaxAble AI</span>
             </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li><Link to="/login" className="hover:text-white transition-colors">Login</Link></li>
-                <li><Link to="/signup" className="hover:text-white transition-colors">Sign Up</Link></li>
-              </ul>
+            <p className="text-gray-100 text-sm max-w-md mb-10 opacity-80 leading-relaxed">
+              Empowering Nigerians with clarity on the New Tax Reform Bills. 
+              Bridging the gap between legislation and understanding.
+            </p>
+            <div className="flex gap-8 mb-10 text-sm font-semibold uppercase tracking-widest opacity-70">
+              <Link to="/login" className="hover:text-yellow-400">Portal Login</Link>
+              <Link to="/signup" className="hover:text-yellow-400">Join Now</Link>
             </div>
-            
-             
-            <div>
-              <h4 className="font-bold mb-4">Documents</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Tax Reform Bills</li>
-                <li>Presidential statements</li>
-                <li>FIRS clalicication</li>
-                <li>Official Memoranda</li>
-              </ul>
+            <div className="w-full border-t border-white/10 pt-8 text-[10px] md:text-xs text-gray-300 uppercase tracking-widest">
+              © {new Date().getFullYear()} TaxAble AI • Supported by NRS Official Data
             </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">Disclaimer</h4>
-              <p className="text-gray-400 text-sm">
-                This tool provides information based on official documents but does not constitute 
-                legal or financial advice. Always consult a qualified professional for personal tax matters.
-              </p>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} Taxify AI Assistant </p>
           </div>
         </div>
       </footer>
