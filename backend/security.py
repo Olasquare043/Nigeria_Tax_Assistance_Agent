@@ -5,9 +5,14 @@ import hashlib
 import os
 from datetime import datetime, timedelta
 from typing import Optional, Tuple
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parent
+
+load_dotenv(PROJECT_ROOT / ".env")
+load_dotenv(CURRENT_DIR / ".env", override=True)
 
 # Configuration
 SECRET_KEY = os.getenv("JWT_SECRET_KEY", "tax-reform-secret-key-change-in-production")

@@ -72,7 +72,8 @@ backend/
    ```
 3. Run the server:
    ```bash
-   python main.py
+   cd ..
+   uvicorn backend.main:app --reload --port 8000
    ```
 
 🔐 Authentication Flow

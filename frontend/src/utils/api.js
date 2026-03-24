@@ -1,16 +1,59 @@
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_ROOT_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
+const API_BASE_URL = `${API_ROOT_URL}/api`;
 
 // Get auth token from localStorage
 const getAuthToken = () => {
   return localStorage.getItem('auth_token');
 };
 
+const parseJSONSafely = (value) => {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return null;
+  }
+};
+
+const buildErrorMessage = (status, payload, rawText) => {
+  if (payload && typeof payload === 'object') {
+    const parts = [];
+
+    if (typeof payload.message === 'string' && payload.message.trim()) {
+      parts.push(payload.message.trim());
+    }
+
+    if (
+      typeof payload.detail === 'string' &&
+      payload.detail.trim() &&
+      payload.detail.trim() !== payload.message?.trim()
+    ) {
+      parts.push(payload.detail.trim());
+    }
+
+    if (parts.length > 0) {
+      return parts.join('. ');
+    }
+  }
+
+  if (typeof rawText === 'string' && rawText.trim()) {
+    return rawText.trim();
+  }
+
+  return `Request failed with status ${status}.`;
+};
+
 /**
  * Fetch wrapper with error handling and auth support
  */
-const fetchAPI = async (endpoint, options = {}, requireAuth = false) => {
-  const url = `${API_BASE_URL}${endpoint}`;
-  
+const fetchAPI = async (
+  endpoint,
+  options = {},
+  requireAuth = false,
+  useApiPrefix = true
+) => {
+  const baseUrl = useApiPrefix ? API_BASE_URL : API_ROOT_URL;
+  const url = `${baseUrl}${endpoint}`;
+
   const headers = {
     'Content-Type': 'application/json',
     ...options.headers,
@@ -21,16 +64,15 @@ const fetchAPI = async (endpoint, options = {}, requireAuth = false) => {
   if (requireAuth && authToken) {
     headers['Authorization'] = `Bearer ${authToken}`;
   } else if (authToken) {
-    // Optional: include token even if not required (for convenience)
     headers['Authorization'] = `Bearer ${authToken}`;
   }
 
-  console.log('🌐 API Call:', { 
-    url, 
+  console.log('API Call:', {
+    url,
     method: options.method || 'GET',
-    auth: !!authToken 
+    auth: !!authToken,
   });
-  
+
   try {
     const response = await fetch(url, {
       ...options,
@@ -39,33 +81,41 @@ const fetchAPI = async (endpoint, options = {}, requireAuth = false) => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('🌐 API Error:', { 
-        status: response.status, 
-        error: errorText,
-        endpoint 
+      const errorPayload = parseJSONSafely(errorText);
+
+      console.error('API Error:', {
+        status: response.status,
+        error: errorPayload || errorText,
+        endpoint,
       });
-      
+
       // Handle 401 Unauthorized (token expired/invalid)
       if (response.status === 401 && authToken) {
-        console.warn('⚠️ Token expired or invalid, logging out');
+        console.warn('Token expired or invalid, logging out');
         localStorage.removeItem('auth_token');
-        // Dispatch event for components to react
         window.dispatchEvent(new CustomEvent('auth-expired'));
       }
-      
-      throw new Error(`HTTP ${response.status}: ${errorText.slice(0, 100)}`);
+
+      const apiError = new Error(
+        buildErrorMessage(response.status, errorPayload, errorText)
+      );
+      apiError.status = response.status;
+      apiError.payload = errorPayload;
+      apiError.code = errorPayload?.code || errorPayload?.error || null;
+      apiError.detail = errorPayload?.detail || null;
+
+      throw apiError;
     }
 
     const data = await response.json();
-    console.log('🌐 API Success:', { 
-      endpoint, 
+    console.log('API Success:', {
+      endpoint,
       data: data ? 'received' : 'empty',
-      auth: !!authToken 
+      auth: !!authToken,
     });
     return data;
-    
   } catch (error) {
-    console.error('🌐 Fetch error:', error);
+    console.error('Fetch error:', error);
     throw error;
   }
 };
@@ -74,7 +124,6 @@ const fetchAPI = async (endpoint, options = {}, requireAuth = false) => {
  * AUTH API functions
  */
 export const authAPI = {
-  // Login user
   login: async (email, password) => {
     return fetchAPI('/auth/login', {
       method: 'POST',
@@ -82,7 +131,6 @@ export const authAPI = {
     });
   },
 
-  // Register new user
   register: async (userData) => {
     return fetchAPI('/auth/register', {
       method: 'POST',
@@ -90,12 +138,10 @@ export const authAPI = {
     });
   },
 
-  // Get current user profile (requires auth)
   getCurrentUser: async () => {
     return fetchAPI('/auth/me', {}, true);
   },
 
-  // Update user profile (requires auth)
   updateProfile: async (profileData) => {
     return fetchAPI('/auth/profile', {
       method: 'PUT',
@@ -103,7 +149,6 @@ export const authAPI = {
     }, true);
   },
 
-  // Change password (requires auth)
   changePassword: async (currentPassword, newPassword) => {
     return fetchAPI('/auth/change-password', {
       method: 'PUT',
@@ -114,7 +159,6 @@ export const authAPI = {
     }, true);
   },
 
-  // Request password reset
   forgotPassword: async (email) => {
     return fetchAPI('/auth/forgot-password', {
       method: 'POST',
@@ -122,7 +166,6 @@ export const authAPI = {
     });
   },
 
-  // Reset password with token
   resetPassword: async (token, newPassword) => {
     return fetchAPI('/auth/reset-password', {
       method: 'POST',
@@ -133,9 +176,7 @@ export const authAPI = {
     });
   },
 
-  // Logout (client-side cleanup)
   logout: async () => {
-    // Optional: Call backend logout endpoint if you want server-side cleanup
     try {
       await fetchAPI('/auth/logout', {
         method: 'POST',
@@ -143,8 +184,7 @@ export const authAPI = {
     } catch (error) {
       console.log('Logout API call failed (expected for JWT):', error.message);
     }
-    
-    // Always clear client-side token
+
     localStorage.removeItem('auth_token');
     return { success: true };
   },
@@ -155,42 +195,36 @@ export const authAPI = {
  * These work both anonymously and with authentication
  */
 export const chatAPI = {
-  // Send a message - works anonymously or authenticated
   sendMessage: async (sessionId, message) => {
     return fetchAPI('/chat', {
       method: 'POST',
-      body: JSON.stringify({ 
-        session_id: sessionId, 
-        message: message 
+      body: JSON.stringify({
+        session_id: sessionId,
+        message,
       }),
-    }, false); // Don't require auth for chat
+    }, false);
   },
 
-  // Get chat history for a session
   getHistory: async (sessionId) => {
     return fetchAPI(`/history/${sessionId}`);
   },
 
-  // Create new session - works anonymously or authenticated
   createSession: async () => {
     return fetchAPI('/new-session', {
       method: 'POST',
     }, false);
   },
 
-  // Get user's conversations (requires authentication)
   getUserConversations: async () => {
     return fetchAPI('/my-conversations', {}, true);
   },
 
-  // Delete a conversation (requires authentication)
   deleteConversation: async (sessionId) => {
     return fetchAPI(`/conversations/${sessionId}`, {
       method: 'DELETE',
     }, true);
   },
 
-  // Ingest documents (admin function - requires auth)
   ingestDocuments: async (forceRebuild = false) => {
     return fetchAPI('/ingest', {
       method: 'POST',
@@ -198,16 +232,13 @@ export const chatAPI = {
     }, true);
   },
 
-  // Get ingest status
   getIngestStatus: async () => {
     return fetchAPI('/ingest/status');
   },
 
-  // Health check
   getHealth: async () => {
-    return fetchAPI('/health');
+    return fetchAPI('/health', {}, false, false);
   },
 };
 
-// Export utility functions
-export { fetchAPI, getAuthToken, API_BASE_URL };
+export { fetchAPI, getAuthToken, API_BASE_URL, API_ROOT_URL };

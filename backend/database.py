@@ -3,8 +3,13 @@ from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 import os
 import sys
+from pathlib import Path
 
-load_dotenv()
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parent
+
+load_dotenv(PROJECT_ROOT / ".env")
+load_dotenv(CURRENT_DIR / ".env", override=True)
 
 class Database:
     def __init__(self):
@@ -36,7 +41,7 @@ class Database:
         """Create ALL necessary tables"""
         try:
             with self.engine.begin() as conn:
-                print("🔄 Creating database tables...")
+                print("Creating database tables...")
                 
                 # users table 
                 conn.execute(text("""
@@ -57,7 +62,7 @@ class Database:
                         INDEX idx_is_active (is_active)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
                 """))
-                print("    ✅ Users table created")
+                print("    Users table created")
                 
                 # password reset tokens table 
                 conn.execute(text("""
@@ -74,7 +79,7 @@ class Database:
                         INDEX idx_expires_at (expires_at)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
                 """))
-                print("    ✅ Password reset tokens table created")
+                print("    Password reset tokens table created")
                 
                 # conversations table
                 conn.execute(text("""
@@ -91,7 +96,7 @@ class Database:
                         INDEX idx_updated_at (updated_at)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
                 """))
-                print("    ✅ Conversations table created")
+                print("    Conversations table created")
                 
                 # messages table
                 conn.execute(text("""
@@ -108,7 +113,7 @@ class Database:
                         INDEX idx_created_at (created_at)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
                 """))
-                print("    ✅ Messages table created")
+                print("    Messages table created")
                 
                 # Rate limit logs table
                 conn.execute(text("""
@@ -124,7 +129,7 @@ class Database:
                         INDEX idx_window (window_start, window_end)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
                 """))
-                print("    ✅ Rate limit logs table created")
+                print("    Rate limit logs table created")
                 
                 # System logs table 
                 conn.execute(text("""

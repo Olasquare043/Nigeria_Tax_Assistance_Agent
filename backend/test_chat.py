@@ -13,7 +13,7 @@ print(" Testing Chat Integration with AI Agent...")
 
 # Import from chat.py
 try:
-    from chat import AIClient
+    from backend.chat import AIClient
     print(" AIClient imported successfully")
     
     # Test 1: Simple test without conversation history

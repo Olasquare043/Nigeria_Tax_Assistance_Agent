@@ -45,8 +45,8 @@ export const useChat = () => {
               const formattedMessages = history.messages.map(msg => ({
                 id: msg.id || Date.now(),
                 role: msg.role,
-                text: msg.text,
-                timestamp: msg.timestamp,
+                text: msg.content ?? msg.text ?? '',
+                timestamp: msg.created_at ?? msg.timestamp ?? new Date().toISOString(),
                 citations: msg.citations || [],
                 route: msg.route || 'qa',
                 refusal: msg.refusal || false
@@ -146,7 +146,7 @@ export const useChat = () => {
         citations: response.citations || [],
         route: response.route || 'qa',
         refusal: response.refusal || false,
-        timestamp: response.timestamp || new Date().toISOString()
+        timestamp: response.created_at || response.timestamp || new Date().toISOString()
       };
 
       setMessages(prev => [...prev, assistantMessage]);
@@ -271,8 +271,8 @@ export const useChat = () => {
         const formattedMessages = history.messages.map(msg => ({
           id: msg.id || Date.now(),
           role: msg.role,
-          text: msg.text,
-          timestamp: msg.timestamp,
+          text: msg.content ?? msg.text ?? '',
+          timestamp: msg.created_at ?? msg.timestamp ?? new Date().toISOString(),
           citations: msg.citations || [],
           route: msg.route || 'qa',
           refusal: msg.refusal || false

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, Request
+from fastapi import APIRouter, HTTPException, Depends, Request, status
 from pydantic import BaseModel, ConfigDict, Field, validator
 from typing import List, Optional, Dict, Any
 from datetime import datetime
@@ -11,13 +11,13 @@ from sqlalchemy.orm import Session
 import traceback
 
 # Database
-from database import get_db
+from .database import get_db
 from sqlalchemy import text
 
 # Import auth and rate limiting
-from auth import get_current_user_dependency as get_current_user
-from rate_limiter import rate_limit, get_client_ip
-from errors import (
+from .auth import get_current_user_dependency as get_current_user
+from .rate_limiter import rate_limit, get_client_ip
+from .errors import (
     AppException, ValidationException, NotFoundError,
     AuthenticationError, create_error_response
 )
@@ -34,7 +34,7 @@ try:
     from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
     AI_ENGINE_AVAILABLE = True
 except ImportError as e:
-    print(f"⚠️ AI Engine import failed: {e}")
+    print(f"WARNING: AI Engine import failed: {e}")
     AI_ENGINE_AVAILABLE = False
 
 router = APIRouter()
@@ -114,7 +114,7 @@ def get_or_create_conversation(
 ) -> int:
     """Get existing conversation or create new one"""
     try:
-        print(f"🔍 Conversation lookup - Session: {session_id}, User: {user_id}")
+        print(f"Conversation lookup - Session: {session_id}, User: {user_id}")
         
         # Check if conversation exists
         if user_id:
@@ -313,7 +313,60 @@ def get_conversation_history(
         return messages
         
     except Exception as e:
-        print(f"⚠️ Error fetching history: {e}")
+        print(f"WARNING: Error fetching history: {e}")
+        traceback.print_exc()
+        return []
+
+def get_recent_conversation_history(
+    db: Session,
+    session_id: str,
+    last_n_messages: int = 5
+) -> List[Dict]:
+    """Get the most recent messages in chronological order."""
+    try:
+        result = db.execute(
+            text("""
+                SELECT m.id, m.role, m.content, m.created_at, m.citations, m.metadata
+                FROM messages m
+                JOIN conversations c ON m.conversation_id = c.id
+                WHERE c.session_id = :session_id
+                ORDER BY m.created_at DESC
+                LIMIT :limit
+            """),
+            {"session_id": session_id, "limit": last_n_messages}
+        ).fetchall()
+
+        messages = []
+        for row in reversed(result):
+            content = str(row[2]) if row[2] is not None else ""
+
+            citations = None
+            if row[4]:
+                try:
+                    citations_raw = json.loads(row[4])
+                    citations = [Citation(**cite) for cite in citations_raw]
+                except Exception:
+                    pass
+
+            metadata = None
+            if row[5]:
+                try:
+                    metadata = json.loads(row[5])
+                except Exception:
+                    pass
+
+            messages.append({
+                "id": row[0],
+                "role": row[1],
+                "content": content,
+                "created_at": row[3],
+                "citations": citations,
+                "metadata": metadata
+            })
+        return messages
+
+    except Exception as e:
+        print(f"Error fetching recent history: {e}")
         traceback.print_exc()
         return []
 
@@ -336,7 +389,7 @@ class AIClient:
             
             # Add conversation history if available
             if conversation_history:
-                print(f"📜 Adding {len(conversation_history)} recent messages from history")
+                print(f"Adding {len(conversation_history)} recent messages from history")
                 for msg in conversation_history:
                     if msg["role"] == "user":
                         # Create HumanMessage object
@@ -352,7 +405,7 @@ class AIClient:
             # Add current user message as HumanMessage
             messages.append(HumanMessage(content=user_message))
             
-            print(f"📤 Total messages being sent to AI: {len(messages)}")
+            print(f"Total messages being sent to AI: {len(messages)}")
             
             # Debug
             for i, msg in enumerate(messages):
@@ -379,7 +432,7 @@ class AIClient:
             
             # Get the last AI message
             last_message = ai_messages[-1]
-            print(f"📥 Last message type: {type(last_message)}")
+            print(f"Last message type: {type(last_message)}")
             
             # Handle both JSON and plain text responses
             if isinstance(last_message, AIMessage):
@@ -441,7 +494,7 @@ class AIClient:
     @staticmethod
     def _fallback_response(user_message: str) -> Dict:
         """Fallback when AI engine fails"""
-        print(f"🔄 Using fallback response for: {user_message[:50]}...")
+        print(f"Using fallback response for: {user_message[:50]}...")
         user_lower = user_message.lower()
         
         # Simple keyword-based responses
@@ -480,8 +533,8 @@ async def chat_endpoint(
         
         user_id = current_user.get("id") if current_user else None
         
-        print(f"💬 Chat request - Session: {session_id}, User: {user_id}")
-        print(f"💬 User message: {chat_request.message}")
+        print(f"Chat request - Session: {session_id}, User: {user_id}")
+        print(f"User message: {chat_request.message}")
         
         # Get or create conversation
         conversation_id = get_or_create_conversation(db, session_id, user_id)

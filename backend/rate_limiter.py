@@ -7,8 +7,8 @@ from fastapi import Request, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 
-from database import get_db
-from errors import RateLimitError
+from .database import get_db
+from .errors import RateLimitError
 
 class RateLimiter:
     def __init__(self):

@@ -3,27 +3,32 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 from datetime import datetime
+from sqlalchemy import text
 import uvicorn
 import os
 import sys
 import uuid
 from pathlib import Path
 
+CURRENT_DIR = Path(__file__).resolve().parent  # backend/
+PROJECT_ROOT = CURRENT_DIR.parent  # project_root/
+
+load_dotenv(PROJECT_ROOT / ".env")
+load_dotenv(CURRENT_DIR / ".env", override=True)
+
 # Import routers
-from chat import router as chat_router
-from ingest import router as ingest_router
-from auth import router as auth_router
+from .chat import router as chat_router
+from .ingest import router as ingest_router
+from .auth import router as auth_router
 
 # Import error handlers
-from errors import (
+from .errors import (
     AppException, AuthenticationError, AuthorizationError,
     ValidationException, NotFoundError, RateLimitError, ServiceError,
     ErrorResponse, create_error_response
 )
 
 # Check AI Engine Availability 
-CURRENT_DIR = Path(__file__).resolve().parent  # backend/
-PROJECT_ROOT = CURRENT_DIR.parent  # project_root/
 AI_ENGINE_PATH = PROJECT_ROOT / "ai_engine"
 
 print(f" Starting Taxify AI assistant")
@@ -37,8 +42,6 @@ if AI_ENGINE_PATH.exists():
 else:
     print(f" WARNING: AI Engine folder not found at {AI_ENGINE_PATH}")
     print(f" The /chat and /ingest endpoints will not work!")
-
-load_dotenv()
 
 app = FastAPI(
     title="Taxify AI Assistant",
@@ -200,9 +203,9 @@ async def detailed_health_check():
     
     try:
         # Check database
-        from database import db_manager
+        from .database import db_manager
         with db_manager.engine.connect() as conn:
-            conn.execute("SELECT 1")
+            conn.execute(text("SELECT 1"))
         health_status["components"]["database"] = "healthy"
     except Exception as e:
         health_status["components"]["database"] = f"unhealthy: {str(e)}"
@@ -210,7 +213,7 @@ async def detailed_health_check():
     
     # Check AI engine
     try:
-        from chat import AI_ENGINE_AVAILABLE
+        from .chat import AI_ENGINE_AVAILABLE
         health_status["components"]["ai_engine"] = "available" if AI_ENGINE_AVAILABLE else "unavailable"
         if not AI_ENGINE_AVAILABLE:
             health_status["status"] = "degraded"

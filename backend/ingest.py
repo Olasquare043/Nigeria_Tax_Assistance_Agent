@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 # Database
-from database import get_db
+from .database import get_db
 
 router = APIRouter()
 
@@ -65,10 +65,10 @@ async def ingest_documents(
         )
     
     if request is None:
-        request = IngestionRequest()
+        request = IngestRequest()
     
     try:
-        print("📂 Starting document ingestion...")
+        print("Starting document ingestion...")
         start_time = datetime.now()
         
         # Ingest PDFs - functions already imported

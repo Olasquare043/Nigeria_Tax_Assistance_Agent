@@ -9,17 +9,17 @@ import uuid
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 
-from database import get_db
-from security import (
+from .database import get_db
+from .security import (
     hash_password, verify_password, create_access_token, decode_access_token,
     generate_reset_token, verify_reset_token, get_password_reset_expiry,
     validate_password_strength, validate_email
 )
-from errors import (
+from .errors import (
     AppException, AuthenticationError, ValidationException,
     NotFoundError, RateLimitError, create_error_response
 )
-from rate_limiter import rate_limit, get_client_ip
+from .rate_limiter import rate_limit, get_client_ip
 
 router = APIRouter()
 security = HTTPBearer(auto_error=False)
@@ -139,7 +139,7 @@ def check_account_lockout(user: Dict[str, Any], db: Session) -> bool:
 
 # API Endpoints
 @router.post("/register", response_model=Token)
-@rate_limit("5/minute")  
+@rate_limit("register")  
 async def register(
     request: Request,
     user: UserCreate,
@@ -234,7 +234,7 @@ async def register(
     )
 
 @router.post("/login", response_model=Token)
-@rate_limit("10/minute")  # 10 login attempts per minute per IP
+@rate_limit("login")  # 10 login attempts per minute per IP
 async def login(
     request: Request,
     user: UserLogin,
@@ -482,7 +482,7 @@ async def change_password(
     return {"message": "Password changed successfully"}
 
 @router.post("/forgot-password")
-@rate_limit("3/hour")  # 3 password reset requests per hour per IP
+@rate_limit("password_reset")  # 3 password reset requests per hour per IP
 async def forgot_password(
     request: Request,
     reset_request: PasswordResetRequest,

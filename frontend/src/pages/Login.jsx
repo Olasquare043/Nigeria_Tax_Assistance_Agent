@@ -15,6 +15,11 @@ const Login = () => {
   
   const from = location.state?.from?.pathname || '/dashboard';
 
+  const handleContinueAsGuest = () => {
+    setError('');
+    navigate('/dashboard', { replace: true });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
@@ -140,7 +145,7 @@ const Login = () => {
 
               <button
                 type="button"
-                onClick={() => navigate('/dashboard')}
+                onClick={handleContinueAsGuest}
                 className="w-full bg-white border-2 border-gray-100 text-gray-600 py-3 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
               >
                 Continue as Guest

@@ -88,13 +88,10 @@ function AppContent() {
           </PublicRoute>
         } />
         
-        {/* Protected routes */}
-        <Route path="/dashboard" element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        } />
+        {/* Guest-friendly route */}
+        <Route path="/dashboard" element={<Dashboard />} />
         
+        {/* Protected routes */}
         <Route path="/profile" element={
           <ProtectedRoute>
             <Profile />
